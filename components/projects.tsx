@@ -36,30 +36,30 @@ const projects = [
     live: "https://neuro-arm.vercel.app/",
     featured: true,
   },
-  {
-    id: 3,
-    title: "Weather Dashboard",
-    description: "A beautiful weather application with location-based forecasts and interactive maps.",
-    longDescription:
-      "Created an intuitive weather dashboard featuring current conditions, 7-day forecasts, interactive maps, and weather alerts. Implemented geolocation services and multiple weather data sources.",
-    image: "/placeholder.svg?height=300&width=500",
-    technologies: ["Vue.js", "Express.js", "OpenWeather API", "Chart.js"],
-    github: "https://github.com/pshah-lab/animated-design-website",
-    live: "https://animated-design-website.vercel.app/",
-    featured: false,
-  },
-  {
-    id: 4,
-    title: "Social Media Analytics",
-    description: "Analytics dashboard for social media performance tracking and insights.",
-    longDescription:
-      "Built a comprehensive analytics platform that aggregates data from multiple social media platforms, providing detailed insights, performance metrics, and automated reporting features.",
-    image: "/placeholder.svg?height=300&width=500",
-    technologies: ["React", "D3.js", "Python", "FastAPI", "Redis"],
-    github: "https://github.com/pshah-lab/animated-design-website",
-    live: "https://animated-design-website.vercel.app/",
-    featured: false,
-  },
+  // {
+  //   id: 3,
+  //   title: "Weather Dashboard",
+  //   description: "A beautiful weather application with location-based forecasts and interactive maps.",
+  //   longDescription:
+  //     "Created an intuitive weather dashboard featuring current conditions, 7-day forecasts, interactive maps, and weather alerts. Implemented geolocation services and multiple weather data sources.",
+  //   image: "/placeholder.svg?height=300&width=500",
+  //   technologies: ["Vue.js", "Express.js", "OpenWeather API", "Chart.js"],
+  //   github: "https://github.com/pshah-lab/animated-design-website",
+  //   live: "https://animated-design-website.vercel.app/",
+  //   featured: false,
+  // },
+  // {
+  //   id: 4,
+  //   title: "Social Media Analytics",
+  //   description: "Analytics dashboard for social media performance tracking and insights.",
+  //   longDescription:
+  //     "Built a comprehensive analytics platform that aggregates data from multiple social media platforms, providing detailed insights, performance metrics, and automated reporting features.",
+  //   image: "/placeholder.svg?height=300&width=500",
+  //   technologies: ["React", "D3.js", "Python", "FastAPI", "Redis"],
+  //   github: "https://github.com/pshah-lab/animated-design-website",
+  //   live: "https://animated-design-website.vercel.app/",
+  //   featured: false,
+  // },
 ]
 
 export default function Projects() {
@@ -213,7 +213,7 @@ export default function Projects() {
 
         <div className="text-center mt-12">
           <Button variant="outline" size="lg" className="rounded-full px-8 bg-transparent">
-            View All Projects
+            More projects coming soon...
             <ChevronRight className="h-4 w-4 ml-2" />
           </Button>
         </div>

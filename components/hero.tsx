@@ -90,21 +90,12 @@ export default function Hero() {
     <section
       id="home"
       ref={heroRef}
-      className={`relative min-h-screen flex items-center justify-center overflow-hidden ${
+      className={`relative min-h-screen flex items-center justify-center overflow-hidden"  ${
         theme === "dark" ? "mt-[-175px]" : "mt-0"
       }`}
     >
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-[rgb(0,0,18)] dark:via-[rgb(0,0,18)] dark:to-[rgb(0,0,18)]" />
-
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-400/10 rounded-full blur-3xl animate-pulse" />
-        <div
-          className="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-400/10 rounded-full blur-3xl animate-pulse"
-          style={{ animationDelay: "2s" }}
-        />
-      </div>
 
       <div className="relative z-30 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Main content */}
@@ -122,7 +113,7 @@ export default function Hero() {
 
           <div ref={subtitleRef}>
             <p className="text-xl sm:text-2xl lg:text-3xl font-medium text-gray-600 dark:text-gray-300">
-              Full Stack Developer & UI/UX Enthusiast
+              Front End Developer & UI/UX Enthusiast
             </p>
           </div>
 
@@ -145,38 +136,60 @@ export default function Hero() {
             >
               View My Work
             </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              className="px-8 py-3 rounded-full text-lg font-medium border-2 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all duration-300 bg-transparent"
-            >
-              Download CV
-            </Button>
+            <a href="/prathamResume_v2.pdf" download>
+              <Button
+                variant="outline"
+                size="lg"
+                className="px-8 py-3 rounded-full text-lg font-medium border-2 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all duration-300 bg-transparent"
+              >
+                Download CV
+              </Button>
+            </a>
           </div>
 
           {/* Social links */}
           <div ref={socialRef} className="flex justify-center space-x-6">
-            <Button
-              variant="ghost"
-              size="icon"
-              className="rounded-full hover:bg-blue-100 dark:hover:bg-blue-900/20"
+            <a
+              href="https://github.com/pshah-lab"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              <Github className="h-6 w-6" />
-            </Button>
-            <Button
-              variant="ghost"
-              size="icon"
-              className="rounded-full hover:bg-blue-100 dark:hover:bg-blue-900/20"
+              <Button
+                variant="ghost"
+                size="icon"
+                className="rounded-full hover:bg-blue-100 dark:hover:bg-blue-900/20"
+              >
+                <Github className="h-6 w-6" />
+              </Button>
+            </a>
+
+            <a
+              href="https://linkedin.com/in/pratham-shah-729432258/"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              <Linkedin className="h-6 w-6" />
-            </Button>
-            <Button
-              variant="ghost"
-              size="icon"
-              className="rounded-full hover:bg-blue-100 dark:hover:bg-blue-900/20"
+              <Button
+                variant="ghost"
+                size="icon"
+                className="rounded-full hover:bg-blue-100 dark:hover:bg-blue-900/20"
+              >
+                <Linkedin className="h-6 w-6" />
+              </Button>
+            </a>
+
+            <a
+              href="mailto:pshah88669@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              <Mail className="h-6 w-6" />
-            </Button>
+              <Button
+                variant="ghost"
+                size="icon"
+                className="rounded-full hover:bg-blue-100 dark:hover:bg-blue-900/20"
+              >
+                <Mail className="h-6 w-6" />
+              </Button>
+            </a>
           </div>
         </div>
 

@@ -9,13 +9,14 @@ import About from "@/components/about"
 import Projects from "@/components/projects"
 import Skills from "@/components/skills"
 import Experience from "@/components/experience"
+import Achievements from "@/components/achievements"
 import Contact from "@/components/contact"
 import Footer from "@/components/footer"
 import ScrollToTop from "@/components/scroll-to-top"
 import ScrollIndicator from "@/components/scroll-indicator"
 import { ThemeProvider } from "@/components/theme-provider"
-import Stars from "@/components/stars"
 import Blackhole from "@/components/blackhole"
+import StarsCanvas from "@/components/StarBackground"
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger)
@@ -91,7 +92,7 @@ export default function Home() {
         className="min-h-screen bg-white dark:bg-[rgb(0,0,18)] text-gray-900 dark:text-white transition-colors duration-300"
       >
         <Blackhole />
-        <Stars />
+        <StarsCanvas/>
         <Navbar />
         <ScrollIndicator />
         <main>
@@ -100,6 +101,7 @@ export default function Home() {
           <Projects />
           <Skills />
           <Experience />
+          <Achievements />
           <Contact />
         </main>
         <Footer />
