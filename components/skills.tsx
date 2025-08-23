@@ -4,8 +4,8 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Card, CardContent } from "@/components/ui/card";
-import { SiJavascript, SiNextdotjs, SiTailwindcss, SiMongodb, SiVercel, SiWordpress, SiAmazon, SiGooglecloud, SiHtml5, SiCss3, SiReact, SiNodedotjs, SiExpress, SiGit, SiFigma } from "react-icons/si";
-import { FaServer as Server, FaDatabase as Database, FaCloud as Cloud, FaBolt as Zap, FaCode as Code } from "react-icons/fa";
+import { SiJavascript, SiNextdotjs, SiTailwindcss, SiMongodb, SiVercel, SiWordpress, SiAmazon, SiGooglecloud, SiHtml5, SiCss3, SiReact, SiExpress, SiGit, SiFigma } from "react-icons/si";
+import { FaServer as Server, FaDatabase as Database, FaBolt as Zap } from "react-icons/fa";
 
 gsap.registerPlugin(ScrollTrigger);
 
