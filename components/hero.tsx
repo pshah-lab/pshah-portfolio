@@ -90,12 +90,11 @@ export default function Hero() {
     <section
       id="home"
       ref={heroRef}
-      className={`relative min-h-screen flex items-center justify-center overflow-hidden"  ${
-        theme === "dark" ? "mt-[-175px]" : "mt-0"
+      className={`relative min-h-screen flex items-center justify-center overflow-hidden bg-transparent"  ${
+        theme === "dark" ? "mt-[-300px]" : "mt-0"
       }`}
     >
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-[rgb(0,0,18)] dark:via-[rgb(0,0,18)] dark:to-[rgb(0,0,18)]" />
+  
 
       <div className="relative z-30 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Main content */}

@@ -11,7 +11,7 @@ export default function Blackhole() {
   }
 
   return (
-    <div className="w-full flex justify-center mt-[-200px] relative z-10">
+    <div className="w-full flex justify-center mt-[-200px]  z-10 object-cover">
       <video
         autoPlay
         loop
