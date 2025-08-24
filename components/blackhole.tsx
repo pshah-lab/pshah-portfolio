@@ -1,12 +1,14 @@
 "use client";
 
 import { useTheme } from "@/components/theme-provider";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 export default function Blackhole() {
   const { theme } = useTheme();
+  const isMobile = useIsMobile();
 
-  // Don't render if not in dark mode
-  if (theme !== "dark") {
+  // Don't render if not in dark mode or on mobile
+  if (theme !== "dark" || isMobile) {
     return null;
   }
 

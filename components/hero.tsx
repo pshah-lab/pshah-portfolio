@@ -5,9 +5,11 @@ import { gsap } from "gsap";
 import { ChevronDown, Github, Linkedin, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "@/components/theme-provider";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 export default function Hero() {
   const { theme } = useTheme();
+  const isMobile = useIsMobile();
   const heroRef = useRef(null);
   const titleRef = useRef(null);
   const subtitleRef = useRef(null);
@@ -90,9 +92,7 @@ export default function Hero() {
     <section
       id="home"
       ref={heroRef}
-      className={`relative min-h-screen flex items-center justify-center overflow-hidden bg-transparent"  ${
-        theme === "dark" ? "mt-[-300px]" : "mt-0"
-      }`}
+      className={`relative min-h-screen flex items-center justify-center overflow-hidden bg-transparent"  ${theme === "dark" && !isMobile ? "mt-[-300px]" : "mt-15"}`}
     >
   
 
