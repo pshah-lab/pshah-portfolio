@@ -6,7 +6,9 @@ export async function POST(request: Request) {
     const { firstName, lastName, email, subject, message } = await request.json();
 
     const transporter = nodemailer.createTransport({
-      service: "gmail",
+      host: "smtp.gmail.com",
+      port: 465,
+      secure: true, // Use SMTPS
       auth: {
         user: process.env.NEXT_PUBLIC_EMAIL_USER,
         pass: process.env.NEXT_PUBLIC_EMAIL_PASS,
