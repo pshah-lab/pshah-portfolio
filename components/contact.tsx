@@ -143,8 +143,21 @@ export default function Contact() {
                   </Button>
                 </a>
 
-              </div>
-              <p className="text-gray-600 dark:text-gray-300 mt-4 text-sm">
+                <a
+                   href="https://x.com/pshah_lab"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                 >
+                   <Button
+                     variant="outline"
+                     size="icon"
+                     className="rounded-full hover:bg-blue-50 dark:hover:bg-blue-900/20 bg-transparent"
+                   >
+                     <Twitter className="h-5 w-5" />
+                   </Button>
+                 </a>
+                </div>
+                <p className="text-gray-600 dark:text-gray-300 mt-4 text-sm">
                 Let's connect and build something amazing together!
               </p>
             </CardContent>
