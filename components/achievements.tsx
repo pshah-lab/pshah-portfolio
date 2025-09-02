@@ -40,7 +40,7 @@ const achievementsData: AchievementItem[] = [
     period: "March 2023",
     description:
       "Successfully built a Canteen Management System for Campus Canteens, securing the runner-up position.",
-    technologies: ["Next.js", "Tailwind CSS", "MongoDB", "Node.js"],
+    technologies: ["Next.js", "Tailwind CSS", "MongoDB", "Node.js, PHP"],
   },
 ];
 
