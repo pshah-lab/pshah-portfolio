@@ -112,7 +112,7 @@ export default function Hero() {
 
           <div ref={subtitleRef}>
             <p className="text-xl sm:text-2xl lg:text-3xl font-medium text-gray-600 dark:text-gray-300">
-              Front End Developer & UI/UX Enthusiast
+              Full Stack Developer & UI/UX Enthusiast
             </p>
           </div>
 
@@ -135,7 +135,7 @@ export default function Hero() {
             >
               View My Work
             </Button>
-            <a href="/prathamResume_v2.pdf" download>
+            <a href="/public/NewResume.pdf" download>
               <Button
                 variant="outline"
                 size="lg"
