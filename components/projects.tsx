@@ -1,15 +1,15 @@
-"use client"
+"use client";
 
-import { useEffect, useRef, useState } from "react"
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { ExternalLink, Github, ChevronRight } from "lucide-react"
-import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import Image from "next/image"
+import { useEffect, useRef, useState } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ExternalLink, Github, ChevronRight } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import Image from "next/image";
 
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger);
 
 const projects = [
   {
@@ -27,7 +27,8 @@ const projects = [
   {
     id: 2,
     title: "NeuroArm Signal Flow",
-    description: "An interactive visualization of brain-signal processing for prosthetic arm control.",
+    description:
+      "An interactive visualization of brain-signal processing for prosthetic arm control.",
     longDescription:
       "Built an interactive web-based system to demonstrate the complete EEG signal pipeline — from brainwave capture, preprocessing, classification, to prosthetic arm movement. Designed with modular components for extensibility and real-time visualization of signal flow.",
     image: "/neuro.png",
@@ -36,18 +37,19 @@ const projects = [
     live: "https://neuro-arm.vercel.app/",
     featured: true,
   },
-  // {
-  //   id: 3,
-  //   title: "Weather Dashboard",
-  //   description: "A beautiful weather application with location-based forecasts and interactive maps.",
-  //   longDescription:
-  //     "Created an intuitive weather dashboard featuring current conditions, 7-day forecasts, interactive maps, and weather alerts. Implemented geolocation services and multiple weather data sources.",
-  //   image: "/placeholder.svg?height=300&width=500",
-  //   technologies: ["Vue.js", "Express.js", "OpenWeather API", "Chart.js"],
-  //   github: "https://github.com/pshah-lab/animated-design-website",
-  //   live: "https://animated-design-website.vercel.app/",
-  //   featured: false,
-  // },
+  {
+    id: 3,
+    title: "Abhinandan Mountreea Real Estate Website",
+    description:
+      "A modern, responsive real estate website designed for smooth property showcasing and seamless user experience.",
+    longDescription:
+      "Designed and developed a fully responsive real estate website for Abhinandan Mountreea with a clean UI, intuitive navigation, and an engaging layout. Focused on improving the brand’s digital presence by creating visually appealing pages, better content flow, and optimized loading performance to enhance user engagement.",
+    image: "/Abhinandan.png",
+    technologies: ["React", "TypeScript", "JavaScript", "GSAP"],
+    github: "",
+    live: "https://www.abhinandanmountreea.com/",
+    featured: true,
+  }
   // {
   //   id: 4,
   //   title: "Social Media Analytics",
@@ -60,17 +62,17 @@ const projects = [
   //   live: "https://animated-design-website.vercel.app/",
   //   featured: false,
   // },
-]
+];
 
 export default function Projects() {
-  const sectionRef = useRef<HTMLElement | null>(null)
-  const titleRef = useRef<HTMLDivElement | null>(null)
-  const projectsRef = useRef<HTMLDivElement | null>(null)
-  const [expandedProject, setExpandedProject] = useState<number | null>(null)
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const titleRef = useRef<HTMLDivElement | null>(null);
+  const projectsRef = useRef<HTMLDivElement | null>(null);
+  const [expandedProject, setExpandedProject] = useState<number | null>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      if (!titleRef.current || !projectsRef.current) return
+      if (!titleRef.current || !projectsRef.current) return;
       // Title animation
       gsap.fromTo(
         titleRef.current,
@@ -84,8 +86,8 @@ export default function Projects() {
             start: "top 80%",
             toggleActions: "play none none reverse",
           },
-        },
-      )
+        }
+      );
 
       // Projects stagger animation
       gsap.fromTo(
@@ -103,25 +105,32 @@ export default function Projects() {
             start: "top 80%",
             toggleActions: "play none none reverse",
           },
-        },
-      )
-    }, sectionRef)
+        }
+      );
+    }, sectionRef);
 
-    return () => ctx.revert()
-  }, [])
+    return () => ctx.revert();
+  }, []);
 
   const toggleProject = (projectId: number) => {
-    setExpandedProject(expandedProject === projectId ? null : projectId)
-  }
+    setExpandedProject(expandedProject === projectId ? null : projectId);
+  };
 
   return (
-    <section id="projects" ref={sectionRef} className="py-20 bg-white dark:bg-[rgb(0,0,18)]">
+    <section
+      id="projects"
+      ref={sectionRef}
+      className="py-20 bg-white dark:bg-[rgb(0,0,18)]"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div ref={titleRef} className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-4">Featured Projects</h2>
+          <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+            Featured Projects
+          </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full" />
           <p className="mt-6 text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Here are some of my recent projects that showcase my skills and passion for development.
+            Here are some of my recent projects that showcase my skills and
+            passion for development.
           </p>
         </div>
 
@@ -143,13 +152,31 @@ export default function Projects() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="absolute top-4 right-4 flex space-x-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <Button size="sm" variant="secondary" className="rounded-full" asChild>
-                    <a href={project.github} target="_blank" rel="noopener noreferrer">
+                  <Button
+                    size="sm"
+                    variant="secondary"
+                    className="rounded-full"
+                    asChild
+                  >
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <Github className="h-4 w-4" />
                     </a>
                   </Button>
-                  <Button size="sm" variant="secondary" className="rounded-full" asChild>
-                    <a href={project.live} target="_blank" rel="noopener noreferrer">
+                  <Button
+                    size="sm"
+                    variant="secondary"
+                    className="rounded-full"
+                    asChild
+                  >
+                    <a
+                      href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <ExternalLink className="h-4 w-4" />
                     </a>
                   </Button>
@@ -162,14 +189,19 @@ export default function Projects() {
                     {project.title}
                   </h3>
                   {project.featured && (
-                    <Badge variant="secondary" className="bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+                    <Badge
+                      variant="secondary"
+                      className="bg-gradient-to-r from-blue-600 to-purple-600 text-white"
+                    >
                       Featured
                     </Badge>
                   )}
                 </div>
 
                 <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
-                  {expandedProject === project.id ? project.longDescription : project.description}
+                  {expandedProject === project.id
+                    ? project.longDescription
+                    : project.description}
                 </p>
 
                 <div className="flex flex-wrap gap-2 mb-4">
@@ -182,8 +214,17 @@ export default function Projects() {
 
                 <div className="flex items-center justify-between">
                   <div className="flex space-x-3">
-                    <Button variant="outline" size="sm" className="rounded-full bg-transparent" asChild>
-                      <a href={project.github} target="_blank" rel="noopener noreferrer">
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="rounded-full bg-transparent"
+                      asChild
+                    >
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         <Github className="h-4 w-4 mr-2" />
                         Code
                       </a>
@@ -193,16 +234,27 @@ export default function Projects() {
                       className="rounded-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
                       asChild
                     >
-                      <a href={project.live} target="_blank" rel="noopener noreferrer">
+                      <a
+                        href={project.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         <ExternalLink className="h-4 w-4 mr-2" />
                         Live Demo
                       </a>
                     </Button>
                   </div>
 
-                  <Button variant="ghost" size="sm" onClick={() => toggleProject(project.id)} className="rounded-full">
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => toggleProject(project.id)}
+                    className="rounded-full"
+                  >
                     <ChevronRight
-                      className={`h-4 w-4 transition-transform ${expandedProject === project.id ? "rotate-90" : ""}`}
+                      className={`h-4 w-4 transition-transform ${
+                        expandedProject === project.id ? "rotate-90" : ""
+                      }`}
                     />
                   </Button>
                 </div>
@@ -212,12 +264,16 @@ export default function Projects() {
         </div>
 
         <div className="text-center mt-12">
-          <Button variant="outline" size="lg" className="rounded-full px-8 bg-transparent">
+          <Button
+            variant="outline"
+            size="lg"
+            className="rounded-full px-8 bg-transparent"
+          >
             More projects coming soon...
             <ChevronRight className="h-4 w-4 ml-2" />
           </Button>
         </div>
       </div>
     </section>
-  )
+  );
 }
