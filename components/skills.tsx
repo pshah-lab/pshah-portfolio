@@ -1,13 +1,30 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import dynamic from "next/dynamic";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Card, CardContent } from "@/components/ui/card";
-import { SiJavascript, SiNextdotjs, SiTailwindcss, SiMongodb, SiVercel, SiWordpress, SiAmazon, SiGooglecloud, SiHtml5, SiCss3, SiReact, SiExpress, SiGit, SiFigma } from "react-icons/si";
-import { FaServer as Server, FaDatabase as Database, FaBolt as Zap } from "react-icons/fa";
 
 gsap.registerPlugin(ScrollTrigger);
+
+// Dynamically import all icons with SSR disabled
+const SiJavascript = dynamic(() => import("react-icons/si").then(m => m.SiJavascript), { ssr: false });
+const SiNextdotjs = dynamic(() => import("react-icons/si").then(m => m.SiNextdotjs), { ssr: false });
+const SiTailwindcss = dynamic(() => import("react-icons/si").then(m => m.SiTailwindcss), { ssr: false });
+const SiMongodb = dynamic(() => import("react-icons/si").then(m => m.SiMongodb), { ssr: false });
+const SiVercel = dynamic(() => import("react-icons/si").then(m => m.SiVercel), { ssr: false });
+const SiWordpress = dynamic(() => import("react-icons/si").then(m => m.SiWordpress), { ssr: false });
+const SiAmazon = dynamic(() => import("react-icons/si").then(m => m.SiAmazon), { ssr: false });
+const SiGooglecloud = dynamic(() => import("react-icons/si").then(m => m.SiGooglecloud), { ssr: false });
+const SiHtml5 = dynamic(() => import("react-icons/si").then(m => m.SiHtml5), { ssr: false });
+const SiCss3 = dynamic(() => import("react-icons/si").then(m => m.SiCss3), { ssr: false });
+const SiReact = dynamic(() => import("react-icons/si").then(m => m.SiReact), { ssr: false });
+const SiExpress = dynamic(() => import("react-icons/si").then(m => m.SiExpress), { ssr: false });
+const SiGit = dynamic(() => import("react-icons/si").then(m => m.SiGit), { ssr: false });
+const SiFigma = dynamic(() => import("react-icons/si").then(m => m.SiFigma), { ssr: false });
+
+const Server = dynamic(() => import("react-icons/fa").then(m => m.FaServer), { ssr: false });
 
 const skills = [
   { name: "HTML", icon: SiHtml5 },
