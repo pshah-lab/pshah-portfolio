@@ -118,7 +118,7 @@ export default function Hero() {
 
           <div ref={descriptionRef}>
             <p className="text-lg sm:text-xl text-gray-500 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
-              I craft beautiful, functional, and user-centered digital
+            Crafting beautiful, functional, and user-centered digital
               experiences. Passionate about clean code, innovative solutions,
               and bringing ideas to life.
             </p>
@@ -135,7 +135,7 @@ export default function Hero() {
             >
               View My Work
             </Button>
-            <a href="/public/NewResume.pdf" download>
+            <a href="/public/Pratham_Resume.pdf" download>
               <Button
                 variant="outline"
                 size="lg"
