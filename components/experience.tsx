@@ -37,7 +37,33 @@ const experiences = [
       "Collaborated with client to refine design choices and content flow",
     ],
     technologies: ["React", "GSAP", "Tailwind CSS", "JavaScript", "NextJs"],
+  },{
+    title: "Full-Stack Engineering Intern",
+    company: "NeuraMach AI Studios",
+    location: "Remote",
+    period: "Jan 12, 2026 – Present",
+    description:
+      "Full-stack engineering internship focused on rebuilding backend architecture, delivering secure APIs, and improving reliability across the product stack.",
+    achievements: [
+      "Re-architected backend from AppSync to API Gateway, Lambda, DynamoDB, and SES, eliminating public data exposure and improving API security.",
+      "Built REST endpoints and Lambda handlers in Node.js with validation and DynamoDB persistence.",
+      "Implemented abuse-resistant submission pipeline with multi-window rate limiting (IP/email), validation, and injection protection.",
+      "Architected secure HLS delivery using AWS S3 + CloudFront with signed cookies and role-based access control.",
+      "Resolved 15+ cross-layer production issues across Next.js, Node.js, CI/CD, and AWS, reducing deployment failures by 40%."
+    ],
+    technologies: [
+      "Node.js",
+      "AWS API Gateway",
+      "AWS Lambda",
+      "DynamoDB",
+      "SES",
+      "S3",
+      "CloudFront",
+      "Next.js",
+      "CI/CD"
+    ]
   },
+  
 ];
 
 export default function Experience() {
