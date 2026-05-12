@@ -40,8 +40,8 @@ const experiences = [
   },{
     title: "Full-Stack Engineering Intern",
     company: "NeuraMach AI Studios",
-    location: "Remote",
-    period: "Jan 12, 2026 – Present",
+    location: "Pune, India",
+    period: "Jan 12, 2026 – April 11, 2026",
     description:
       "Full-stack engineering internship focused on rebuilding backend architecture, delivering secure APIs, and improving reliability across the product stack.",
     achievements: [
