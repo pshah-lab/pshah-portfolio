@@ -10,33 +10,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 const experiences = [
   {
-    title: "Research Developer – BCI NeuroArm",
-    company: "IS360 Technologies",
-    location: "Pune, India",
-    period: "July 2024 - December 2024",
-    description:
-      "Focused on building a Neuro Signal Classifier as part of the BCI NeuroArm project. Implemented an end-to-end EEG signal pipeline for acquiring, preprocessing, and classifying brain signals to identify movement intent (left vs right).",
-    achievements: [
-      "Designed and trained ML models for EEG-based movement intent classification",
-      "Achieved high accuracy in differentiating left vs right arm movement signals",
-      "Built real-time visualization to map classified signals into actionable outputs",
-    ],
-    technologies: ["Python", "TensorFlow", "Scikit-learn", "Matplotlib"],
-  },
-  {
-    title: "Freelance Project",
-    company: "Client Project",
-    location: "Remote",
-    period: "2025 - Present",
-    description:
-      "Independently developing the complete website for a Real Estate client, a luxury residential and villas showcase platform. Responsible for designing, coding, and deploying the entire project while ensuring a balance of performance, aesthetics, and usability.",
-    achievements: [
-      "Develop responsive layouts ensuring accessibility across devices",
-      "Implemented smooth animations and transitions to enhance user engagement",
-      "Collaborated with client to refine design choices and content flow",
-    ],
-    technologies: ["React", "GSAP", "Tailwind CSS", "JavaScript", "NextJs"],
-  },{
     title: "Full-Stack Engineering Intern",
     company: "NeuraMach AI Studios",
     location: "Pune, India",
@@ -62,6 +35,35 @@ const experiences = [
       "CI/CD"
     ]
   },
+   {
+    title: "Freelance Project",
+    company: "Client Project",
+    location: "Remote",
+    period: "2025 - Present",
+    description:
+      "Independently developing the complete website for a Real Estate client, a luxury residential and villas showcase platform. Responsible for designing, coding, and deploying the entire project while ensuring a balance of performance, aesthetics, and usability.",
+    achievements: [
+      "Develop responsive layouts ensuring accessibility across devices",
+      "Implemented smooth animations and transitions to enhance user engagement",
+      "Collaborated with client to refine design choices and content flow",
+    ],
+    technologies: ["React", "GSAP", "Tailwind CSS", "JavaScript", "NextJs"],
+  },
+  {
+    title: "Research Developer – BCI NeuroArm",
+    company: "IS360 Technologies",
+    location: "Pune, India",
+    period: "July 2024 - December 2024",
+    description:
+      "Focused on building a Neuro Signal Classifier as part of the BCI NeuroArm project. Implemented an end-to-end EEG signal pipeline for acquiring, preprocessing, and classifying brain signals to identify movement intent (left vs right).",
+    achievements: [
+      "Designed and trained ML models for EEG-based movement intent classification",
+      "Achieved high accuracy in differentiating left vs right arm movement signals",
+      "Built real-time visualization to map classified signals into actionable outputs",
+    ],
+    technologies: ["Python", "TensorFlow", "Scikit-learn", "Matplotlib"],
+  },
+ 
   
 ];
 
