@@ -25,11 +25,11 @@ export default function Navbar() {
   useEffect(() => {
     // Navbar entrance animation
     const tl = gsap.timeline()
-    tl.fromTo(navRef.current, { y: -100, opacity: 0 }, { y: 0, opacity: 1, duration: 1, ease: "power2.out" }).fromTo(
+    tl.fromTo(navRef.current, { y: -18, opacity: 0 }, { y: 0, opacity: 1, duration: 0.55, ease: "power2.out" }).fromTo(
       logoRef.current,
-      { scale: 0, rotation: 180 },
-      { scale: 1, rotation: 0, duration: 0.8, ease: "back.out(1.7)" },
-      "-=0.5",
+      { opacity: 0 },
+      { opacity: 1, duration: 0.35, ease: "power2.out" },
+      "-=0.25",
     )
 
     // Scroll spy functionality
@@ -66,28 +66,28 @@ export default function Navbar() {
   return (
     <nav
       ref={navRef}
-      className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-[rgb(0,0,18)]/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700"
+      className="fixed left-0 right-0 top-0 z-50 border-b border-stone-300/70 bg-[#f7f4ee]/90 backdrop-blur-xl dark:border-white/10 dark:bg-[#080b10]/95"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="section-shell">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div ref={logoRef} className="flex-shrink-0">
-            <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              {"<Pshah />"}
+            <span className="text-sm font-semibold uppercase tracking-[0.24em] text-stone-950 dark:text-stone-50">
+              Pratham Shah
             </span>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-4">
+            <div className="ml-10 flex items-center gap-1">
               {navItems.map((item) => (
                 <button
                   key={item.name}
                   onClick={() => scrollToSection(item.href)}
-                  className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
+                  className={`px-3 py-2 text-sm font-medium transition-colors duration-200 ${
                     activeSection === item.href.substring(1)
-                      ? "text-blue-600 dark:text-blue-400"
-                      : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+                      ? "text-teal-700 dark:text-teal-300"
+                      : "text-stone-600 hover:text-stone-950 dark:text-stone-200 dark:hover:text-white"
                   }`}
                 >
                   {item.name}
@@ -102,14 +102,21 @@ export default function Navbar() {
               variant="ghost"
               size="icon"
               onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-              className="rounded-full"
+              aria-label={theme === "light" ? "Switch to dark mode" : "Switch to light mode"}
+              className="rounded-full text-stone-700 hover:bg-stone-200/70 hover:text-stone-950 focus-visible:ring-teal-600 dark:text-stone-100 dark:hover:bg-white/10 dark:hover:text-white dark:focus-visible:ring-teal-300"
             >
               {theme === "light" ? <Moon className="h-5 w-5" /> : <Sun className="h-5 w-5" />}
             </Button>
 
             {/* Mobile menu button */}
             <div className="md:hidden">
-              <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(!isMenuOpen)} className="rounded-full">
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="rounded-full text-stone-700 hover:bg-stone-200/70 hover:text-stone-950 focus-visible:ring-teal-600 dark:text-stone-100 dark:hover:bg-white/10 dark:hover:text-white dark:focus-visible:ring-teal-300"
+              >
+                <span className="sr-only">{isMenuOpen ? "Close menu" : "Open menu"}</span>
                 {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
               </Button>
             </div>
@@ -119,15 +126,15 @@ export default function Navbar() {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white dark:bg-[rgb(0,0,18)] border-t border-gray-200 dark:border-gray-700">
+            <div className="space-y-1 border-t border-stone-300/70 bg-[#f7f4ee] px-2 pb-3 pt-2 dark:border-white/10 dark:bg-[#080b10] sm:px-3">
               {navItems.map((item) => (
                 <button
                   key={item.name}
                   onClick={() => scrollToSection(item.href)}
                   className={`block px-3 py-2 rounded-md text-base font-medium w-full text-left transition-colors duration-200 ${
                     activeSection === item.href.substring(1)
-                      ? "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20"
-                      : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-800"
+                      ? "text-teal-700 bg-teal-900/5 dark:text-teal-300 dark:bg-teal-300/10"
+                      : "text-stone-700 hover:text-stone-950 hover:bg-stone-200/60 dark:text-stone-200 dark:hover:text-white dark:hover:bg-white/5"
                   }`}
                 >
                   {item.name}

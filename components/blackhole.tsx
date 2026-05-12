@@ -13,13 +13,13 @@ export default function Blackhole() {
   }
 
   return (
-    <div className="w-full flex justify-center mt-[-200px]  z-10 object-cover">
+    <div className="pointer-events-none absolute inset-x-0 top-0 z-0 -mt-[13.5%] flex justify-center overflow-hidden opacity-40">
       <video
         autoPlay
         loop
         muted
         playsInline
-        className=" w-full max-w-4xl h-auto transform rotate-180 bg-transparent"
+        className="h-auto w-full max-w-5xl rotate-180 bg-transparent"
       >
         <source src="/blackhole.webm" type="video/webm" />
         Your browser does not support the video tag.

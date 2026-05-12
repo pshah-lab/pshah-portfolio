@@ -4,7 +4,6 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Calendar, MapPin, Building } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -74,14 +73,13 @@ export default function Experience() {
   useEffect(() => {
     const ctx = gsap.context(() => {
       if (!titleRef.current || !timelineRef.current) return;
-      // Title animation
       gsap.fromTo(
         titleRef.current,
-        { opacity: 0, y: 50 },
+        { opacity: 0, y: 28 },
         {
           opacity: 1,
           y: 0,
-          duration: 1,
+          duration: 0.7,
           scrollTrigger: {
             trigger: titleRef.current,
             start: "top 80%",
@@ -90,16 +88,14 @@ export default function Experience() {
         }
       );
 
-      // Timeline items animation
       gsap.fromTo(
         timelineRef.current.children,
-        { opacity: 0, x: -100, scale: 0.8 },
+        { opacity: 0, y: 30 },
         {
           opacity: 1,
-          x: 0,
-          scale: 1,
-          duration: 0.8,
-          stagger: 0.3,
+          y: 0,
+          duration: 0.6,
+          stagger: 0.12,
           ease: "power2.out",
           scrollTrigger: {
             trigger: timelineRef.current,
@@ -117,86 +113,81 @@ export default function Experience() {
     <section
       id="experience"
       ref={sectionRef}
-      className="py-20 bg-white dark:bg-[rgb(0,0,18)]"
+      className="py-24"
     >
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div ref={titleRef} className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-            Work Experience
-          </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full" />
-          <p className="mt-6 text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            My professional journey and the impact I've made along the way.
+      <div className="section-shell">
+        <div ref={titleRef} className="mb-14 grid gap-5 lg:grid-cols-[0.75fr_1fr]">
+          <div>
+            <p className="section-kicker">Experience</p>
+            <h2 className="section-title mt-3">Work that connects product, backend, and research.</h2>
+          </div>
+          <p className="section-copy lg:pt-10">
+            Recent roles and client engagements with the technical details kept visible.
           </p>
         </div>
 
-        <div ref={timelineRef} className="relative">
-          {/* Timeline line */}
-          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-600 to-purple-600 hidden md:block" />
-
-          <div className="space-y-8">
+        <div ref={timelineRef} className="border-t border-stone-300/70 dark:border-white/10">
+          <div className="divide-y divide-stone-300/70 dark:divide-white/10">
             {experiences.map((exp, index) => (
-              <div key={index} className="relative">
-                {/* Timeline dot */}
-                <div className="absolute left-6 top-6 w-4 h-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full border-4 border-white dark:border-gray-900 hidden md:block" />
+              <article key={index} className="grid gap-6 py-8 lg:grid-cols-[0.28fr_0.72fr]">
+                <div className="flex items-start gap-3 text-sm text-stone-500 dark:text-stone-400">
+                  <span className="mt-2 h-2 w-2 bg-teal-700 dark:bg-teal-300" />
+                  <span>{exp.period}</span>
+                </div>
 
-                <Card className="md:ml-16 group hover:shadow-lg transition-all duration-300 border-0 bg-white dark:bg-[rgb(0,0,18)] shadow-md">
-                  <CardContent className="p-6">
-                    <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-4">
+                <div>
+                    <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
                       <div>
-                        <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-1">
+                        <h3 className="text-2xl font-semibold tracking-tight text-stone-950 dark:text-white">
                           {exp.title}
                         </h3>
-                        <div className="flex items-center text-blue-600 dark:text-blue-400 mb-2">
+                        <div className="mt-3 flex items-center text-teal-700 dark:text-teal-300">
                           <Building className="h-4 w-4 mr-2" />
                           <span className="font-medium">{exp.company}</span>
                         </div>
                       </div>
-                      <div className="flex flex-col sm:items-end space-y-1">
-                        <div className="flex items-center text-gray-500 dark:text-gray-400 text-sm">
+                      <div className="flex flex-col gap-1 sm:items-end">
+                        <div className="flex items-center text-stone-500 dark:text-stone-400 text-sm">
                           <Calendar className="h-4 w-4 mr-1" />
                           <span>{exp.period}</span>
                         </div>
-                        <div className="flex items-center text-gray-500 dark:text-gray-400 text-sm">
+                        <div className="flex items-center text-stone-500 dark:text-stone-400 text-sm">
                           <MapPin className="h-4 w-4 mr-1" />
                           <span>{exp.location}</span>
                         </div>
                       </div>
                     </div>
 
-                    <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+                    <p className="mt-5 max-w-3xl text-base leading-8 text-stone-600 dark:text-stone-300">
                       {exp.description}
                     </p>
 
-                    <div className="mb-4">
-                      <h4 className="font-semibold text-gray-900 dark:text-white mb-2">
-                        Key Achievements:
+                    <div className="mt-6">
+                      <h4 className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-stone-500 dark:text-stone-400">
+                        Key outcomes
                       </h4>
-                      <ul className="space-y-1">
+                      <ul className="grid gap-2">
                         {exp.achievements.map((achievement, i) => (
                           <li
                             key={i}
-                            className="text-gray-600 dark:text-gray-300 text-sm flex items-start"
+                            className="flex items-start text-sm leading-6 text-stone-600 dark:text-stone-300"
                           >
-                            <span className="text-blue-600 dark:text-blue-400 mr-2">
-                              •
-                            </span>
+                            <span className="mr-3 mt-2 h-1.5 w-1.5 flex-none bg-stone-400 dark:bg-stone-500" />
                             {achievement}
                           </li>
                         ))}
                       </ul>
                     </div>
 
-                    <div className="flex flex-wrap gap-2">
+                    <div className="mt-6 flex flex-wrap gap-2">
                       {exp.technologies.map((tech) => (
-                        <Badge key={tech} variant="outline" className="text-xs">
+                        <Badge key={tech} variant="outline" className="rounded-none border-stone-300 bg-transparent text-xs text-stone-600 dark:border-white/10 dark:text-stone-300">
                           {tech}
                         </Badge>
                       ))}
                     </div>
-                  </CardContent>
-                </Card>
-              </div>
+                </div>
+              </article>
             ))}
           </div>
         </div>

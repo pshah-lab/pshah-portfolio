@@ -90,7 +90,7 @@ export default function Home() {
     <ThemeProvider>
       <div
         ref={mainRef}
-        className="min-h-screen bg-white dark:bg-[rgb(0,0,18)] text-gray-900 dark:text-white transition-colors duration-300"
+        className="min-h-screen bg-[#f7f4ee] text-stone-950 transition-colors duration-300 dark:bg-[#080b10] dark:text-stone-50"
       >
         <Blackhole />
         <StarsCanvas />

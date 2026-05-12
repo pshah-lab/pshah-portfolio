@@ -3,13 +3,11 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Brain, Award, Star } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { Quote } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
-interface AchievementItem {
+interface TestimonialItem {
   title: string;
   organization: string;
   period: string;
@@ -17,13 +15,13 @@ interface AchievementItem {
   technologies?: string[];
 }
 
-const achievementsData: AchievementItem[] = [
+const testimonialsData: TestimonialItem[] = [
   {
     title: "Abhinandan Mountreea",
     organization: "Abhinandan Group",
     period: "September 2025",
     description:
-      "The website reflects exactly what we had envisioned - a platform that communicates our brand values, showcases our flagship project, and builds trust with potential customers.His attention to detail, technical expertise, and timely delivery have truly impressed us.",
+      "The website reflects exactly what we had envisioned - a platform that communicates our brand values, showcases our flagship project, and builds trust with potential customers. His attention to detail, technical expertise, and timely delivery have truly impressed us.",
   },
 ];
 
@@ -36,14 +34,13 @@ export default function Testimonial() {
     const ctx = gsap.context(() => {
       if (!titleRef.current || !timelineRef.current) return;
 
-      // Title animation
       gsap.fromTo(
         titleRef.current,
-        { opacity: 0, y: 50 },
+        { opacity: 0, y: 28 },
         {
           opacity: 1,
           y: 0,
-          duration: 1,
+          duration: 0.7,
           scrollTrigger: {
             trigger: titleRef.current,
             start: "top 80%",
@@ -52,16 +49,14 @@ export default function Testimonial() {
         }
       );
 
-      // Timeline items animation
       gsap.fromTo(
         timelineRef.current.children,
-        { opacity: 0, x: -100, scale: 0.8 },
+        { opacity: 0, y: 24 },
         {
           opacity: 1,
-          x: 0,
-          scale: 1,
-          duration: 0.8,
-          stagger: 0.3,
+          y: 0,
+          duration: 0.55,
+          stagger: 0.1,
           ease: "power2.out",
           scrollTrigger: {
             trigger: timelineRef.current,
@@ -77,81 +72,45 @@ export default function Testimonial() {
 
   return (
     <section
-      id="achievements"
+      id="testimonials"
       ref={sectionRef}
-      className="py-20 bg-gray-50 dark:bg-[rgb(0,0,18)]"
+      className="py-24"
     >
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div ref={titleRef} className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-            Project Testimonial
-          </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-green-400 to-blue-500 mx-auto rounded-full" />
-          <p className="mt-6 text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-           Testiomonial from Clients
+      <div className="section-shell">
+        <div ref={titleRef} className="mb-14 grid gap-5 lg:grid-cols-[0.75fr_1fr]">
+          <div>
+            <p className="section-kicker">Client note</p>
+            <h2 className="section-title mt-3">Feedback from a shipped real estate build.</h2>
+          </div>
+          <p className="section-copy lg:pt-10">
+            One client signal from work delivered outside coursework and demos.
           </p>
         </div>
 
-        <div ref={timelineRef} className="relative">
-          {/* Timeline line */}
-          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-green-400 to-blue-500 hidden md:block" />
-
-          <div className="space-y-8">
-            {achievementsData.map((achievement, index) => (
-              <div key={index} className="relative">
-                {/* Timeline dot */}
-                <div className="absolute left-6 top-6 w-4 h-4 bg-gradient-to-r from-green-400 to-blue-500 rounded-full border-4 border-white dark:border-gray-900 hidden md:block" />
-
-                <Card className="md:ml-16 group hover:shadow-lg transition-all duration-300 border-0 bg-white dark:bg-[rgb(0,0,18)] shadow-md">
-                  <CardContent className="p-6">
-                    <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-4">
+        <div ref={timelineRef} className="max-w-5xl border-y border-stone-300/70 py-10 dark:border-white/10">
+            {testimonialsData.map((achievement, index) => (
+              <figure key={index} className="grid gap-8 lg:grid-cols-[0.18fr_0.82fr]">
+                <Quote className="h-12 w-12 text-teal-700 dark:text-teal-300" />
+                <div>
+                    <blockquote className="max-w-4xl text-2xl font-medium leading-snug tracking-tight text-stone-950 dark:text-white sm:text-4xl">
+                      "{achievement.description}"
+                    </blockquote>
+                    <figcaption className="mt-8 flex flex-col gap-1 border-t border-stone-300/70 pt-5 dark:border-white/10 sm:flex-row sm:items-center sm:justify-between">
                       <div>
-                        <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-1">
+                        <p className="font-semibold text-stone-950 dark:text-white">
                           {achievement.title}
-                        </h3>
-                        <div className="flex items-center text-blue-600 dark:text-blue-400 mb-2">
-                          <Award className="h-4 w-4 mr-2" />
-                          <span className="font-medium">
-                            {achievement.organization}
-                          </span>
-                        </div>
+                        </p>
+                        <p className="text-sm text-teal-700 dark:text-teal-300">
+                          {achievement.organization}
+                        </p>
                       </div>
-                      <div className="flex flex-col sm:items-end space-y-1">
-                        <div className="flex items-center text-gray-500 dark:text-gray-400 text-sm">
-                          <Star className="h-4 w-4 mr-1" />
-                          <span>{achievement.period}</span>
-                        </div>
-                      </div>
-                    </div>
-
-                    <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
-                      {achievement.description}
-                    </p>
-
-                    {achievement.technologies &&
-                      achievement.technologies.length > 0 && (
-                        <div className="mb-4">
-                          <h4 className="font-semibold text-gray-900 dark:text-white mb-2">
-                            Technologies Used:
-                          </h4>
-                          <div className="flex flex-wrap gap-2">
-                            {achievement.technologies.map((tech) => (
-                              <Badge
-                                key={tech}
-                                variant="outline"
-                                className="text-xs"
-                              >
-                                {tech}
-                              </Badge>
-                            ))}
-                          </div>
-                        </div>
-                      )}
-                  </CardContent>
-                </Card>
-              </div>
+                      <p className="text-sm text-stone-500 dark:text-stone-400">
+                        {achievement.period}
+                      </p>
+                    </figcaption>
+                </div>
+              </figure>
             ))}
-          </div>
         </div>
       </div>
     </section>

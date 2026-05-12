@@ -2,14 +2,10 @@
 
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import { ChevronDown, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowDown, ArrowUpRight, Github, Linkedin, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useTheme } from "@/components/theme-provider";
-import { useIsMobile } from "@/hooks/use-mobile";
 
 export default function Hero() {
-  const { theme } = useTheme();
-  const isMobile = useIsMobile();
   const heroRef = useRef(null);
   const titleRef = useRef(null);
   const subtitleRef = useRef(null);
@@ -20,57 +16,54 @@ export default function Hero() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline({ delay: 0.5 });
+      const tl = gsap.timeline({ delay: 0.25 });
 
-      // Hero entrance animations
       tl.fromTo(
         titleRef.current,
-        { opacity: 0, y: 100, scale: 0.8 },
-        { opacity: 1, y: 0, scale: 1, duration: 1.2, ease: "power3.out" }
+        { opacity: 0, y: 34 },
+        { opacity: 1, y: 0, duration: 0.9, ease: "power3.out" }
       )
         .fromTo(
           subtitleRef.current,
-          { opacity: 0, y: 50 },
-          { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" },
-          "-=0.6"
+          { opacity: 0, y: 28 },
+          { opacity: 1, y: 0, duration: 0.7, ease: "power2.out" },
+          "-=0.5"
         )
         .fromTo(
           descriptionRef.current,
-          { opacity: 0, y: 30 },
-          { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" },
-          "-=0.4"
+          { opacity: 0, y: 18 },
+          { opacity: 1, y: 0, duration: 0.7, ease: "power2.out" },
+          "-=0.35"
         )
         .fromTo(
           ctaRef.current,
-          { opacity: 0, scale: 0.8 },
-          { opacity: 1, scale: 1, duration: 0.6, ease: "back.out(1.7)" },
-          "-=0.2"
+          { opacity: 0, y: 18 },
+          { opacity: 1, y: 0, duration: 0.55, ease: "power2.out" },
+          "-=0.3"
         )
         .fromTo(
           socialRef.current,
-          { opacity: 0, x: -50 },
-          { opacity: 1, x: 0, duration: 0.8, ease: "power2.out" },
-          "-=0.4"
+          { opacity: 0, y: 16 },
+          { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" },
+          "-=0.25"
         )
         .fromTo(
           scrollIndicatorRef.current,
-          { opacity: 0, y: 20 },
-          { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" },
+          { opacity: 0, y: 14 },
+          { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" },
           "-=0.2"
         );
 
-      // Floating animation for scroll indicator
       gsap.to(scrollIndicatorRef.current, {
-        y: 10,
-        duration: 1.5,
+        y: 8,
+        duration: 1.8,
         repeat: -1,
         yoyo: true,
         ease: "power2.inOut",
       });
 
-      // Parallax effect on scroll
       gsap.to(heroRef.current, {
-        yPercent: -50,
+        yPercent: -16,
         ease: "none",
         scrollTrigger: {
           trigger: heroRef.current,
@@ -92,62 +85,81 @@ export default function Hero() {
     <section
       id="home"
       ref={heroRef}
-      className={`relative min-h-screen flex items-center justify-center overflow-hidden bg-transparent"  ${theme === "dark" && !isMobile ? "mt-[-300px]" : "mt-15"}`}
+      className="relative flex min-h-screen items-center overflow-hidden pt-20"
     >
-  
+      <div className="absolute inset-0 z-0 bg-[linear-gradient(to_right,rgba(28,25,23,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(28,25,23,0.08)_1px,transparent_1px)] bg-[size:72px_72px] opacity-40 dark:bg-[linear-gradient(to_right,rgba(255,255,255,0.07)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.07)_1px,transparent_1px)]" />
+      <div className="absolute inset-x-0 bottom-0 z-0 h-48 bg-gradient-to-t from-[#f7f4ee] to-transparent dark:from-[#080b10]" />
 
-      <div className="relative z-30 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        {/* Main content */}
-        <div className="space-y-8">
-          <div ref={titleRef}>
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold">
-              <span className="block text-gray-900 dark:text-white">
-                Hi, I'm
-              </span>
-              <span className="block bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent">
-                Pratham Shah
-              </span>
+      <div className="section-shell relative z-30 grid min-h-[calc(100vh-5rem)] items-center gap-10 py-8 lg:grid-cols-[1.02fr_0.98fr]">
+        <div className="max-w-4xl space-y-6">
+          <div ref={titleRef} className="space-y-5">
+            <p className="section-kicker">Full-stack developer</p>
+            <h1 className="max-w-4xl text-4xl font-semibold leading-[1] tracking-tight text-stone-950 sm:text-5xl lg:text-6xl 2xl:text-7xl dark:text-stone-50">
+              Pratham Shah builds precise web products.
             </h1>
           </div>
 
           <div ref={subtitleRef}>
-            <p className="text-xl sm:text-2xl lg:text-3xl font-medium text-gray-600 dark:text-gray-300">
-              Full Stack Developer & UI/UX Enthusiast
-            </p>
-          </div>
-
-          <div ref={descriptionRef}>
-            <p className="text-lg sm:text-xl text-gray-500 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
-            Crafting beautiful, functional, and user-centered digital
-              experiences. Passionate about clean code, innovative solutions,
-              and bringing ideas to life.
+            <p className="max-w-2xl text-lg leading-8 text-stone-700 dark:text-stone-300">
+              React, Next.js, Node.js, and applied AI work across polished
+              interfaces, secure APIs, and signal-driven systems with engineering depth.
             </p>
           </div>
 
           <div
+            ref={descriptionRef}
+            className="hidden max-w-2xl grid-cols-3 border-y border-stone-300/70 py-5 dark:border-white/10 2xl:grid"
+          >
+            <div>
+              <p className="text-2xl font-semibold text-stone-950 dark:text-white">
+                03
+              </p>
+              <p className="text-sm text-stone-500 dark:text-stone-400">
+                shipped projects
+              </p>
+            </div>
+            <div>
+              <p className="text-2xl font-semibold text-stone-950 dark:text-white">
+                BCI
+              </p>
+              <p className="text-sm text-stone-500 dark:text-stone-400">
+                research focus
+              </p>
+            </div>
+            <div>
+              <p className="text-2xl font-semibold text-stone-950 dark:text-white">
+                AWS
+              </p>
+              <p className="text-sm text-stone-500 dark:text-stone-400">
+                backend delivery
+              </p>
+            </div>
+          </div>
+
+          <div
             ref={ctaRef}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            className="flex flex-col items-start gap-3 sm:flex-row sm:items-center"
           >
             <Button
               size="lg"
-              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 rounded-full text-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300"
+              className="rounded-none bg-stone-950 px-7 py-6 text-base font-medium text-white shadow-none hover:bg-teal-800 dark:bg-white dark:text-stone-950 dark:hover:bg-teal-200"
               onClick={scrollToAbout}
             >
-              View My Work
+              View work
+              <ArrowUpRight className="ml-2 h-4 w-4" />
             </Button>
-            <a href="/public/Pratham_Resume.pdf" download>
+            <a href="/Pratham_Resume.pdf" download>
               <Button
                 variant="outline"
                 size="lg"
-                className="px-8 py-3 rounded-full text-lg font-medium border-2 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all duration-300 bg-transparent"
+                className="rounded-none border-stone-400 bg-transparent px-7 py-6 text-base font-medium text-stone-950 shadow-none hover:bg-stone-200/70 dark:border-white/20 dark:text-white dark:hover:bg-white/10"
               >
-                Download CV
+                Resume
               </Button>
             </a>
           </div>
 
-          {/* Social links */}
-          <div ref={socialRef} className="flex justify-center space-x-6">
+          <div ref={socialRef} className="flex items-center gap-2 pt-2">
             <a
               href="https://github.com/pshah-lab"
               target="_blank"
@@ -156,9 +168,9 @@ export default function Hero() {
               <Button
                 variant="ghost"
                 size="icon"
-                className="rounded-full hover:bg-blue-100 dark:hover:bg-blue-900/20"
+                className="rounded-none text-stone-600 hover:bg-stone-200 hover:text-stone-950 dark:text-stone-300 dark:hover:bg-white/10 dark:hover:text-white"
               >
-                <Github className="h-6 w-6" />
+                <Github className="h-5 w-5" />
               </Button>
             </a>
 
@@ -170,9 +182,9 @@ export default function Hero() {
               <Button
                 variant="ghost"
                 size="icon"
-                className="rounded-full hover:bg-blue-100 dark:hover:bg-blue-900/20"
+                className="rounded-none text-stone-600 hover:bg-stone-200 hover:text-stone-950 dark:text-stone-300 dark:hover:bg-white/10 dark:hover:text-white"
               >
-                <Linkedin className="h-6 w-6" />
+                <Linkedin className="h-5 w-5" />
               </Button>
             </a>
 
@@ -184,23 +196,47 @@ export default function Hero() {
               <Button
                 variant="ghost"
                 size="icon"
-                className="rounded-full hover:bg-blue-100 dark:hover:bg-blue-900/20"
+                className="rounded-none text-stone-600 hover:bg-stone-200 hover:text-stone-950 dark:text-stone-300 dark:hover:bg-white/10 dark:hover:text-white"
               >
-                <Mail className="h-6 w-6" />
+                <Mail className="h-5 w-5" />
               </Button>
             </a>
           </div>
         </div>
 
-        {/* Scroll indicator */}
+        <div className="relative hidden min-h-[460px] border-l border-stone-300/70 pl-10 dark:border-white/10 lg:block">
+          <div className="absolute right-0 top-4 h-[76%] w-[86%] border border-stone-300 bg-[#efebe3] dark:border-white/10 dark:bg-white/[0.03]" />
+          <div className="absolute right-10 top-16 h-[76%] w-[78%] overflow-hidden border border-stone-400/60 bg-stone-950 shadow-2xl shadow-stone-950/10 dark:border-white/15">
+            <div className="absolute inset-x-0 top-0 z-10 flex h-9 items-center gap-2 border-b border-white/10 bg-black/60 px-4">
+              <span className="h-2 w-2 rounded-full bg-red-400" />
+              <span className="h-2 w-2 rounded-full bg-yellow-300" />
+              <span className="h-2 w-2 rounded-full bg-emerald-400" />
+            </div>
+            <div className="flex h-full items-end bg-[url('/neuro.png')] bg-cover bg-center">
+              <div className="w-full bg-gradient-to-t from-black/90 via-black/60 to-transparent p-7 pt-28 text-white">
+                <p className="text-xs uppercase tracking-[0.28em] text-teal-200">
+                  Selected work
+                </p>
+                <p className="mt-3 text-2xl font-semibold tracking-tight">
+                  NeuroArm Signal Flow
+                </p>
+                <p className="mt-2 max-w-sm text-sm leading-6 text-white/72">
+                  Interactive EEG pipeline visualization for movement-intent
+                  classification.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div
           ref={scrollIndicatorRef}
-          className="absolute  left-1/2 transform -translate-x-1/2 cursor-pointer"
+          className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 cursor-pointer sm:block"
           onClick={scrollToAbout}
         >
-          <div className="flex flex-col items-center space-y-2 text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 transition-colors">
-            <span className="text-sm font-medium">Scroll Down</span>
-            <ChevronDown className="h-6 w-6 animate-bounce" />
+          <div className="flex items-center gap-2 text-sm font-medium text-stone-500 transition-colors hover:text-stone-950 dark:text-stone-400 dark:hover:text-white">
+            <span>Scroll</span>
+            <ArrowDown className="h-4 w-4" />
           </div>
         </div>
       </div>

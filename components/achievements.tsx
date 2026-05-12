@@ -3,8 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Brain, Award, Star } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
+import { Award, Star } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -53,14 +52,13 @@ export default function Achievements() {
     const ctx = gsap.context(() => {
       if (!titleRef.current || !timelineRef.current) return;
 
-      // Title animation
       gsap.fromTo(
         titleRef.current,
-        { opacity: 0, y: 50 },
+        { opacity: 0, y: 28 },
         {
           opacity: 1,
           y: 0,
-          duration: 1,
+          duration: 0.7,
           scrollTrigger: {
             trigger: titleRef.current,
             start: "top 80%",
@@ -69,16 +67,14 @@ export default function Achievements() {
         }
       );
 
-      // Timeline items animation
       gsap.fromTo(
         timelineRef.current.children,
-        { opacity: 0, x: -100, scale: 0.8 },
+        { opacity: 0, y: 24 },
         {
           opacity: 1,
-          x: 0,
-          scale: 1,
-          duration: 0.8,
-          stagger: 0.3,
+          y: 0,
+          duration: 0.55,
+          stagger: 0.1,
           ease: "power2.out",
           scrollTrigger: {
             trigger: timelineRef.current,
@@ -96,67 +92,56 @@ export default function Achievements() {
     <section
       id="achievements"
       ref={sectionRef}
-      className="py-20 bg-gray-50 dark:bg-[rgb(0,0,18)]"
+      className="py-24"
     >
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div ref={titleRef} className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-            My Key Achievements
-          </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-green-400 to-blue-500 mx-auto rounded-full" />
-          <p className="mt-6 text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Highlights of my contributions and successful projects.
+      <div className="section-shell">
+        <div ref={titleRef} className="mb-14 grid gap-5 lg:grid-cols-[0.75fr_1fr]">
+          <div>
+            <p className="section-kicker">Milestones</p>
+            <h2 className="section-title mt-3">Recognition and research outcomes.</h2>
+          </div>
+          <p className="section-copy lg:pt-10">
+            A few concrete markers from research, visualization, and hackathon work.
           </p>
         </div>
 
-        <div ref={timelineRef} className="relative">
-          {/* Timeline line */}
-          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-green-400 to-blue-500 hidden md:block" />
-
-          <div className="space-y-8">
+        <div ref={timelineRef} className="grid gap-px border border-stone-300/70 bg-stone-300/70 dark:border-white/10 dark:bg-white/10 lg:grid-cols-3">
             {achievementsData.map((achievement, index) => (
-              <div key={index} className="relative">
-                {/* Timeline dot */}
-                <div className="absolute left-6 top-6 w-4 h-4 bg-gradient-to-r from-green-400 to-blue-500 rounded-full border-4 border-white dark:border-gray-900 hidden md:block" />
-
-                <Card className="md:ml-16 group hover:shadow-lg transition-all duration-300 border-0 bg-white dark:bg-[rgb(0,0,18)] shadow-md">
-                  <CardContent className="p-6">
-                    <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-4">
-                      <div>
-                        <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-1">
+              <article key={index} className="bg-[#fbfaf7] p-6 dark:bg-[#080b10]">
+                    <div className="mb-5 flex items-start justify-between gap-4">
+                      <div className="space-y-3">
+                        <Award className="h-5 w-5 text-teal-700 dark:text-teal-300" />
+                        <h3 className="text-xl font-semibold tracking-tight text-stone-950 dark:text-white">
                           {achievement.title}
                         </h3>
-                        <div className="flex items-center text-blue-600 dark:text-blue-400 mb-2">
-                          <Award className="h-4 w-4 mr-2" />
+                        <div className="flex items-center text-sm text-teal-700 dark:text-teal-300">
                           <span className="font-medium">
                             {achievement.organization}
                           </span>
                         </div>
                       </div>
-                      <div className="flex flex-col sm:items-end space-y-1">
-                        <div className="flex items-center text-gray-500 dark:text-gray-400 text-sm">
-                          <Star className="h-4 w-4 mr-1" />
+                      <div className="flex items-center text-stone-500 dark:text-stone-400 text-sm">
+                          <Star className="h-4 w-4 mr-1 flex-none" />
                           <span>{achievement.period}</span>
-                        </div>
                       </div>
                     </div>
 
-                    <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+                    <p className="text-sm leading-7 text-stone-600 dark:text-stone-300">
                       {achievement.description}
                     </p>
 
                     {achievement.technologies &&
                       achievement.technologies.length > 0 && (
-                        <div className="mb-4">
-                          <h4 className="font-semibold text-gray-900 dark:text-white mb-2">
-                            Technologies Used:
+                        <div className="mt-6">
+                          <h4 className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-stone-500 dark:text-stone-400">
+                            Tools
                           </h4>
                           <div className="flex flex-wrap gap-2">
                             {achievement.technologies.map((tech) => (
                               <Badge
                                 key={tech}
                                 variant="outline"
-                                className="text-xs"
+                                className="rounded-none border-stone-300 bg-transparent text-xs text-stone-600 dark:border-white/10 dark:text-stone-300"
                               >
                                 {tech}
                               </Badge>
@@ -164,11 +149,8 @@ export default function Achievements() {
                           </div>
                         </div>
                       )}
-                  </CardContent>
-                </Card>
-              </div>
+              </article>
             ))}
-          </div>
         </div>
       </div>
     </section>

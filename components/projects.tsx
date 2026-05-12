@@ -3,10 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ExternalLink, Github, ChevronRight } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
+import { ArrowUpRight, ChevronDown, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -15,53 +13,38 @@ const projects = [
   {
     id: 1,
     title: "Animated Website Design",
-    description: "An animated and visually appealing website design",
+    description: "A motion-led web experience built with React, Tailwind CSS, and GSAP.",
     longDescription:
-      "Built a comprehensive e-commerce platform featuring user authentication, product catalog, shopping cart, payment processing, and admin dashboard. Implemented real-time inventory management and order tracking.",
+      "Designed and implemented an animated website experience with scroll timing, layered motion, and responsive page composition. The project focused on fluid transitions without compromising page structure.",
     image: "/A1.png",
     technologies: ["React", "Tailwind CSS", "GSAP"],
     github: "https://github.com/pshah-lab/animated-design-website",
     live: "https://animated-design-website.vercel.app/",
-    featured: true,
   },
   {
     id: 2,
     title: "NeuroArm Signal Flow",
     description:
-      "An interactive visualization of brain-signal processing for prosthetic arm control.",
+      "Interactive visualization of an EEG signal pipeline for prosthetic arm control.",
     longDescription:
-      "Built an interactive web-based system to demonstrate the complete EEG signal pipeline — from brainwave capture, preprocessing, classification, to prosthetic arm movement. Designed with modular components for extensibility and real-time visualization of signal flow.",
+      "Built a web-based system to demonstrate EEG capture, preprocessing, classification, and prosthetic movement intent. The interface makes a complex signal pipeline easier to inspect in real time.",
     image: "/neuro.png",
-    technologies: ["React", "TypeScript", "TailwindCSS", "D3.js", "Chart.js"],
+    technologies: ["React", "TypeScript", "Tailwind", "D3.js", "Chart.js"],
     github: "https://github.com/pshah-lab/NeuroArm",
     live: "https://neuro-arm.vercel.app/",
-    featured: true,
   },
   {
     id: 3,
-    title: "Abhinandan Mountreea Real Estate Website",
+    title: "Abhinandan Mountreea",
     description:
-      "A modern, responsive real estate website designed for smooth property showcasing and seamless user experience.",
+      "A responsive real estate website for showcasing residential and villa projects.",
     longDescription:
-      "Designed and developed a fully responsive real estate website for Abhinandan Mountreea with a clean UI, intuitive navigation, and an engaging layout. Focused on improving the brand’s digital presence by creating visually appealing pages, better content flow, and optimized loading performance to enhance user engagement.",
+      "Designed and developed a property showcase for Abhinandan Mountreea with a cleaner content flow, responsive pages, and smoother brand presentation for prospective buyers.",
     image: "/Abhinandan.png",
     technologies: ["React", "TypeScript", "JavaScript", "GSAP"],
     github: "",
     live: "https://www.abhinandanmountreea.com/",
-    featured: true,
-  }
-  // {
-  //   id: 4,
-  //   title: "Social Media Analytics",
-  //   description: "Analytics dashboard for social media performance tracking and insights.",
-  //   longDescription:
-  //     "Built a comprehensive analytics platform that aggregates data from multiple social media platforms, providing detailed insights, performance metrics, and automated reporting features.",
-  //   image: "/placeholder.svg?height=300&width=500",
-  //   technologies: ["React", "D3.js", "Python", "FastAPI", "Redis"],
-  //   github: "https://github.com/pshah-lab/animated-design-website",
-  //   live: "https://animated-design-website.vercel.app/",
-  //   featured: false,
-  // },
+  },
 ];
 
 export default function Projects() {
@@ -73,14 +56,14 @@ export default function Projects() {
   useEffect(() => {
     const ctx = gsap.context(() => {
       if (!titleRef.current || !projectsRef.current) return;
-      // Title animation
+
       gsap.fromTo(
         titleRef.current,
-        { opacity: 0, y: 50 },
+        { opacity: 0, y: 28 },
         {
           opacity: 1,
           y: 0,
-          duration: 1,
+          duration: 0.7,
           scrollTrigger: {
             trigger: titleRef.current,
             start: "top 80%",
@@ -89,20 +72,18 @@ export default function Projects() {
         }
       );
 
-      // Projects stagger animation
       gsap.fromTo(
         projectsRef.current.children,
-        { opacity: 0, y: 100, scale: 0.8 },
+        { opacity: 0, y: 36 },
         {
           opacity: 1,
           y: 0,
-          scale: 1,
-          duration: 0.8,
-          stagger: 0.2,
+          duration: 0.65,
+          stagger: 0.12,
           ease: "power2.out",
           scrollTrigger: {
             trigger: projectsRef.current,
-            start: "top 80%",
+            start: "top 82%",
             toggleActions: "play none none reverse",
           },
         }
@@ -117,161 +98,103 @@ export default function Projects() {
   };
 
   return (
-    <section
-      id="projects"
-      ref={sectionRef}
-      className="py-20 bg-white dark:bg-[rgb(0,0,18)]"
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div ref={titleRef} className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-            Featured Projects
-          </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full" />
-          <p className="mt-6 text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Here are some of my recent projects that showcase my skills and
-            passion for development.
+    <section id="projects" ref={sectionRef} className="py-24">
+      <div className="section-shell">
+        <div ref={titleRef} className="mb-14 grid gap-5 lg:grid-cols-[0.75fr_1fr]">
+          <div>
+            <p className="section-kicker">Selected work</p>
+            <h2 className="section-title mt-3">Projects that show the range: motion, product, systems.</h2>
+          </div>
+          <p className="section-copy lg:pt-10">
+            A short set of shipped work, with emphasis on real interfaces and technical execution.
           </p>
         </div>
 
-        <div ref={projectsRef} className="grid md:grid-cols-2 gap-8">
-          {projects.map((project) => (
-            <Card
+        <div ref={projectsRef} className="space-y-8">
+          {projects.map((project, index) => (
+            <article
               key={project.id}
-              className={`group overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 ${
-                project.featured ? "md:col-span-2 lg:col-span-1" : ""
-              }`}
+              className="group grid overflow-hidden border border-stone-300/70 bg-[#fbfaf7] dark:border-white/10 dark:bg-white/[0.03] lg:grid-cols-[0.96fr_1.04fr]"
             >
-              <div className="relative overflow-hidden">
+              <div className={`relative min-h-[280px] overflow-hidden lg:min-h-[430px] ${index % 2 === 1 ? "lg:order-2" : ""}`}>
                 <Image
-                  src={project.image || "/placeholder.svg"}
+                  src={project.image}
                   alt={project.title}
-                  width={500}
-                  height={300}
-                  className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                  fill
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  className="object-cover transition-transform duration-700 group-hover:scale-[1.035]"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="absolute top-4 right-4 flex space-x-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <Button
-                    size="sm"
-                    variant="secondary"
-                    className="rounded-full"
-                    asChild
-                  >
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <Github className="h-4 w-4" />
-                    </a>
-                  </Button>
-                  <Button
-                    size="sm"
-                    variant="secondary"
-                    className="rounded-full"
-                    asChild
-                  >
-                    <a
-                      href={project.live}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <ExternalLink className="h-4 w-4" />
-                    </a>
-                  </Button>
-                </div>
               </div>
 
-              <CardContent className="p-6">
-                <div className="flex items-start justify-between mb-3">
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+              <div className="flex flex-col justify-between p-6 sm:p-8 lg:p-10">
+                <div>
+                  <div className="flex items-center justify-between gap-6 border-b border-stone-300/70 pb-6 dark:border-white/10">
+                    <p className="text-sm font-medium text-stone-500 dark:text-stone-400">
+                      0{index + 1}
+                    </p>
+                    <div className="flex flex-wrap justify-end gap-2">
+                      {project.technologies.map((tech) => (
+                        <span
+                          key={tech}
+                          className="border border-stone-300 px-2.5 py-1 text-xs font-medium text-stone-600 dark:border-white/10 dark:text-stone-300"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <h3 className="mt-8 max-w-xl text-3xl font-semibold tracking-tight text-stone-950 dark:text-white">
                     {project.title}
                   </h3>
-                  {project.featured && (
-                    <Badge
-                      variant="secondary"
-                      className="bg-gradient-to-r from-blue-600 to-purple-600 text-white"
-                    >
-                      Featured
-                    </Badge>
-                  )}
+                  <p className="mt-4 max-w-xl text-base leading-8 text-stone-600 dark:text-stone-300">
+                    {expandedProject === project.id
+                      ? project.longDescription
+                      : project.description}
+                  </p>
                 </div>
 
-                <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
-                  {expandedProject === project.id
-                    ? project.longDescription
-                    : project.description}
-                </p>
-
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.technologies.map((tech) => (
-                    <Badge key={tech} variant="outline" className="text-xs">
-                      {tech}
-                    </Badge>
-                  ))}
-                </div>
-
-                <div className="flex items-center justify-between">
-                  <div className="flex space-x-3">
+                <div className="mt-10 flex flex-wrap items-center gap-3">
+                  {project.github && (
                     <Button
                       variant="outline"
                       size="sm"
-                      className="rounded-full bg-transparent"
+                      className="rounded-none border-stone-400 bg-transparent text-stone-900 shadow-none hover:bg-stone-200/70 dark:border-white/20 dark:text-white dark:hover:bg-white/10"
                       asChild
                     >
-                      <a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <Github className="h-4 w-4 mr-2" />
+                      <a href={project.github} target="_blank" rel="noopener noreferrer">
+                        <Github className="mr-2 h-4 w-4" />
                         Code
                       </a>
                     </Button>
-                    <Button
-                      size="sm"
-                      className="rounded-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
-                      asChild
-                    >
-                      <a
-                        href={project.live}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <ExternalLink className="h-4 w-4 mr-2" />
-                        Live Demo
-                      </a>
-                    </Button>
-                  </div>
-
+                  )}
+                  <Button
+                    size="sm"
+                    className="rounded-none bg-stone-950 text-white shadow-none hover:bg-teal-800 dark:bg-white dark:text-stone-950 dark:hover:bg-teal-200"
+                    asChild
+                  >
+                    <a href={project.live} target="_blank" rel="noopener noreferrer">
+                      Visit
+                      <ArrowUpRight className="ml-2 h-4 w-4" />
+                    </a>
+                  </Button>
                   <Button
                     variant="ghost"
                     size="sm"
                     onClick={() => toggleProject(project.id)}
-                    className="rounded-full"
+                    className="rounded-none text-stone-600 hover:bg-stone-200 hover:text-stone-950 dark:text-stone-300 dark:hover:bg-white/10 dark:hover:text-white"
                   >
-                    <ChevronRight
-                      className={`h-4 w-4 transition-transform ${
-                        expandedProject === project.id ? "rotate-90" : ""
+                    Details
+                    <ChevronDown
+                      className={`ml-2 h-4 w-4 transition-transform ${
+                        expandedProject === project.id ? "rotate-180" : ""
                       }`}
                     />
                   </Button>
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+            </article>
           ))}
-        </div>
-
-        <div className="text-center mt-12">
-          <Button
-            variant="outline"
-            size="lg"
-            className="rounded-full px-8 bg-transparent"
-          >
-            More projects coming soon...
-            <ChevronRight className="h-4 w-4 ml-2" />
-          </Button>
         </div>
       </div>
     </section>
