@@ -39,7 +39,7 @@ const experiences = [
     title: "Freelance Project",
     company: "Client Project",
     location: "Remote",
-    period: "2025 - Present",
+    period: "November 2025",
     description:
       "Independently developing the complete website for a Real Estate client, a luxury residential and villas showcase platform. Responsible for designing, coding, and deploying the entire project while ensuring a balance of performance, aesthetics, and usability.",
     achievements: [
