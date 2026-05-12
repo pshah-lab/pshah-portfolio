@@ -19,7 +19,7 @@ const testimonialsData: TestimonialItem[] = [
   {
     title: "Abhinandan Mountreea",
     organization: "Abhinandan Group",
-    period: "September 2025",
+    period: "November 2025",
     description:
       "The website reflects exactly what we had envisioned - a platform that communicates our brand values, showcases our flagship project, and builds trust with potential customers. His attention to detail, technical expertise, and timely delivery have truly impressed us.",
   },
