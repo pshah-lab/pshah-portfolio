@@ -95,7 +95,7 @@ export default function Hero() {
           <div ref={titleRef} className="space-y-5">
             <p className="section-kicker">Full-stack developer</p>
             <h1 className="max-w-4xl text-4xl font-semibold leading-[1] tracking-tight text-stone-950 sm:text-5xl lg:text-6xl 2xl:text-7xl dark:text-stone-50">
-              Pratham Shah builds precise web products.
+             Building precise web products.
             </h1>
           </div>
 
