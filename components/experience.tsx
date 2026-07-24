@@ -10,6 +10,32 @@ gsap.registerPlugin(ScrollTrigger);
 
 const experiences = [
   {
+  title: "Cloud Security Reliability Engineer Intern",
+  company: "Searce Inc.",
+  location: "Pune, India",
+  period: "Apr 15, 2026 – Present",
+  description:
+    "Cloud Reliability and FinOps internship focused on cloud cost optimization, resource efficiency, and operational reliability across Google Cloud environments.",
+  achievements: [
+    "Developed cloud cost optimization strategies by analyzing infrastructure utilization, identifying cost inefficiencies, and recommending resource rightsizing across Google Cloud environments.",
+    "Performed FinOps analysis using cloud billing data, usage analytics, and cost optimization techniques to improve resource efficiency while maintaining application reliability and performance.",
+    "Identified optimization opportunities through cloud resource utilization analysis, helping reduce unnecessary infrastructure spend while aligning with FinOps best practices.",
+    "Collaborated with engineering teams to balance cloud cost, performance, and reliability by providing actionable optimization recommendations.",
+    "Supported cloud governance initiatives by monitoring usage trends, cost allocation, and resource efficiency across GCP workloads."
+  ],
+  technologies: [
+    "Google Cloud Platform (GCP)",
+    "FinOps",
+    "Cloud Cost Optimization",
+    "Cloud Billing",
+    "Cost Analysis",
+    "Resource Rightsizing",
+    "Cloud Governance",
+    "Infrastructure Optimization",
+    "Cloud Reliability"
+  ]
+},
+  {
     title: "Full-Stack Engineering Intern",
     company: "NeuraMach AI Studios",
     location: "Pune, India",
