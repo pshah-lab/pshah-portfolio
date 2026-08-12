@@ -13,7 +13,7 @@ export default function Blackhole() {
   }
 
   return (
-    <div className="pointer-events-none absolute inset-x-0 top-0 z-0 -mt-[13.5%] flex justify-center overflow-hidden opacity-40">
+    <div className="pointer-events-none absolute inset-x-0 top-0 z-0 -mt-[140px] md:-mt-[165px] lg:-mt-[200px] flex justify-center overflow-hidden opacity-40">
       <video
         autoPlay
         loop
