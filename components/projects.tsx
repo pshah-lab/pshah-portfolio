@@ -119,8 +119,10 @@ export default function Projects() {
               <div className={`relative min-h-[280px] overflow-hidden lg:min-h-[430px] ${index % 2 === 1 ? "lg:order-2" : ""}`}>
                 <Image
                   src={project.image}
-                  alt={project.title}
+                  alt={`${project.title} - ${project.description}`}
                   fill
+                  priority={index === 0}
+                  quality={85}
                   sizes="(min-width: 1024px) 50vw, 100vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-[1.035]"
                 />

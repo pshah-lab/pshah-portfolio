@@ -92,14 +92,20 @@ export default function About() {
   }, []);
 
   return (
-    <section id="about" ref={sectionRef} className="py-24">
+    <section
+      id="about"
+      ref={sectionRef}
+      className="py-24"
+      itemScope
+      itemType="https://schema.org/Person"
+    >
       <div className="section-shell">
         <div ref={titleRef} className="mb-14 grid gap-5 lg:grid-cols-[0.75fr_1fr]">
           <div>
             <p className="section-kicker">About</p>
             <h2 className="section-title mt-3">Engineering with enough taste to keep the interface honest.</h2>
           </div>
-          <p className="section-copy lg:pt-10">
+          <p className="section-copy lg:pt-10" itemProp="description">
             I build full-stack web products that need both a solid technical foundation and a polished front end.
             My recent work spans real estate websites, animated product experiences, and BCI signal visualization.
           </p>

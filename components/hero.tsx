@@ -93,16 +93,15 @@ export default function Hero() {
       <div className="section-shell relative z-30 grid min-h-[calc(100vh-5rem)] items-center gap-10 py-8 lg:grid-cols-[1.02fr_0.98fr]">
         <div className="max-w-4xl space-y-6">
           <div ref={titleRef} className="space-y-5">
-            <p className="section-kicker">Full-stack developer</p>
-            <h1 className="max-w-4xl text-4xl font-semibold leading-[1] tracking-tight text-stone-950 sm:text-5xl lg:text-6xl 2xl:text-7xl dark:text-stone-50">
-             Building precise web products.
+            <p className="section-kicker">Pratham Shah</p>
+            <h1 className="max-w-4xl text-4xl font-semibold leading-[1.08] tracking-tight text-stone-950 sm:text-5xl lg:text-6xl 2xl:text-7xl dark:text-stone-50">
+              Full-Stack Developer & Cloud Engineer.
             </h1>
           </div>
 
           <div ref={subtitleRef}>
             <p className="max-w-2xl text-lg leading-8 text-stone-700 dark:text-stone-300">
-              React, Next.js, Node.js, and applied AI work across polished
-              interfaces, secure APIs, and signal-driven systems with engineering depth.
+              Building precise web products across React, Next.js, Node.js, AWS/GCP infrastructure, and signal-driven BCI applications with engineering depth.
             </p>
           </div>
 
@@ -128,10 +127,10 @@ export default function Hero() {
             </div>
             <div>
               <p className="text-2xl font-semibold text-stone-950 dark:text-white">
-                AWS
+                GCP / AWS
               </p>
               <p className="text-sm text-stone-500 dark:text-stone-400">
-                backend delivery
+                cloud & FinOps
               </p>
             </div>
           </div>
@@ -148,7 +147,7 @@ export default function Hero() {
               View work
               <ArrowUpRight className="ml-2 h-4 w-4" />
             </Button>
-            <a href="/Pratham_Resume.pdf" download>
+            <a href="/Pratham_Resume.pdf" download aria-label="Download Pratham Shah's Resume PDF">
               <Button
                 variant="outline"
                 size="lg"
@@ -164,10 +163,12 @@ export default function Hero() {
               href="https://github.com/pshah-lab"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="GitHub Profile"
             >
               <Button
                 variant="ghost"
                 size="icon"
+                aria-label="GitHub Profile"
                 className="rounded-none text-stone-600 hover:bg-stone-200 hover:text-stone-950 dark:text-stone-300 dark:hover:bg-white/10 dark:hover:text-white"
               >
                 <Github className="h-5 w-5" />
@@ -178,10 +179,12 @@ export default function Hero() {
               href="https://linkedin.com/in/pratham-shah-729432258/"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="LinkedIn Profile"
             >
               <Button
                 variant="ghost"
                 size="icon"
+                aria-label="LinkedIn Profile"
                 className="rounded-none text-stone-600 hover:bg-stone-200 hover:text-stone-950 dark:text-stone-300 dark:hover:bg-white/10 dark:hover:text-white"
               >
                 <Linkedin className="h-5 w-5" />
@@ -192,10 +195,12 @@ export default function Hero() {
               href="mailto:pshah88669@gmail.com"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Email Pratham Shah"
             >
               <Button
                 variant="ghost"
                 size="icon"
+                aria-label="Email Pratham Shah"
                 className="rounded-none text-stone-600 hover:bg-stone-200 hover:text-stone-950 dark:text-stone-300 dark:hover:bg-white/10 dark:hover:text-white"
               >
                 <Mail className="h-5 w-5" />

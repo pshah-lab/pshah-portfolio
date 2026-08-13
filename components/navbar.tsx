@@ -81,9 +81,13 @@ export default function Navbar() {
           <div className="hidden md:block">
             <div className="ml-10 flex items-center gap-1">
               {navItems.map((item) => (
-                <button
+                <a
                   key={item.name}
-                  onClick={() => scrollToSection(item.href)}
+                  href={item.href}
+                  onClick={(e) => {
+                    e.preventDefault()
+                    scrollToSection(item.href)
+                  }}
                   className={`px-3 py-2 text-sm font-medium transition-colors duration-200 ${
                     activeSection === item.href.substring(1)
                       ? "text-teal-700 dark:text-teal-300"
@@ -91,7 +95,7 @@ export default function Navbar() {
                   }`}
                 >
                   {item.name}
-                </button>
+                </a>
               ))}
             </div>
           </div>
@@ -114,6 +118,7 @@ export default function Navbar() {
                 variant="ghost"
                 size="icon"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
+                aria-label={isMenuOpen ? "Close menu" : "Open menu"}
                 className="rounded-full text-stone-700 hover:bg-stone-200/70 hover:text-stone-950 focus-visible:ring-teal-600 dark:text-stone-100 dark:hover:bg-white/10 dark:hover:text-white dark:focus-visible:ring-teal-300"
               >
                 <span className="sr-only">{isMenuOpen ? "Close menu" : "Open menu"}</span>
@@ -128,9 +133,13 @@ export default function Navbar() {
           <div className="md:hidden">
             <div className="space-y-1 border-t border-stone-300/70 bg-[#f7f4ee] px-2 pb-3 pt-2 dark:border-white/10 dark:bg-[#080b10] sm:px-3">
               {navItems.map((item) => (
-                <button
+                <a
                   key={item.name}
-                  onClick={() => scrollToSection(item.href)}
+                  href={item.href}
+                  onClick={(e) => {
+                    e.preventDefault()
+                    scrollToSection(item.href)
+                  }}
                   className={`block px-3 py-2 rounded-md text-base font-medium w-full text-left transition-colors duration-200 ${
                     activeSection === item.href.substring(1)
                       ? "text-teal-700 bg-teal-900/5 dark:text-teal-300 dark:bg-teal-300/10"
@@ -138,7 +147,7 @@ export default function Navbar() {
                   }`}
                 >
                   {item.name}
-                </button>
+                </a>
               ))}
             </div>
           </div>
