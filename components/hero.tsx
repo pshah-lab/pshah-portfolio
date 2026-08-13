@@ -141,13 +141,19 @@ export default function Hero() {
           >
             <Button
               size="lg"
+              data-agent-action="view-work"
               className="rounded-none bg-stone-950 px-7 py-6 text-base font-medium text-white shadow-none hover:bg-teal-800 dark:bg-white dark:text-stone-950 dark:hover:bg-teal-200"
               onClick={scrollToAbout}
             >
               View work
               <ArrowUpRight className="ml-2 h-4 w-4" />
             </Button>
-            <a href="/Pratham_Resume.pdf" download aria-label="Download Pratham Shah's Resume PDF">
+            <a
+              href="/Pratham_Resume.pdf"
+              download
+              aria-label="Download Pratham Shah's Resume PDF"
+              data-agent-action="download-resume"
+            >
               <Button
                 variant="outline"
                 size="lg"
