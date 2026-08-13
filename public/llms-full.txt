@@ -1,0 +1,107 @@
+# Pratham Shah — Complete Professional & Technical Profile
+
+> Full Stack Developer, Cloud Engineer (GCP/AWS), and AI/BCI Signal Processing Researcher.
+> Portfolio: https://pshah.fun | Contact: pshah88669@gmail.com
+
+---
+
+## Executive Overview
+Pratham Shah is a Full Stack Developer and Cloud Reliability Engineer based in Pune, India. He builds precise, high-performance web interfaces, secure serverless cloud architectures (AWS & GCP), and applied machine learning tools for Brain-Computer Interfaces (BCI).
+
+### Core Links
+- **Portfolio Website**: https://pshah.fun
+- **GitHub**: https://github.com/pshah-lab
+- **LinkedIn**: https://linkedin.com/in/pratham-shah-729432258/
+- **X / Twitter**: https://x.com/pshah_lab
+- **Email**: pshah88669@gmail.com
+- **Resume**: https://pshah.fun/Pratham_Resume.pdf
+
+---
+
+## Detailed Professional Experience
+
+### 1. Cloud Security Reliability Engineer Intern — Searce Inc.
+- **Duration**: April 15, 2026 – Present
+- **Location**: Pune, India
+- **Focus Areas**: Google Cloud Platform (GCP), FinOps, Cloud Cost Optimization, Infrastructure Optimization, Resource Rightsizing, Cloud Reliability.
+- **Key Technical Achievements**:
+  - Developed cloud cost optimization strategies by analyzing infrastructure utilization, identifying cost inefficiencies, and recommending resource rightsizing across Google Cloud environments.
+  - Performed FinOps analysis using cloud billing data, usage analytics, and cost optimization techniques to improve resource efficiency while maintaining application reliability and performance.
+  - Identified optimization opportunities through cloud resource utilization analysis, helping reduce unnecessary infrastructure spend while aligning with FinOps best practices.
+  - Collaborated with engineering teams to balance cloud cost, performance, and reliability by providing actionable optimization recommendations.
+  - Supported cloud governance initiatives by monitoring usage trends, cost allocation, and resource efficiency across GCP workloads.
+
+### 2. Full-Stack Engineering Intern — NeuraMach AI Studios
+- **Duration**: January 12, 2026 – April 11, 2026
+- **Location**: Pune, India
+- **Technologies Used**: Node.js, AWS API Gateway, AWS Lambda, DynamoDB, SES, S3, CloudFront, Next.js, CI/CD.
+- **Key Technical Achievements**:
+  - Re-architected backend infrastructure from AppSync to API Gateway, Lambda, DynamoDB, and SES, eliminating public data exposure and improving API security.
+  - Built REST endpoints and Lambda handlers in Node.js with strict validation schemas and DynamoDB persistence.
+  - Implemented abuse-resistant submission pipeline with multi-window rate limiting (IP/email), input validation, and injection protection.
+  - Architected secure HLS video delivery using AWS S3 + CloudFront with signed cookies and role-based access control.
+  - Resolved 15+ cross-layer production issues across Next.js, Node.js, CI/CD pipelines, and AWS services, reducing overall deployment failures by 40%.
+
+### 3. Freelance Full-Stack Project — Abhinandan Mountreea
+- **Duration**: November 2025
+- **Location**: Remote
+- **Technologies Used**: React, Next.js, GSAP, Tailwind CSS, JavaScript, TypeScript.
+- **Key Technical Achievements**:
+  - Independently designed, built, and deployed the complete showcase website for a real estate client selling luxury residential properties and villas.
+  - Built fluid animations, responsive layouts, fast page loading speeds, and clear buyer lead capture flows.
+
+### 4. Research Developer (BCI NeuroArm) — IS360 Technologies
+- **Duration**: July 2024 – December 2024
+- **Location**: Pune, India
+- **Technologies Used**: Python, TensorFlow, Scikit-learn, Matplotlib, EEG Signal Processing.
+- **Key Technical Achievements**:
+  - Developed a Neuro Signal Classifier for the BCI NeuroArm prosthetic control project.
+  - Engineered an end-to-end EEG signal processing pipeline to acquire, clean, preprocess, and classify brain signal data to predict movement intent (left arm vs right arm movement).
+  - Designed and trained ML classification models achieving high accuracy in intent prediction.
+  - Created real-time visualization components mapping classified neural signals into motor outputs.
+
+---
+
+## Detailed Project Catalog
+
+### Project 1: NeuroArm Signal Flow
+- **Description**: Interactive web visualization of an EEG signal processing pipeline for prosthetic arm control.
+- **Technical Stack**: React, TypeScript, Tailwind CSS, D3.js, Chart.js.
+- **Live Demo**: https://neuro-arm.vercel.app/
+- **GitHub Code**: https://github.com/pshah-lab/NeuroArm
+- **Key Features**: Visualizes raw EEG signal acquisition, filter stages, spectral analysis, ML feature extraction, classification output, and arm motor commands in real time.
+
+### Project 2: Animated Website Design
+- **Description**: Motion-led modern web application demonstrating fluid scroll timing, layered canvas motion, and responsive layout composition.
+- **Technical Stack**: React, Tailwind CSS, GSAP (GreenSock Animation Platform), JavaScript.
+- **Live Demo**: https://animated-design-website.vercel.app/
+- **GitHub Code**: https://github.com/pshah-lab/animated-design-website
+- **Key Features**: Micro-interactions, scroll-driven timelines, dark/light theme integration, high frame-rate animations.
+
+### Project 3: Abhinandan Mountreea
+- **Description**: Commercial real estate portfolio website showcasing residential projects and luxury villas.
+- **Technical Stack**: React, TypeScript, GSAP, Tailwind CSS, Next.js.
+- **Live Demo**: https://www.abhinandanmountreea.com/
+- **Key Features**: High-definition image galleries, property layout showcases, contact inquiry forms, and cross-device performance optimization.
+
+---
+
+## Comprehensive Skills Matrix
+
+| Category | Technologies / Frameworks / Tools |
+|---|---|
+| **Frontend Engineering** | React.js, Next.js (App Router), TypeScript, JavaScript (ES6+), HTML5, CSS3, Tailwind CSS, GSAP, Three.js, React Three Fiber, D3.js, Recharts |
+| **Backend & APIs** | Node.js, Express.js, RESTful APIs, AWS Lambda, API Gateway, DynamoDB, Amazon SES, Serverless Architecture, WebSockets |
+| **Cloud & FinOps** | Google Cloud Platform (GCP), GCP Billing Analytics, FinOps Principles, Cost Optimization, Resource Rightsizing, AWS S3, AWS CloudFront Signed Cookies, Cloud Security |
+| **AI, ML & Research** | Python, TensorFlow, Scikit-learn, EEG Signal Processing, Brain-Computer Interfaces (BCI), Data Visualization, Matplotlib |
+| **DevOps & Workflows** | Git, GitHub Actions, Vercel, Postman, Linux CLI, npm/pnpm, Performance Optimization, Web Vitals |
+
+---
+
+## Contact & Inquiry Information
+For software engineering roles, cloud optimization consulting, or full-stack web builds:
+- **Email**: pshah88669@gmail.com
+- **Website**: https://pshah.fun
+- **LinkedIn**: https://linkedin.com/in/pratham-shah-729432258/
+- **GitHub**: https://github.com/pshah-lab
+- **X**: https://x.com/pshah_lab

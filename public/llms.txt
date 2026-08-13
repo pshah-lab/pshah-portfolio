@@ -1,0 +1,56 @@
+# Pratham Shah
+
+> Full Stack Developer & Cloud Engineer specializing in React, Next.js, Node.js, Cloud (GCP/AWS), and AI/BCI Signal Processing.
+
+## Summary
+Pratham Shah is a Full Stack Developer and Cloud Engineer based in Pune, India. He builds scalable web applications, serverless backend architectures, cloud cost-optimization strategies, and real-time EEG signal processing interfaces for Brain-Computer Interfaces (BCI).
+
+- **Website**: https://pshah.fun
+- **GitHub**: https://github.com/pshah-lab
+- **LinkedIn**: https://linkedin.com/in/pratham-shah-729432258/
+- **X / Twitter**: https://x.com/pshah_lab
+- **Email**: pshah88669@gmail.com
+- **Resume**: https://pshah.fun/Pratham_Resume.pdf
+
+## Current & Recent Roles
+
+### Cloud Security Reliability Engineer Intern — Searce Inc.
+*Apr 2026 – Present | Pune, India*
+- Focused on Google Cloud Platform (GCP) cost optimization, resource rightsizing, FinOps analytics, and infrastructure reliability.
+- Analyzed infrastructure utilization to eliminate cost inefficiencies across GCP workloads.
+
+### Full-Stack Engineering Intern — NeuraMach AI Studios
+*Jan 2026 – Apr 2026 | Pune, India*
+- Re-architected backend infrastructure from AppSync to AWS API Gateway, Lambda, DynamoDB, SES, S3, and CloudFront.
+- Built abuse-resistant API submission pipelines with rate limiting and secure HLS video delivery with CloudFront signed cookies.
+- Reduced overall deployment failures by 40%.
+
+### Research Developer (BCI NeuroArm) — IS360 Technologies
+*Jul 2024 – Dec 2024 | Pune, India*
+- Developed EEG signal processing pipeline for prosthetic movement intent classification (left vs right arm).
+- Trained machine learning models (TensorFlow, Scikit-learn) and built interactive signal visualization tools.
+
+### Freelance Full-Stack Developer
+*Nov 2025*
+- Built complete showcase website for luxury residential real estate client (Abhinandan Mountreea) with React, Next.js, GSAP, and Tailwind CSS.
+
+## Key Technical Skills
+
+- **Frontend**: React.js, Next.js (App Router), TypeScript, JavaScript, Tailwind CSS, GSAP, Three.js / React Three Fiber, D3.js.
+- **Backend & Cloud**: Node.js, Express, AWS (API Gateway, Lambda, DynamoDB, S3, CloudFront, SES), GCP (FinOps, Billing, Resource Rightsizing), REST APIs.
+- **AI & Signal Processing**: Python, TensorFlow, Scikit-learn, EEG signal classification, Matplotlib.
+- **DevOps & Tools**: Git, GitHub, Postman, Vercel, CI/CD.
+
+## Featured Projects
+
+1. **NeuroArm Signal Flow** ([Live Demo](https://neuro-arm.vercel.app/) | [GitHub](https://github.com/pshah-lab/NeuroArm))
+   - Interactive visualization of an EEG signal pipeline for prosthetic arm control using React, TypeScript, D3.js, and Chart.js.
+
+2. **Animated Website Design** ([Live Demo](https://animated-design-website.vercel.app/) | [GitHub](https://github.com/pshah-lab/animated-design-website))
+   - Motion-led web experience built with React, Tailwind CSS, and GSAP showcasing advanced scroll animations.
+
+3. **Abhinandan Mountreea** ([Live Demo](https://www.abhinandanmountreea.com/))
+   - Responsive real estate website featuring property showcases, luxury villa tours, and interactive animations.
+
+## Optional & Detailed Context
+- For full background, detailed project architectures, and complete credentials, see [llms-full.txt](https://pshah.fun/llms-full.txt).
