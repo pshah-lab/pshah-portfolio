@@ -16,7 +16,7 @@ const projects = [
     description: "A motion-led web experience built with React, Tailwind CSS, and GSAP.",
     longDescription:
       "Designed and implemented an animated website experience with scroll timing, layered motion, and responsive page composition. The project focused on fluid transitions without compromising page structure.",
-    image: "/A1.png",
+    image: "/A1.webp",
     technologies: ["React", "Tailwind CSS", "GSAP"],
     github: "https://github.com/pshah-lab/animated-design-website",
     live: "https://animated-design-website.vercel.app/",
@@ -28,7 +28,7 @@ const projects = [
       "Interactive visualization of an EEG signal pipeline for prosthetic arm control.",
     longDescription:
       "Built a web-based system to demonstrate EEG capture, preprocessing, classification, and prosthetic movement intent. The interface makes a complex signal pipeline easier to inspect in real time.",
-    image: "/neuro.png",
+    image: "/neuro.webp",
     technologies: ["React", "TypeScript", "Tailwind", "D3.js", "Chart.js"],
     github: "https://github.com/pshah-lab/NeuroArm",
     live: "https://neuro-arm.vercel.app/",
@@ -40,7 +40,7 @@ const projects = [
       "A responsive real estate website for showcasing residential and villa projects.",
     longDescription:
       "Designed and developed a property showcase for Abhinandan Mountreea with a cleaner content flow, responsive pages, and smoother brand presentation for prospective buyers.",
-    image: "/Abhinandan.png",
+    image: "/Abhinandan.webp",
     technologies: ["React", "TypeScript", "JavaScript", "GSAP"],
     github: "",
     live: "https://www.abhinandanmountreea.com/",

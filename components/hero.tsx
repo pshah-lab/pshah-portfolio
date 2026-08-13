@@ -217,7 +217,7 @@ export default function Hero() {
               <span className="h-2 w-2 rounded-full bg-yellow-300" />
               <span className="h-2 w-2 rounded-full bg-emerald-400" />
             </div>
-            <div className="flex h-full items-end bg-[url('/neuro.png')] bg-cover bg-center">
+            <div className="flex h-full items-end bg-[url('/neuro.webp')] bg-cover bg-center">
               <div className="w-full bg-gradient-to-t from-black/90 via-black/60 to-transparent p-7 pt-28 text-white">
                 <p className="text-xs uppercase tracking-[0.28em] text-teal-200">
                   Selected work
