@@ -45,6 +45,9 @@ export const metadata: Metadata = {
   authors: [{ name: "Pratham Shah", url: siteUrl }],
   creator: "Pratham Shah",
   publisher: "Pratham Shah",
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION || "",
+  },
   formatDetection: {
     email: true,
     address: false,
