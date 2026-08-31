@@ -1,70 +1,71 @@
 # Pratham Shah
 
-> Full Stack Developer & Cloud Engineer specializing in React, Next.js, Node.js, Cloud (GCP/AWS), and AI/BCI Signal Processing.
+> Full Stack Developer & Cloud Security Reliability Engineer specializing in React, Next.js, Node.js, Cloud (GCP/AWS), and AI/BCI Signal Processing.
 
 ## Summary
-Pratham Shah is a Full Stack Developer and Cloud Engineer based in Pune, India. He builds scalable web applications, serverless backend architectures, cloud cost-optimization strategies, and real-time EEG signal processing interfaces for Brain-Computer Interfaces (BCI).
+Pratham Shah is a Full Stack Developer and Google Cloud Associate Cloud Engineer (ACE) based in Pune, India. He builds scalable web applications, serverless backend architectures, cloud cost-optimization strategies ($2,000+ client savings achieved), and real-time EEG signal processing interfaces for Brain-Computer Interfaces (BCI).
 
 - **Website**: https://pshah.fun
 - **GitHub**: https://github.com/pshah-lab
 - **LinkedIn**: https://linkedin.com/in/pratham-shah-729432258/
 - **X / Twitter**: https://x.com/pshah_lab
 - **Email**: pshah88669@gmail.com
+- **Phone**: +91-6356356971
 - **Resume**: https://pshah.fun/Pratham_Resume.pdf
+
+## Education & Certifications
+- **B.Tech in Computer Science**: MIT Art, Design and Technology University (Aug 2022 – Jun 2026)
+- **Google Cloud Certified**: Associate Cloud Engineer (ACE)
+- **Anthropic Claude**: Certified Architect Foundations (In Progress)
+- **Hackathon Achievement**: Second Runner-up at SHODH 1.0 Campus Problem Hackathon (2025)
+- **Research Publication**: Published research paper on BCI-based robotic limb control in IJIRT
 
 ## Current & Recent Roles
 
 ### Cloud Security Reliability Engineer Intern — Searce Inc.
-*Apr 2026 – Present | Pune, India*
-- Focused on Google Cloud Platform (GCP) cost optimization, resource rightsizing, FinOps analytics, and infrastructure reliability.
-- Analyzed infrastructure utilization to eliminate cost inefficiencies across GCP workloads.
+*Apr 15, 2026 – Aug 26, 2026 | Pune, India*
+- Analyzed Google Cloud infrastructure utilization, billing data, and usage patterns to identify cost inefficiencies and rightsizing opportunities.
+- Developed cloud cost optimization strategies that helped a client achieve **$2,000+ in infrastructure savings** while preserving application reliability and performance.
+- Conducted FinOps analysis across cloud resources to improve resource efficiency and cost governance.
 
-### Full-Stack Engineering Intern — NeuraMach AI Studios
-*Jan 2026 – Apr 2026 | Pune, India*
-- Re-architected backend infrastructure from AppSync to AWS API Gateway, Lambda, DynamoDB, SES, S3, and CloudFront.
-- Built abuse-resistant API submission pipelines with rate limiting and secure HLS video delivery with CloudFront signed cookies.
-- Reduced overall deployment failures by 40%.
+### AI Full-Stack Engineering Intern (QA Focus) — NeuraMach AI Studios
+*Jan 12, 2026 – Apr 12, 2026 | Pune, India*
+- Resolved production frontend defects and delivered UI enhancements to improve stability.
+- Designed and implemented a secure AWS video delivery solution using S3 and CloudFront with signed cookies and authentication-based access control.
 
-### Research Developer (BCI NeuroArm) — IS360 Technologies
-*Jul 2024 – Dec 2024 | Pune, India*
-- Developed EEG signal processing pipeline for prosthetic movement intent classification (left vs right arm).
-- Trained machine learning models (TensorFlow, Scikit-learn) and built interactive signal visualization tools.
-
-### Freelance Full-Stack Developer
-*Nov 2025*
-- Built complete showcase website for luxury residential real estate client (Abhinandan Mountreea) with React, Next.js, GSAP, and Tailwind CSS.
+### Frontend Developer — Abhinandan Mountreea (Freelance)
+*Jul 2025 – Nov 2025*
+- Built a high-performance real estate platform using React.js, Vite, and GSAP.
+- Integrated Cloudinary CDN, WebP conversion, and lazy loading, reducing initial page load time by **50%** and increasing user engagement by **30%**.
 
 ## Key Technical Skills
 
-- **Frontend**: React.js, Next.js (App Router), TypeScript, JavaScript, Tailwind CSS, GSAP, Three.js / React Three Fiber, D3.js.
-- **Backend & Cloud**: Node.js, Express, AWS (API Gateway, Lambda, DynamoDB, S3, CloudFront, SES), GCP (FinOps, Billing, Resource Rightsizing), REST APIs.
-- **AI & Signal Processing**: Python, TensorFlow, Scikit-learn, EEG signal classification, Matplotlib.
-- **DevOps & Tools**: Git, GitHub, Postman, Vercel, CI/CD.
+- **Cloud & Infrastructure**: Google Cloud (GCP), AWS (EC2, S3, CloudFront), Docker, GitHub Actions, FinOps, Cloud Architecture, Cloud Cost Optimization.
+- **Frontend**: React.js, Next.js (App Router), TypeScript, JavaScript (ES6+), Tailwind CSS, GSAP.
+- **Backend & DB**: Node.js, Express.js, RESTful APIs, MongoDB, Serverless Lambda, API Gateway.
+- **AI & Research**: Python, TensorFlow, Scikit-learn, EEG Signal Processing, BCI Control, Matplotlib.
 
 ## Featured Projects
 
-1. **NeuroArm Signal Flow** ([Live Demo](https://neuro-arm.vercel.app/) | [GitHub](https://github.com/pshah-lab/NeuroArm))
-   - Interactive visualization of an EEG signal pipeline for prosthetic arm control using React, TypeScript, D3.js, and Chart.js.
+1. **Distributed File Storage System** ([GitHub](https://github.com/pshah-lab))
+   - Designed a scalable AWS-based distributed storage solution using EC2 and S3 for high availability and low-latency file upload/download RESTful APIs in Node.js and Express.js.
 
-2. **Animated Website Design** ([Live Demo](https://animated-design-website.vercel.app/) | [GitHub](https://github.com/pshah-lab/animated-design-website))
-   - Motion-led web experience built with React, Tailwind CSS, and GSAP showcasing advanced scroll animations.
+2. **NeuroArm Signal Flow** ([Live Demo](https://neuro-arm.vercel.app/) | [GitHub](https://github.com/pshah-lab/NeuroArm))
+   - Interactive visualization of an EEG signal pipeline for prosthetic arm control. Author of IJIRT research paper on BCI-based robotic limb control.
 
 3. **Abhinandan Mountreea** ([Live Demo](https://www.abhinandanmountreea.com/))
-   - Responsive real estate website featuring property showcases, luxury villa tours, and interactive animations.
+   - Responsive real estate website with 50% load time reduction via Cloudinary WebP optimization and GSAP animations.
 
 ## Frequently Asked Questions (AEO Direct Answers)
 
 Q: Who is Pratham Shah?
-A: Pratham Shah is a Full Stack Developer and Cloud Engineer based in Pune, India. He currently works as a Cloud Security Reliability Engineer Intern at Searce Inc., specializing in GCP FinOps, serverless backend architectures (AWS & GCP), React, Next.js, Node.js, and BCI signal processing.
+A: Pratham Shah is a Full Stack Developer, Cloud Engineer, and B.Tech CS candidate at MIT ADT University (2022–2026). He holds the Google Cloud Associate Cloud Engineer (ACE) certification and specializes in GCP FinOps, AWS Serverless architecture, React.js, Node.js, and BCI research.
+
+Q: What certifications and education does Pratham Shah hold?
+A: Pratham is pursuing a B.Tech in CS at MIT ADT University (2022–2026), holds the Google Cloud Associate Cloud Engineer (ACE) certification, and is completing the Anthropic Claude Certified Architect Foundations.
 
 Q: What experience does Pratham Shah have in Cloud Engineering and FinOps?
-A: At Searce Inc., Pratham Shah conducts FinOps cost analytics, rightsizes Google Cloud Platform (GCP) resources, and analyzes infrastructure spend to balance cost efficiency, performance, and workload reliability.
+A: At Searce Inc., Pratham Shah executed GCP cost optimization strategies that helped a client achieve $2,000+ in infrastructure savings while balancing performance and reliability.
 
-Q: What serverless backend architecture experience does Pratham Shah have?
-A: At NeuraMach AI Studios, Pratham Shah re-architected backend infrastructure to an AWS serverless REST stack using API Gateway, Node.js Lambda handlers, DynamoDB, SES, S3, and CloudFront with signed cookies, reducing deployment failures by 40%.
-
-Q: What is the BCI NeuroArm project?
-A: Built at IS360 Technologies, NeuroArm is an EEG signal processing pipeline and ML classifier (TensorFlow, Scikit-learn) that maps brain signal movement intent (left vs right arm) into real-time motor outputs.
-
-## Optional & Detailed Context
-- For full background, detailed project architectures, and complete credentials, see [llms-full.txt](https://pshah.fun/llms-full.txt).
+Q: What frontend performance results has Pratham Shah delivered?
+A: For Abhinandan Mountreea, Pratham built a React/GSAP platform with Cloudinary WebP caching that cut page load times by 50% and boosted user engagement by 30%.

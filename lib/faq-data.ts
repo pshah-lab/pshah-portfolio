@@ -8,37 +8,43 @@ export const faqItems: FAQItem[] = [
   {
     question: "Who is Pratham Shah?",
     answer:
-      "Pratham Shah is a Full Stack Developer and Cloud Engineer based in Pune, India. He currently works as a Cloud Security Reliability Engineer Intern at Searce Inc., specializing in Google Cloud Platform (GCP) cost optimization, serverless architectures (AWS & GCP), React, Next.js, Node.js, and Brain-Computer Interface (BCI) EEG signal processing.",
+      "Pratham Shah is a Full Stack Developer, Cloud Engineer, and B.Tech Computer Science candidate at MIT Art, Design and Technology University (2022–2026). He is a certified Google Cloud Associate Cloud Engineer (ACE) specializing in Google Cloud FinOps, AWS Serverless architecture, React.js, Node.js, and BCI signal processing.",
     category: "General",
+  },
+  {
+    question: "What certifications and education does Pratham Shah hold?",
+    answer:
+      "Pratham Shah is pursuing a B.Tech in Computer Science at MIT Art, Design and Technology University (Aug 2022 – Jun 2026). He holds the official Google Cloud Associate Cloud Engineer (ACE) certification and is currently pursuing the Anthropic Claude Certified Architect Foundations.",
+    category: "Education & Credentials",
   },
   {
     question: "What experience does Pratham Shah have in Cloud Engineering and FinOps?",
     answer:
-      "At Searce Inc., Pratham Shah analyzes Google Cloud Platform (GCP) infrastructure utilization, conducts FinOps cost analytics, performs resource rightsizing, and monitors billing data to optimize cloud spend while ensuring high application availability and operational reliability.",
+      "As a Cloud Security Reliability Engineer Intern at Searce Inc. (Apr 2026 – Aug 2026), Pratham Shah analyzed Google Cloud Platform (GCP) infrastructure utilization, billing data, and usage patterns. He developed cost optimization strategies that helped a client achieve $2,000+ in infrastructure savings while preserving application performance and reliability.",
     category: "Cloud",
   },
   {
-    question: "What serverless backend architecture experience does Pratham Shah have?",
+    question: "What AWS and backend engineering projects has Pratham Shah built?",
     answer:
-      "At NeuraMach AI Studios, Pratham Shah re-architected backend infrastructure from AppSync to an AWS serverless REST stack using API Gateway, Node.js Lambda handlers, DynamoDB, SES, S3, and CloudFront with signed cookies. He implemented rate limiting, input validation, and secure HLS video delivery, reducing deployment failures by 40%.",
+      "At NeuraMach AI Studios, Pratham designed a secure AWS video delivery solution using S3 and CloudFront with signed cookies and access control. Independently, he built a Distributed File Storage System using AWS EC2, S3, Node.js, and Express.js for fault-tolerant, high-availability file uploading and sharing.",
     category: "Backend",
   },
   {
-    question: "What is the BCI NeuroArm project?",
+    question: "What research publications and achievements does Pratham Shah have in AI/BCI?",
     answer:
-      "At IS360 Technologies, Pratham Shah developed an EEG signal classification pipeline for the BCI NeuroArm project. Using Python, TensorFlow, and Scikit-learn, he built machine learning models to classify motor intent (left vs. right arm movement) and created real-time signal visualizations for prosthetic control.",
+      "Pratham Shah published a peer-reviewed research paper on BCI-based robotic limb control in the International Journal of Innovative Research in Technology (IJIRT). He developed an EEG signal processing and machine learning pipeline (Python, TensorFlow, Scikit-learn) for motor intent classification. He was also Second Runner-up at the SHODH 1.0 Campus Problem Hackathon (2025).",
     category: "AI & Research",
   },
   {
-    question: "What frontend technologies does Pratham Shah specialize in?",
+    question: "What frontend performance results has Pratham Shah delivered?",
     answer:
-      "Pratham Shah specializes in modern React.js, Next.js (App Router), TypeScript, JavaScript (ES6+), Tailwind CSS, GSAP (GreenSock Animation Platform), Three.js / React Three Fiber, D3.js, and Recharts, building responsive, high-performance web applications with 95+ PageSpeed scores.",
+      "As a Freelance Frontend Developer for Abhinandan Mountreea, Pratham built a real estate platform using React.js, Vite, and GSAP. By integrating Cloudinary CDN, WebP conversion, and caching, he reduced initial page load time by 50% and increased user engagement by 30%.",
     category: "Frontend",
   },
   {
     question: "How can I contact or hire Pratham Shah?",
     answer:
-      "You can contact Pratham Shah directly via email at pshah88669@gmail.com, view his portfolio at https://pshah.fun, connect on LinkedIn at linkedin.com/in/pratham-shah-729432258/, or check his open-source work on GitHub at github.com/pshah-lab.",
+      "You can contact Pratham Shah via email at pshah88669@gmail.com or phone at +91-6356356971. Visit his portfolio at https://pshah.fun, connect on LinkedIn at linkedin.com/in/pratham-shah-729432258/, or inspect his projects on GitHub at github.com/pshah-lab.",
     category: "Contact",
   },
 ];
