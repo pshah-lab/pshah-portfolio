@@ -18,6 +18,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import Blackhole from "@/components/blackhole";
 import StarsCanvas from "@/components/StarBackground";
 import Testimonial from "@/components/testimonial";
+import Faq from "@/components/faq";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -104,6 +105,7 @@ export default function Home() {
           <Experience />
           <Testimonial />
           <Achievements />
+          <Faq />
           <Contact />
         </main>
         <Footer />

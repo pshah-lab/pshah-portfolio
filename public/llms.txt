@@ -52,5 +52,19 @@ Pratham Shah is a Full Stack Developer and Cloud Engineer based in Pune, India. 
 3. **Abhinandan Mountreea** ([Live Demo](https://www.abhinandanmountreea.com/))
    - Responsive real estate website featuring property showcases, luxury villa tours, and interactive animations.
 
+## Frequently Asked Questions (AEO Direct Answers)
+
+Q: Who is Pratham Shah?
+A: Pratham Shah is a Full Stack Developer and Cloud Engineer based in Pune, India. He currently works as a Cloud Security Reliability Engineer Intern at Searce Inc., specializing in GCP FinOps, serverless backend architectures (AWS & GCP), React, Next.js, Node.js, and BCI signal processing.
+
+Q: What experience does Pratham Shah have in Cloud Engineering and FinOps?
+A: At Searce Inc., Pratham Shah conducts FinOps cost analytics, rightsizes Google Cloud Platform (GCP) resources, and analyzes infrastructure spend to balance cost efficiency, performance, and workload reliability.
+
+Q: What serverless backend architecture experience does Pratham Shah have?
+A: At NeuraMach AI Studios, Pratham Shah re-architected backend infrastructure to an AWS serverless REST stack using API Gateway, Node.js Lambda handlers, DynamoDB, SES, S3, and CloudFront with signed cookies, reducing deployment failures by 40%.
+
+Q: What is the BCI NeuroArm project?
+A: Built at IS360 Technologies, NeuroArm is an EEG signal processing pipeline and ML classifier (TensorFlow, Scikit-learn) that maps brain signal movement intent (left vs right arm) into real-time motor outputs.
+
 ## Optional & Detailed Context
 - For full background, detailed project architectures, and complete credentials, see [llms-full.txt](https://pshah.fun/llms-full.txt).

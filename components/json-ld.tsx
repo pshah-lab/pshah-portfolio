@@ -1,4 +1,5 @@
 import React from "react";
+import { faqItems } from "@/lib/faq-data";
 
 export default function JsonLd() {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://pshah.fun";
@@ -76,6 +77,20 @@ export default function JsonLd() {
     inLanguage: "en-US",
   };
 
+  const faqPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": `${siteUrl}/#faqpage`,
+    mainEntity: faqItems.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  };
+
   const projectsSchema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -146,6 +161,10 @@ export default function JsonLd() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPageSchema) }}
       />
       <script
         type="application/ld+json"
