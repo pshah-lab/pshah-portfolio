@@ -170,6 +170,7 @@ export default function JsonLd() {
             "Intelligent Manifest V3 Chrome extension applying dynamic, layout-safe dark themes across websites, PDFs, and local docs.",
           applicationCategory: "BrowserExtension",
           operatingSystem: "Google Chrome / Chromium",
+          url: "https://chromewebstore.google.com/detail/kmhhphbakbhohiohagkhhgdgfbplkfke",
           sameAs: "https://github.com/pshah-lab/force-dark-mode-extension",
           author: {
             "@id": `${siteUrl}/#person`,

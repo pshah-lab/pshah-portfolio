@@ -68,7 +68,7 @@ const projects = [
     image: "/force-dark-mode.webp",
     technologies: ["JavaScript", "Chrome Extensions API (MV3)", "CSS3", "PDF.js", "Storage Sync"],
     github: "https://github.com/pshah-lab/force-dark-mode-extension",
-    live: "",
+    live: "https://chromewebstore.google.com/detail/kmhhphbakbhohiohagkhhgdgfbplkfke",
   },
   {
     id: 6,
