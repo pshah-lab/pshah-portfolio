@@ -42,7 +42,9 @@ const StarsCanvas = () => {
   const { theme } = useTheme();
 
   React.useEffect(() => {
-    setMounted(true);
+    if (typeof window !== "undefined" && window.innerWidth >= 768) {
+      setMounted(true);
+    }
   }, []);
 
   if (!mounted || theme !== "dark") return null;
