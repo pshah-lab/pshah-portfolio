@@ -1,14 +1,20 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { useTheme } from "@/components/theme-provider";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 export default function Blackhole() {
+  const [mounted, setMounted] = useState(false);
   const { theme } = useTheme();
   const isMobile = useIsMobile();
 
-  // Don't render if not in dark mode or on mobile
-  if (theme !== "dark" || isMobile) {
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Don't render if not mounted, not in dark mode, or on mobile
+  if (!mounted || theme !== "dark" || isMobile) {
     return null;
   }
 

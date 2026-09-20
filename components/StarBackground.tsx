@@ -34,9 +34,14 @@ const StarBackground = (props: any) => {
 };
 
 const StarsCanvas = () => {
+  const [mounted, setMounted] = useState(false);
   const { theme } = useTheme();
 
-  if (theme !== "dark") return null;
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted || theme !== "dark") return null;
 
   return (
     <div className="w-full h-auto fixed inset-0 z-[11] pointer-events-none">
