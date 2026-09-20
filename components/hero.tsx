@@ -16,43 +16,13 @@ export default function Hero() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline({ delay: 0.25 });
-
-      tl.fromTo(
-        titleRef.current,
-        { opacity: 0, y: 34 },
-        { opacity: 1, y: 0, duration: 0.9, ease: "power3.out" }
-      )
-        .fromTo(
-          subtitleRef.current,
-          { opacity: 0, y: 28 },
-          { opacity: 1, y: 0, duration: 0.7, ease: "power2.out" },
-          "-=0.5"
-        )
-        .fromTo(
-          descriptionRef.current,
-          { opacity: 0, y: 18 },
-          { opacity: 1, y: 0, duration: 0.7, ease: "power2.out" },
-          "-=0.35"
-        )
-        .fromTo(
-          ctaRef.current,
-          { opacity: 0, y: 18 },
-          { opacity: 1, y: 0, duration: 0.55, ease: "power2.out" },
-          "-=0.3"
-        )
-        .fromTo(
-          socialRef.current,
-          { opacity: 0, y: 16 },
-          { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" },
-          "-=0.25"
-        )
-        .fromTo(
-          scrollIndicatorRef.current,
-          { opacity: 0, y: 14 },
-          { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" },
-          "-=0.2"
-        );
+      // Subtle entrance animation without delaying LCP
+      gsap.from([titleRef.current, subtitleRef.current, ctaRef.current], {
+        y: 16,
+        duration: 0.45,
+        stagger: 0.08,
+        ease: "power2.out",
+      });
 
       gsap.to(scrollIndicatorRef.current, {
         y: 8,

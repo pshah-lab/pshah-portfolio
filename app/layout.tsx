@@ -5,7 +5,7 @@ import { Analytics } from "@vercel/analytics/react"
 import JsonLd from "@/components/json-ld"
 import "./globals.css"
 
-const inter = Inter({ subsets: ["latin"] })
+const inter = Inter({ subsets: ["latin"], display: "swap" })
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://pshah.fun"
 
