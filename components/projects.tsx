@@ -62,9 +62,9 @@ const projects = [
     id: 5,
     title: "Force Dark Mode (Chrome Extension MV3)",
     description:
-      "Intelligent Manifest V3 Chrome extension applying dynamic, layout-safe dark themes across websites, PDFs, and local docs.",
+      "Intelligent Manifest V3 Chrome extension with 1,000+ active users, applying dynamic, layout-safe dark themes across websites, PDFs, and local docs.",
     longDescription:
-      "Engineered a storage-driven Manifest V3 browser extension offering multiple interchangeable dark theme engines (CSS-based, Invert-based, and smart Auto-detection) without page reloads. Includes a custom dark PDF canvas viewer using PDF.js, local document reading mode, per-site background color pickers, and synchronized preferences across devices via chrome.storage.sync.",
+      "Published on the Chrome Web Store with 1,000+ active users and a 5.0 rating. Engineered a storage-driven Manifest V3 browser extension offering multiple interchangeable dark theme engines (CSS-based, Invert-based, and smart Auto-detection) without page reloads. Includes a custom dark PDF canvas viewer using PDF.js, local document reading mode, per-site background color pickers, and synchronized preferences across devices via chrome.storage.sync.",
     image: "/force-dark-mode.webp",
     technologies: ["JavaScript", "Chrome Extensions API (MV3)", "CSS3", "PDF.js", "Storage Sync"],
     github: "https://github.com/pshah-lab/force-dark-mode-extension",

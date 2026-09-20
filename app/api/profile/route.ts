@@ -86,7 +86,7 @@ export async function GET() {
       },
       {
         name: "Force Dark Mode (Chrome Extension MV3)",
-        description: "Intelligent Manifest V3 Chrome extension applying dynamic, layout-safe dark themes across websites, PDFs, and local docs.",
+        description: "Intelligent Manifest V3 Chrome extension with 1,000+ active users and a 5.0 rating on the Chrome Web Store, applying dynamic dark themes across websites, PDFs, and local docs.",
         url: "https://chromewebstore.google.com/detail/kmhhphbakbhohiohagkhhgdgfbplkfke",
         github: "https://github.com/pshah-lab/force-dark-mode-extension",
         tech: ["JavaScript", "Chrome Extensions API (MV3)", "CSS3", "PDF.js", "Storage Sync"],

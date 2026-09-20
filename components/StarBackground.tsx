@@ -9,6 +9,7 @@ import { useTheme } from "@/components/theme-provider";
 
 const PointsComponent = Points as any;
 const PointMaterialComponent = PointMaterial as any;
+const CanvasComponent = Canvas as any;
 
 const StarBackground = (props: any) => {
   const ref: any = useRef();
@@ -48,11 +49,11 @@ const StarsCanvas = () => {
 
   return (
     <div className="w-full h-auto fixed inset-0 z-[11] pointer-events-none">
-      <Canvas camera={{ position: [0, 0, 1] }} style={{ pointerEvents: "none" }}>
+      <CanvasComponent camera={{ position: [0, 0, 1] }} style={{ pointerEvents: "none" }}>
         <Suspense fallback={null}>
           <StarBackground />
         </Suspense>
-      </Canvas>
+      </CanvasComponent>
     </div>
   );
 };

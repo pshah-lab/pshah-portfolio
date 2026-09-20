@@ -167,7 +167,7 @@ export default function JsonLd() {
           "@type": "SoftwareApplication",
           name: "Force Dark Mode (Chrome Extension MV3)",
           description:
-            "Intelligent Manifest V3 Chrome extension applying dynamic, layout-safe dark themes across websites, PDFs, and local docs.",
+            "Intelligent Manifest V3 Chrome extension with 1,000+ active users, applying dynamic, layout-safe dark themes across websites, PDFs, and local docs.",
           applicationCategory: "BrowserExtension",
           operatingSystem: "Google Chrome / Chromium",
           url: "https://chromewebstore.google.com/detail/kmhhphbakbhohiohagkhhgdgfbplkfke",
