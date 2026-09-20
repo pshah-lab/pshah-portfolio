@@ -26,7 +26,7 @@ export const faqItems: FAQItem[] = [
   {
     question: "What AWS and backend engineering projects has Pratham Shah built?",
     answer:
-      "At NeuraMach AI Studios, Pratham designed a secure AWS video delivery solution using S3 and CloudFront with signed cookies and access control. Independently, he built a Distributed File Storage System using AWS EC2, S3, Node.js, and Express.js for fault-tolerant, high-availability file uploading and sharing.",
+      "Pratham built StreamVault, an enterprise HLS video delivery solution using AWS S3, CloudFront Signed Cookies, and automated EC2 FFmpeg encoding. He also engineered Cloud Media Hub, a distributed media storage system using AWS S3, Node.js, Express, and MongoDB with zero-buffer streaming, as well as InsightVault, an AI document intelligence RAG platform with Supabase pgvector.",
     category: "Backend",
   },
   {

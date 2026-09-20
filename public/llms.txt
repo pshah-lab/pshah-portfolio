@@ -47,14 +47,26 @@ Pratham Shah is a Full Stack Developer and Google Cloud Associate Cloud Engineer
 
 ## Featured Projects
 
-1. **Distributed File Storage System** ([GitHub](https://github.com/pshah-lab))
-   - Designed a scalable AWS-based distributed storage solution using EC2 and S3 for high availability and low-latency file upload/download RESTful APIs in Node.js and Express.js.
+1. **StreamVault (HLS Video Platform)** ([GitHub](https://github.com/pshah-lab/StreamVault))
+   - Enterprise video streaming pipeline featuring automated parallel FFmpeg encoding on EC2 (c7i.2xlarge), token-gated HLS delivery using AWS CloudFront Signed Cookies (`SameSite=Lax`), AWS Cognito auth, and DynamoDB watch-progress state.
 
-2. **NeuroArm Signal Flow** ([Live Demo](https://neuro-arm.vercel.app/) | [GitHub](https://github.com/pshah-lab/NeuroArm))
+2. **InsightVault (AI Document Intelligence & RAG)** ([GitHub](https://github.com/pshah-lab/insightVault))
+   - High-throughput document intelligence platform built with Next.js 16 and Supabase pgvector. Includes multi-tier vector embedding fallbacks (Hugging Face -> Gemini -> OpenAI), sliding-window rate limiting, and tenant-scoped RLS security.
+
+3. **NeuroArm Signal Flow** ([Live Demo](https://neuro-arm.vercel.app/) | [GitHub](https://github.com/pshah-lab/NeuroArm))
    - Interactive visualization of an EEG signal pipeline for prosthetic arm control. Author of IJIRT research paper on BCI-based robotic limb control.
 
-3. **Abhinandan Mountreea** ([Live Demo](https://www.abhinandanmountreea.com/))
-   - Responsive real estate website with 50% load time reduction via Cloudinary WebP optimization and GSAP animations.
+4. **Cloud Media Hub (AWS S3 + MongoDB)** ([GitHub](https://github.com/pshah-lab/aws-s3-mongodb-media-hub))
+   - High-performance distributed asset management engine built with Node.js, Express, AWS S3, and MongoDB. Features zero-buffer multer backpressure streaming and private bucket streaming proxying.
+
+5. **Force Dark Mode (Chrome Extension MV3)** ([GitHub](https://github.com/pshah-lab/force-dark-mode-extension))
+   - Manifest V3 browser extension offering multiple interchangeable dark theme engines, custom PDF.js canvas recoloring, local document reading mode, and synchronized preferences via chrome.storage.sync.
+
+6. **Animated Website Design** ([Live Demo](https://animated-design-website.vercel.app/) | [GitHub](https://github.com/pshah-lab/animated-design-website))
+   - Motion-led modern web application demonstrating fluid scroll timing, layered canvas motion, and responsive layout composition using React and GSAP.
+
+7. **Abhinandan Mountreea** ([Live Demo](https://www.abhinandanmountreea.com/))
+   - Commercial real estate platform with 50% load time reduction via Cloudinary WebP optimization and GSAP animations.
 
 ## Frequently Asked Questions (AEO Direct Answers)
 

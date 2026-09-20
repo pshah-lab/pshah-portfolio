@@ -54,17 +54,41 @@ export async function GET() {
       },
     ],
     skills: {
-      frontend: ["React.js", "Next.js", "TypeScript", "JavaScript", "Tailwind CSS", "GSAP", "Three.js", "D3.js"],
-      backendAndCloud: ["Node.js", "Express", "AWS Lambda", "API Gateway", "DynamoDB", "GCP FinOps", "S3", "CloudFront"],
-      aiAndSignalProcessing: ["Python", "TensorFlow", "Scikit-learn", "EEG Signal Classification"],
+      frontend: ["React.js", "Next.js", "TypeScript", "JavaScript", "Tailwind CSS", "GSAP", "Three.js", "D3.js", "Chrome Extensions MV3"],
+      backendAndCloud: ["Node.js", "Express", "AWS S3", "AWS CloudFront", "AWS Lambda", "Cognito", "DynamoDB", "FFmpeg", "MongoDB", "GCP FinOps", "Supabase pgvector"],
+      aiAndSignalProcessing: ["Python", "RAG & Vector Embeddings", "TensorFlow", "Scikit-learn", "EEG Signal Classification"],
     },
     projects: [
+      {
+        name: "StreamVault (HLS Video Platform)",
+        description: "Enterprise video streaming pipeline with CloudFront Signed Cookies, AWS Cognito auth, and automated EC2 FFmpeg chunking.",
+        github: "https://github.com/pshah-lab/StreamVault",
+        tech: ["AWS CloudFront", "AWS S3", "AWS Lambda", "Cognito", "FFmpeg", "HLS.js", "TypeScript"],
+      },
+      {
+        name: "InsightVault (AI Document Intelligence)",
+        description: "AI-powered document intelligence and semantic search platform with multi-tier vector embeddings and Supabase pgvector.",
+        github: "https://github.com/pshah-lab/insightVault",
+        tech: ["Next.js", "React 19", "Supabase pgvector", "Gemini / OpenAI", "Tailwind CSS v4"],
+      },
       {
         name: "NeuroArm Signal Flow",
         description: "Interactive visualization of EEG signal pipeline for prosthetic arm control.",
         url: "https://neuro-arm.vercel.app/",
         github: "https://github.com/pshah-lab/NeuroArm",
         tech: ["React", "TypeScript", "Tailwind CSS", "D3.js"],
+      },
+      {
+        name: "Cloud Media Hub (AWS S3 + MongoDB)",
+        description: "High-performance distributed media storage engine with zero-buffer S3 streaming and MongoDB metadata cataloging.",
+        github: "https://github.com/pshah-lab/aws-s3-mongodb-media-hub",
+        tech: ["AWS S3", "Node.js", "Express.js", "MongoDB", "Multer-S3", "REST APIs"],
+      },
+      {
+        name: "Force Dark Mode (Chrome Extension MV3)",
+        description: "Intelligent Manifest V3 Chrome extension applying dynamic, layout-safe dark themes across websites, PDFs, and local docs.",
+        github: "https://github.com/pshah-lab/force-dark-mode-extension",
+        tech: ["JavaScript", "Chrome Extensions API (MV3)", "CSS3", "PDF.js", "Storage Sync"],
       },
       {
         name: "Animated Website Design",

@@ -100,6 +100,38 @@ export default function JsonLd() {
         position: 1,
         item: {
           "@type": "SoftwareApplication",
+          name: "StreamVault (HLS Video Platform)",
+          description:
+            "Enterprise video streaming pipeline with CloudFront Signed Cookies, AWS Cognito auth, and automated EC2 FFmpeg chunking.",
+          applicationCategory: "MultimediaApplication",
+          operatingSystem: "Cloud / Web Browser",
+          sameAs: "https://github.com/pshah-lab/StreamVault",
+          author: {
+            "@id": `${siteUrl}/#person`,
+          },
+        },
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        item: {
+          "@type": "SoftwareApplication",
+          name: "InsightVault (AI Document Intelligence)",
+          description:
+            "AI-powered document intelligence and semantic search platform with multi-tier vector embeddings and Supabase pgvector.",
+          applicationCategory: "DeveloperApplication",
+          operatingSystem: "Web Browser",
+          sameAs: "https://github.com/pshah-lab/insightVault",
+          author: {
+            "@id": `${siteUrl}/#person`,
+          },
+        },
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        item: {
+          "@type": "SoftwareApplication",
           name: "NeuroArm Signal Flow",
           description:
             "Interactive visualization of an EEG signal processing pipeline for prosthetic arm control.",
@@ -114,7 +146,39 @@ export default function JsonLd() {
       },
       {
         "@type": "ListItem",
-        position: 2,
+        position: 4,
+        item: {
+          "@type": "SoftwareApplication",
+          name: "Cloud Media Hub (AWS S3 + MongoDB)",
+          description:
+            "High-performance distributed media storage engine with zero-buffer S3 streaming and MongoDB metadata cataloging.",
+          applicationCategory: "DeveloperApplication",
+          operatingSystem: "Cloud / Web",
+          sameAs: "https://github.com/pshah-lab/aws-s3-mongodb-media-hub",
+          author: {
+            "@id": `${siteUrl}/#person`,
+          },
+        },
+      },
+      {
+        "@type": "ListItem",
+        position: 5,
+        item: {
+          "@type": "SoftwareApplication",
+          name: "Force Dark Mode (Chrome Extension MV3)",
+          description:
+            "Intelligent Manifest V3 Chrome extension applying dynamic, layout-safe dark themes across websites, PDFs, and local docs.",
+          applicationCategory: "BrowserExtension",
+          operatingSystem: "Google Chrome / Chromium",
+          sameAs: "https://github.com/pshah-lab/force-dark-mode-extension",
+          author: {
+            "@id": `${siteUrl}/#person`,
+          },
+        },
+      },
+      {
+        "@type": "ListItem",
+        position: 6,
         item: {
           "@type": "SoftwareApplication",
           name: "Animated Website Design",
@@ -131,7 +195,7 @@ export default function JsonLd() {
       },
       {
         "@type": "ListItem",
-        position: 3,
+        position: 7,
         item: {
           "@type": "SoftwareApplication",
           name: "Abhinandan Mountreea Showcase",

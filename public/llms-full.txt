@@ -64,21 +64,45 @@ Pratham Shah is a Full Stack Developer and Cloud Reliability Engineer based in P
 
 ## Detailed Project Catalog
 
-### Project 1: NeuroArm Signal Flow
+### Project 1: StreamVault (HLS Video Platform)
+- **Description**: Enterprise-grade video streaming pipeline featuring automated parallel FFmpeg encoding on EC2 (c7i.2xlarge), token-gated HLS delivery using AWS CloudFront Signed Cookies, AWS Cognito authentication, and DynamoDB playback state tracking.
+- **Technical Stack**: Node.js, Express, AWS EC2, AWS S3, CloudFront, Cognito, DynamoDB, FFmpeg, Docker.
+- **GitHub Code**: https://github.com/pshah-lab/StreamVault
+- **Key Features**: Multi-bitrate HLS segmentation, parallel multi-resolution encoding, custom signing lambdas with `SameSite=Lax` signed cookies, token-gated CDN distribution, and persistent watch-progress synchronization.
+
+### Project 2: InsightVault (AI Document Intelligence & RAG)
+- **Description**: Production-grade document intelligence and retrieval-augmented generation (RAG) platform with multi-tiered vector embedding fallbacks, enterprise rate limiting, and row-level security.
+- **Technical Stack**: Next.js 16, TypeScript, Supabase pgvector, LangChain, Tailwind CSS, Hugging Face, Gemini API, OpenAI.
+- **GitHub Code**: https://github.com/pshah-lab/insightVault
+- **Key Features**: Multi-provider embedding fallback mechanism (Hugging Face -> Gemini -> OpenAI), PDF parsing and semantic chunking, Upstash Redis sliding-window rate limiting, and tenant-isolated pgvector semantic similarity search.
+
+### Project 3: NeuroArm Signal Flow
 - **Description**: Interactive web visualization of an EEG signal processing pipeline for prosthetic arm control.
 - **Technical Stack**: React, TypeScript, Tailwind CSS, D3.js, Chart.js.
 - **Live Demo**: https://neuro-arm.vercel.app/
 - **GitHub Code**: https://github.com/pshah-lab/NeuroArm
 - **Key Features**: Visualizes raw EEG signal acquisition, filter stages, spectral analysis, ML feature extraction, classification output, and arm motor commands in real time.
 
-### Project 2: Animated Website Design
+### Project 4: Cloud Media Hub (AWS S3 + MongoDB)
+- **Description**: Distributed cloud asset storage and media management engine with zero-buffer streaming and strict security controls.
+- **Technical Stack**: Node.js, Express, AWS S3 SDK, MongoDB, Mongoose, Multer.
+- **GitHub Code**: https://github.com/pshah-lab/aws-s3-mongodb-media-hub
+- **Key Features**: Memory-efficient multer streaming pipelines, AWS SDK v3 upload backpressure handling, private S3 bucket streaming proxy with range headers, metadata indexing, and robust error handling.
+
+### Project 5: Force Dark Mode (Chrome Extension MV3)
+- **Description**: High-performance Manifest V3 browser extension enabling customized dark modes across all websites and local PDF/document viewers.
+- **Technical Stack**: JavaScript, HTML5, CSS3, Chrome Extensions API (MV3), PDF.js.
+- **GitHub Code**: https://github.com/pshah-lab/force-dark-mode-extension
+- **Key Features**: 4 customizable inversion algorithms, real-time PDF canvas recoloring, domain-specific rule matching, offline document dark reader, and sync via chrome.storage.sync.
+
+### Project 6: Animated Website Design
 - **Description**: Motion-led modern web application demonstrating fluid scroll timing, layered canvas motion, and responsive layout composition.
 - **Technical Stack**: React, Tailwind CSS, GSAP (GreenSock Animation Platform), JavaScript.
 - **Live Demo**: https://animated-design-website.vercel.app/
 - **GitHub Code**: https://github.com/pshah-lab/animated-design-website
 - **Key Features**: Micro-interactions, scroll-driven timelines, dark/light theme integration, high frame-rate animations.
 
-### Project 3: Abhinandan Mountreea
+### Project 7: Abhinandan Mountreea
 - **Description**: Commercial real estate portfolio website showcasing residential projects and luxury villas.
 - **Technical Stack**: React, TypeScript, GSAP, Tailwind CSS, Next.js.
 - **Live Demo**: https://www.abhinandanmountreea.com/
@@ -90,11 +114,12 @@ Pratham Shah is a Full Stack Developer and Cloud Reliability Engineer based in P
 
 | Category | Technologies / Frameworks / Tools |
 |---|---|
-| **Frontend Engineering** | React.js, Next.js (App Router), TypeScript, JavaScript (ES6+), HTML5, CSS3, Tailwind CSS, GSAP, Three.js, React Three Fiber, D3.js, Recharts |
-| **Backend & APIs** | Node.js, Express.js, RESTful APIs, AWS Lambda, API Gateway, DynamoDB, Amazon SES, Serverless Architecture, WebSockets |
-| **Cloud & FinOps** | Google Cloud Platform (GCP), GCP Billing Analytics, FinOps Principles, Cost Optimization, Resource Rightsizing, AWS S3, AWS CloudFront Signed Cookies, Cloud Security |
-| **AI, ML & Research** | Python, TensorFlow, Scikit-learn, EEG Signal Processing, Brain-Computer Interfaces (BCI), Data Visualization, Matplotlib |
-| **DevOps & Workflows** | Git, GitHub Actions, Vercel, Postman, Linux CLI, npm/pnpm, Performance Optimization, Web Vitals |
+| **Frontend Engineering** | React.js, Next.js (App Router), TypeScript, JavaScript (ES6+), HTML5, CSS3, Tailwind CSS, GSAP, Three.js, React Three Fiber, D3.js, Recharts, Chrome Extension API (MV3) |
+| **Backend & APIs** | Node.js, Express.js, RESTful APIs, AWS Lambda, API Gateway, DynamoDB, MongoDB, Mongoose, Amazon SES, Serverless Architecture, WebSockets |
+| **Cloud & FinOps** | Google Cloud Platform (GCP - Associate Cloud Engineer), GCP Billing Analytics, FinOps Principles, Cost Optimization, Resource Rightsizing, AWS S3, AWS CloudFront Signed Cookies, AWS EC2, Cloud Security |
+| **Media & Distributed Systems** | HLS Video Streaming, FFmpeg, Docker, Multi-Bitrate Transcoding, Zero-Buffer Streaming Pipelines |
+| **AI, ML & Research** | Python, TensorFlow, Scikit-learn, LangChain, Supabase pgvector, Embeddings, RAG, EEG Signal Processing, Brain-Computer Interfaces (BCI), Data Visualization |
+| **DevOps & Workflows** | Git, GitHub Actions, Vercel, Postman, Linux CLI, npm/pnpm, Performance Optimization, Core Web Vitals |
 
 ---
 

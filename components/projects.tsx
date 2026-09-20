@@ -12,6 +12,66 @@ gsap.registerPlugin(ScrollTrigger);
 const projects = [
   {
     id: 1,
+    title: "StreamVault (HLS Video Platform)",
+    description:
+      "Enterprise video streaming pipeline with CloudFront Signed Cookies, AWS Cognito auth, and automated EC2 FFmpeg chunking.",
+    longDescription:
+      "Designed and built an end-to-end HLS video streaming platform. Features an automated parallel FFmpeg encoding pipeline launched on EC2 (c7i.2xlarge), secure token-gated streaming via CloudFront Signed Cookies (SameSite=Lax), multi-audio track switching & WebVTT subtitles in Hls.js, and watch-progress synchronization across client LocalStorage and AWS DynamoDB.",
+    image: "/streamvault.webp",
+    technologies: ["AWS CloudFront", "AWS S3", "AWS Lambda", "Cognito", "FFmpeg", "HLS.js", "TypeScript"],
+    github: "https://github.com/pshah-lab/StreamVault",
+    live: "",
+  },
+  {
+    id: 2,
+    title: "InsightVault (AI Document Intelligence)",
+    description:
+      "AI-powered document intelligence and semantic search platform with multi-tier vector embeddings and Supabase pgvector.",
+    longDescription:
+      "Architected a high-throughput RAG document intelligence platform using Next.js 16 and Supabase pgvector. Features multi-tier vector embedding fallbacks (Hugging Face -> Google Gemini -> OpenAI), sliding-window rate limiting, magic-byte PDF validation, chunking bounds, and tenant-scoped Row Level Security (RLS) policies.",
+    image: "/insightvault.webp",
+    technologies: ["Next.js", "React 19", "Supabase pgvector", "Gemini / OpenAI", "Tailwind CSS v4"],
+    github: "https://github.com/pshah-lab/insightVault",
+    live: "",
+  },
+  {
+    id: 3,
+    title: "NeuroArm Signal Flow",
+    description:
+      "Interactive visualization of an EEG signal pipeline for prosthetic arm control.",
+    longDescription:
+      "Built a web-based system to demonstrate EEG capture, preprocessing, classification, and prosthetic movement intent. The interface makes a complex signal pipeline easier to inspect in real time.",
+    image: "/neuro.webp",
+    technologies: ["React", "TypeScript", "Tailwind CSS", "D3.js", "Chart.js"],
+    github: "https://github.com/pshah-lab/NeuroArm",
+    live: "https://neuro-arm.vercel.app/",
+  },
+  {
+    id: 4,
+    title: "Cloud Media Hub (AWS S3 + MongoDB)",
+    description:
+      "High-performance distributed media storage engine with zero-buffer S3 streaming and MongoDB metadata cataloging.",
+    longDescription:
+      "Built a scalable cloud media hub with Node.js, Express, AWS S3, and MongoDB. Features zero-buffer streaming using multer-s3 backpressure to eliminate server RAM exhaustion, streaming proxying for instant media preview under private bucket access, dual-engine storage toggling (S3 vs local), and a glassmorphic dashboard.",
+    image: "/aws-s3-hub.webp",
+    technologies: ["AWS S3", "Node.js", "Express.js", "MongoDB", "Multer-S3", "REST APIs"],
+    github: "https://github.com/pshah-lab/aws-s3-mongodb-media-hub",
+    live: "",
+  },
+  {
+    id: 5,
+    title: "Force Dark Mode (Chrome Extension MV3)",
+    description:
+      "Intelligent Manifest V3 Chrome extension applying dynamic, layout-safe dark themes across websites, PDFs, and local docs.",
+    longDescription:
+      "Engineered a storage-driven Manifest V3 browser extension offering multiple interchangeable dark theme engines (CSS-based, Invert-based, and smart Auto-detection) without page reloads. Includes a custom dark PDF canvas viewer using PDF.js, local document reading mode, per-site background color pickers, and synchronized preferences across devices via chrome.storage.sync.",
+    image: "/force-dark-mode.webp",
+    technologies: ["JavaScript", "Chrome Extensions API (MV3)", "CSS3", "PDF.js", "Storage Sync"],
+    github: "https://github.com/pshah-lab/force-dark-mode-extension",
+    live: "",
+  },
+  {
+    id: 6,
     title: "Animated Website Design",
     description: "A motion-led web experience built with React, Tailwind CSS, and GSAP.",
     longDescription:
@@ -22,19 +82,7 @@ const projects = [
     live: "https://animated-design-website.vercel.app/",
   },
   {
-    id: 2,
-    title: "NeuroArm Signal Flow",
-    description:
-      "Interactive visualization of an EEG signal pipeline for prosthetic arm control.",
-    longDescription:
-      "Built a web-based system to demonstrate EEG capture, preprocessing, classification, and prosthetic movement intent. The interface makes a complex signal pipeline easier to inspect in real time.",
-    image: "/neuro.webp",
-    technologies: ["React", "TypeScript", "Tailwind", "D3.js", "Chart.js"],
-    github: "https://github.com/pshah-lab/NeuroArm",
-    live: "https://neuro-arm.vercel.app/",
-  },
-  {
-    id: 3,
+    id: 7,
     title: "Abhinandan Mountreea",
     description:
       "A responsive real estate website for showcasing residential and villa projects.",
@@ -170,16 +218,18 @@ export default function Projects() {
                       </a>
                     </Button>
                   )}
-                  <Button
-                    size="sm"
-                    className="rounded-none bg-stone-950 text-white shadow-none hover:bg-teal-800 dark:bg-white dark:text-stone-950 dark:hover:bg-teal-200"
-                    asChild
-                  >
-                    <a href={project.live} target="_blank" rel="noopener noreferrer">
-                      Visit
-                      <ArrowUpRight className="ml-2 h-4 w-4" />
-                    </a>
-                  </Button>
+                  {project.live ? (
+                    <Button
+                      size="sm"
+                      className="rounded-none bg-stone-950 text-white shadow-none hover:bg-teal-800 dark:bg-white dark:text-stone-950 dark:hover:bg-teal-200"
+                      asChild
+                    >
+                      <a href={project.live} target="_blank" rel="noopener noreferrer">
+                        Visit
+                        <ArrowUpRight className="ml-2 h-4 w-4" />
+                      </a>
+                    </Button>
+                  ) : null}
                   <Button
                     variant="ghost"
                     size="sm"
