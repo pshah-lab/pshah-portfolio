@@ -2,23 +2,24 @@
 
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import dynamic from "next/dynamic";
 import Navbar from "@/components/navbar";
 import Hero from "@/components/hero";
 import About from "@/components/about";
 import Projects from "@/components/projects";
 import Skills from "@/components/skills";
 import Experience from "@/components/experience";
-import Achievements from "@/components/achievements";
-import Contact from "@/components/contact";
 import Footer from "@/components/footer";
-import ScrollToTop from "@/components/scroll-to-top";
-import ScrollIndicator from "@/components/scroll-indicator";
 import { ThemeProvider } from "@/components/theme-provider";
-import Blackhole from "@/components/blackhole";
-import StarsCanvas from "@/components/StarBackground";
-import Testimonial from "@/components/testimonial";
-import Faq from "@/components/faq";
+
+const Blackhole = dynamic(() => import("@/components/blackhole"), { ssr: false });
+const StarsCanvas = dynamic(() => import("@/components/StarBackground"), { ssr: false });
+const Testimonial = dynamic(() => import("@/components/testimonial"), { ssr: false });
+const Achievements = dynamic(() => import("@/components/achievements"), { ssr: false });
+const Faq = dynamic(() => import("@/components/faq"), { ssr: false });
+const Contact = dynamic(() => import("@/components/contact"), { ssr: false });
+const ScrollToTop = dynamic(() => import("@/components/scroll-to-top"), { ssr: false });
+const ScrollIndicator = dynamic(() => import("@/components/scroll-indicator"), { ssr: false });
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);

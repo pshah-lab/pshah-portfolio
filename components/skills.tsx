@@ -111,7 +111,10 @@ export default function Skills() {
                 key={skill.name}
                 className="flex min-h-32 flex-col justify-between border-b border-r border-stone-300/70 bg-[#fbfaf7]/60 p-5 transition-colors hover:bg-white dark:border-white/10 dark:bg-white/[0.02] dark:hover:bg-white/[0.06]"
               >
-                <Icon className="h-7 w-7 text-stone-900 dark:text-stone-100" />
+                <Icon
+                  className="h-7 w-7 text-stone-900 dark:text-stone-100"
+                  aria-label={skill.name}
+                />
                 <span className="text-sm font-medium text-stone-600 dark:text-stone-300">
                   {skill.name}
                 </span>
