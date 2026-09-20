@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ArrowDown, ArrowUpRight, Github, Linkedin, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 export default function Hero() {
   const heroRef = useRef(null);
@@ -15,9 +16,13 @@ export default function Hero() {
   const scrollIndicatorRef = useRef(null);
 
   useEffect(() => {
+    // On mobile devices, keep hero static for instant LCP paint and zero TBT
+    if (typeof window !== "undefined" && window.innerWidth < 768) {
+      return;
+    }
+
     const ctx = gsap.context(() => {
-      // Subtle entrance animation without delaying LCP
-      gsap.from([titleRef.current, subtitleRef.current, ctaRef.current], {
+      gsap.from([titleRef.current, ctaRef.current], {
         y: 16,
         duration: 0.45,
         stagger: 0.08,
@@ -30,17 +35,6 @@ export default function Hero() {
         repeat: -1,
         yoyo: true,
         ease: "power2.inOut",
-      });
-
-      gsap.to(heroRef.current, {
-        yPercent: -16,
-        ease: "none",
-        scrollTrigger: {
-          trigger: heroRef.current,
-          start: "top top",
-          end: "bottom top",
-          scrub: true,
-        },
       });
     }, heroRef);
 
@@ -193,8 +187,17 @@ export default function Hero() {
               <span className="h-2 w-2 rounded-full bg-yellow-300" />
               <span className="h-2 w-2 rounded-full bg-emerald-400" />
             </div>
-            <div className="flex h-full items-end bg-[url('/neuro.webp')] bg-cover bg-center">
-              <div className="w-full bg-gradient-to-t from-black/90 via-black/60 to-transparent p-7 pt-28 text-white">
+            <div className="relative flex h-full items-end">
+              <Image
+                src="/neuro.webp"
+                alt="NeuroArm Signal Flow - BCI EEG pipeline visualization"
+                fill
+                priority
+                quality={85}
+                sizes="(min-width: 1024px) 40vw, 100vw"
+                className="object-cover object-center"
+              />
+              <div className="relative z-10 w-full bg-gradient-to-t from-black/90 via-black/60 to-transparent p-7 pt-28 text-white">
                 <p className="text-xs uppercase tracking-[0.28em] text-teal-200">
                   Selected work
                 </p>
