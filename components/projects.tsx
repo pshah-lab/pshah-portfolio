@@ -224,8 +224,13 @@ export default function Projects() {
                       className="rounded-none bg-stone-950 text-white shadow-none hover:bg-teal-800 dark:bg-white dark:text-stone-950 dark:hover:bg-teal-200"
                       asChild
                     >
-                      <a href={project.live} target="_blank" rel="noopener noreferrer">
-                        Visit
+                      <a
+                        href={project.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`Visit live project for ${project.title}`}
+                      >
+                        {project.live.includes("chromewebstore") ? "Web Store" : "Visit"}
                         <ArrowUpRight className="ml-2 h-4 w-4" />
                       </a>
                     </Button>
