@@ -13,14 +13,15 @@ import Experience from "@/components/experience";
 import Footer from "@/components/footer";
 import { ThemeProvider } from "@/components/theme-provider";
 
-const Blackhole = dynamic(() => import("@/components/blackhole"), { ssr: false });
-const StarsCanvas = dynamic(() => import("@/components/StarBackground"), { ssr: false });
-const Testimonial = dynamic(() => import("@/components/testimonial"), { ssr: false });
-const Achievements = dynamic(() => import("@/components/achievements"), { ssr: false });
-const Faq = dynamic(() => import("@/components/faq"), { ssr: false });
-const Contact = dynamic(() => import("@/components/contact"), { ssr: false });
-const ScrollToTop = dynamic(() => import("@/components/scroll-to-top"), { ssr: false });
-const ScrollIndicator = dynamic(() => import("@/components/scroll-indicator"), { ssr: false });
+const Blackhole = dynamic(() => import("@/components/blackhole"), { ssr: false }) as React.FC;
+const StarsCanvas = dynamic(() => import("@/components/StarBackground"), { ssr: false }) as React.FC;
+const Testimonial = dynamic(() => import("@/components/testimonial"), { ssr: false }) as React.FC;
+const Achievements = dynamic(() => import("@/components/achievements"), { ssr: false }) as React.FC;
+const Faq = dynamic(() => import("@/components/faq"), { ssr: false }) as React.FC;
+const Contact = dynamic(() => import("@/components/contact"), { ssr: false }) as React.FC;
+const ScrollToTop = dynamic(() => import("@/components/scroll-to-top"), { ssr: false }) as React.FC;
+const ScrollIndicator = dynamic(() => import("@/components/scroll-indicator"), { ssr: false }) as React.FC;
+
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -30,6 +31,11 @@ export default function Home() {
   const mainRef = useRef(null);
 
   useEffect(() => {
+    // Keep mobile static for near-zero TBT and instant LCP
+    if (typeof window !== "undefined" && window.innerWidth < 768) {
+      return;
+    }
+
     // Smooth scrolling setup
     const ctx = gsap.context(() => {
       // Global scroll animations

@@ -93,7 +93,7 @@ export const metadata: Metadata = {
     ],
     apple: "/logo.jpg",
   },
-  manifest: "/manifest.json",
+  manifest: "/manifest.webmanifest",
   generator: "Next.js",
 }
 

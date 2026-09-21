@@ -17,6 +17,7 @@ const navItems = [
 ]
 
 export default function Navbar() {
+  const [mounted, setMounted] = useState(false)
   const [activeSection, setActiveSection] = useState("home")
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const { theme, setTheme } = useTheme()
@@ -24,6 +25,7 @@ export default function Navbar() {
   const logoRef = useRef(null)
 
   useEffect(() => {
+    setMounted(true)
     // Navbar entrance animation
     const tl = gsap.timeline()
     tl.fromTo(navRef.current, { y: -18, opacity: 0 }, { y: 0, opacity: 1, duration: 0.55, ease: "power2.out" }).fromTo(
@@ -107,10 +109,16 @@ export default function Navbar() {
               variant="ghost"
               size="icon"
               onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-              aria-label={theme === "light" ? "Switch to dark mode" : "Switch to light mode"}
+              aria-label={mounted && theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
               className="rounded-full text-stone-700 hover:bg-stone-200/70 hover:text-stone-950 focus-visible:ring-teal-600 dark:text-stone-100 dark:hover:bg-white/10 dark:hover:text-white dark:focus-visible:ring-teal-300"
             >
-              {theme === "light" ? <Moon className="h-5 w-5" /> : <Sun className="h-5 w-5" />}
+              {!mounted ? (
+                <span className="h-5 w-5 inline-block" />
+              ) : theme === "light" ? (
+                <Moon className="h-5 w-5" />
+              ) : (
+                <Sun className="h-5 w-5" />
+              )}
             </Button>
 
             {/* Mobile menu button */}

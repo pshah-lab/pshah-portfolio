@@ -1,10 +1,11 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ArrowDown, ArrowUpRight, Github, Linkedin, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import ResumeModal from "@/components/resume-modal";
 
 export default function Hero() {
   const heroRef = useRef(null);
@@ -14,6 +15,7 @@ export default function Hero() {
   const ctaRef = useRef(null);
   const socialRef = useRef(null);
   const scrollIndicatorRef = useRef(null);
+  const [isResumeOpen, setIsResumeOpen] = useState(false);
 
   useEffect(() => {
     // On mobile devices, keep hero static for instant LCP paint and zero TBT
@@ -112,20 +114,16 @@ export default function Hero() {
               View work
               <ArrowUpRight className="ml-2 h-4 w-4" />
             </Button>
-            <a
-              href="/Pratham_Resume.pdf"
-              download
-              aria-label="Download Pratham Shah's Resume PDF"
-              data-agent-action="download-resume"
+            <Button
+              variant="outline"
+              size="lg"
+              aria-label="View and preview Pratham Shah's Resume"
+              data-agent-action="view-resume"
+              onClick={() => setIsResumeOpen(true)}
+              className="rounded-none border-stone-400 bg-transparent px-7 py-6 text-base font-medium text-stone-950 shadow-none hover:bg-stone-200/70 dark:border-white/20 dark:text-white dark:hover:bg-white/10"
             >
-              <Button
-                variant="outline"
-                size="lg"
-                className="rounded-none border-stone-400 bg-transparent px-7 py-6 text-base font-medium text-stone-950 shadow-none hover:bg-stone-200/70 dark:border-white/20 dark:text-white dark:hover:bg-white/10"
-              >
-                Resume
-              </Button>
-            </a>
+              Resume
+            </Button>
           </div>
 
           <div ref={socialRef} className="flex items-center gap-2 pt-2">
@@ -192,7 +190,6 @@ export default function Hero() {
                 src="/neuro.webp"
                 alt="NeuroArm Signal Flow - BCI EEG pipeline visualization"
                 fill
-                priority
                 quality={85}
                 sizes="(min-width: 1024px) 40vw, 100vw"
                 className="object-cover object-center"
@@ -224,6 +221,10 @@ export default function Hero() {
           </div>
         </div>
       </div>
+
+      {isResumeOpen && (
+        <ResumeModal open={isResumeOpen} onOpenChange={setIsResumeOpen} />
+      )}
     </section>
   );
 }
