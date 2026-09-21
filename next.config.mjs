@@ -10,7 +10,18 @@ const nextConfig = {
     formats: ["image/avif", "image/webp"],
   },
   experimental: {
-    optimizePackageImports: ["lucide-react", "react-icons", "gsap"],
+    optimizePackageImports: [
+      "lucide-react",
+      "react-icons",
+      "react-icons/si",
+      "react-icons/fa",
+      "gsap",
+      "@radix-ui/react-dialog",
+      "@radix-ui/react-tooltip",
+      "@radix-ui/react-slot",
+      "react-hook-form",
+      "embla-carousel-react",
+    ],
   },
   async headers() {
     return [

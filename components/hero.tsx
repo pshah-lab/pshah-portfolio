@@ -1,47 +1,17 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { gsap } from "gsap";
+import { useState } from "react";
 import { ArrowDown, ArrowUpRight, Github, Linkedin, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import ResumeModal from "@/components/resume-modal";
+import dynamic from "next/dynamic";
+
+const ResumeModal = dynamic(() => import("@/components/resume-modal"), {
+  ssr: false,
+}) as React.FC<{ open: boolean; onOpenChange: (open: boolean) => void }>;
 
 export default function Hero() {
-  const heroRef = useRef(null);
-  const titleRef = useRef(null);
-  const subtitleRef = useRef(null);
-  const descriptionRef = useRef(null);
-  const ctaRef = useRef(null);
-  const socialRef = useRef(null);
-  const scrollIndicatorRef = useRef(null);
   const [isResumeOpen, setIsResumeOpen] = useState(false);
-
-  useEffect(() => {
-    // On mobile devices, keep hero static for instant LCP paint and zero TBT
-    if (typeof window !== "undefined" && window.innerWidth < 768) {
-      return;
-    }
-
-    const ctx = gsap.context(() => {
-      gsap.from([titleRef.current, ctaRef.current], {
-        y: 16,
-        duration: 0.45,
-        stagger: 0.08,
-        ease: "power2.out",
-      });
-
-      gsap.to(scrollIndicatorRef.current, {
-        y: 8,
-        duration: 1.8,
-        repeat: -1,
-        yoyo: true,
-        ease: "power2.inOut",
-      });
-    }, heroRef);
-
-    return () => ctx.revert();
-  }, []);
 
   const scrollToAbout = () => {
     document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
@@ -50,7 +20,6 @@ export default function Hero() {
   return (
     <section
       id="home"
-      ref={heroRef}
       className="relative flex min-h-screen items-center overflow-hidden pt-20"
     >
       <div className="absolute inset-0 z-0 bg-[linear-gradient(to_right,rgba(28,25,23,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(28,25,23,0.08)_1px,transparent_1px)] bg-[size:72px_72px] opacity-40 dark:bg-[linear-gradient(to_right,rgba(255,255,255,0.07)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.07)_1px,transparent_1px)]" />
@@ -58,21 +27,20 @@ export default function Hero() {
 
       <div className="section-shell relative z-30 grid min-h-[calc(100vh-5rem)] items-center gap-10 py-8 lg:grid-cols-[1.02fr_0.98fr]">
         <div className="max-w-4xl space-y-6">
-          <div ref={titleRef} className="space-y-5">
+          <div className="space-y-5 animate-in fade-in slide-in-from-bottom-2 duration-500">
             <p className="section-kicker">Pratham Shah</p>
             <h1 className="max-w-4xl text-4xl font-semibold leading-[1.08] tracking-tight text-stone-950 sm:text-5xl lg:text-6xl 2xl:text-7xl dark:text-stone-50">
               Full-Stack Developer & Cloud Engineer.
             </h1>
           </div>
 
-          <div ref={subtitleRef}>
+          <div>
             <p className="max-w-2xl text-lg leading-8 text-stone-700 dark:text-stone-300">
               Building precise web products across React, Next.js, Node.js, AWS/GCP infrastructure, and signal-driven BCI applications with engineering depth.
             </p>
           </div>
 
           <div
-            ref={descriptionRef}
             className="hidden max-w-2xl grid-cols-3 border-y border-stone-300/70 py-5 dark:border-white/10 2xl:grid"
           >
             <div>
@@ -102,7 +70,6 @@ export default function Hero() {
           </div>
 
           <div
-            ref={ctaRef}
             className="flex flex-col items-start gap-3 sm:flex-row sm:items-center"
           >
             <Button
@@ -126,7 +93,7 @@ export default function Hero() {
             </Button>
           </div>
 
-          <div ref={socialRef} className="flex items-center gap-2 pt-2">
+          <div className="flex items-center gap-2 pt-2">
             <a
               href="https://github.com/pshah-lab"
               target="_blank"
@@ -211,8 +178,7 @@ export default function Hero() {
         </div>
 
         <div
-          ref={scrollIndicatorRef}
-          className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 cursor-pointer sm:block"
+          className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 cursor-pointer sm:block animate-bounce"
           onClick={scrollToAbout}
         >
           <div className="flex items-center gap-2 text-sm font-medium text-stone-500 transition-colors hover:text-stone-950 dark:text-stone-400 dark:hover:text-white">

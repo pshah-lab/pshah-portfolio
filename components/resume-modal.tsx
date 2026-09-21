@@ -461,7 +461,7 @@ export default function ResumeModal({ open, onOpenChange }: ResumeModalProps) {
                 }}
               >
                 <img
-                  src="/resume-preview.png"
+                  src="/resume-preview.webp"
                   alt="Pratham Shah Official Resume Document"
                   className="w-full h-auto object-contain select-none"
                   loading="eager"

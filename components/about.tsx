@@ -1,11 +1,8 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Code2, Gauge, PencilRuler, Users } from "lucide-react";
-
-gsap.registerPlugin(ScrollTrigger);
+import { getGsap } from "@/lib/gsap";
 
 const highlights = [
   {
@@ -37,58 +34,65 @@ export default function About() {
   const cardsRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      if (!titleRef.current || !contentRef.current || !cardsRef.current) return;
+    if (typeof window === "undefined" || window.innerWidth < 768) return;
 
-      gsap.fromTo(
-        titleRef.current,
-        { opacity: 0, y: 28 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.7,
-          scrollTrigger: {
-            trigger: titleRef.current,
-            start: "top 80%",
-            toggleActions: "play none none reverse",
-          },
-        }
-      );
+    let ctx: any;
+    getGsap().then((bundle) => {
+      if (!bundle) return;
+      const { gsap } = bundle;
+      ctx = gsap.context(() => {
+        if (!titleRef.current || !contentRef.current || !cardsRef.current) return;
 
-      gsap.fromTo(
-        contentRef.current,
-        { opacity: 0, y: 30 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          scrollTrigger: {
-            trigger: contentRef.current,
-            start: "top 80%",
-            toggleActions: "play none none reverse",
-          },
-        }
-      );
+        gsap.fromTo(
+          titleRef.current,
+          { opacity: 0, y: 28 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.7,
+            scrollTrigger: {
+              trigger: titleRef.current,
+              start: "top 80%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
 
-      gsap.fromTo(
-        cardsRef.current.children,
-        { opacity: 0, y: 24 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.55,
-          stagger: 0.08,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: cardsRef.current,
-            start: "top 80%",
-            toggleActions: "play none none reverse",
-          },
-        }
-      );
-    }, sectionRef);
+        gsap.fromTo(
+          contentRef.current,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            scrollTrigger: {
+              trigger: contentRef.current,
+              start: "top 80%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
 
-    return () => ctx.revert();
+        gsap.fromTo(
+          cardsRef.current.children,
+          { opacity: 0, y: 24 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.55,
+            stagger: 0.08,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: cardsRef.current,
+              start: "top 80%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+      }, sectionRef);
+    });
+
+    return () => ctx?.revert();
   }, []);
 
   return (

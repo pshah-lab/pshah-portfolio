@@ -1,12 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ChevronDown, HelpCircle } from "lucide-react";
 import { faqItems } from "@/lib/faq-data";
-
-gsap.registerPlugin(ScrollTrigger);
+import { getGsap } from "@/lib/gsap";
 
 export default function Faq() {
   const sectionRef = useRef<HTMLElement | null>(null);
@@ -15,43 +12,50 @@ export default function Faq() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      if (!titleRef.current || !faqListRef.current) return;
+    if (typeof window === "undefined" || window.innerWidth < 768) return;
 
-      gsap.fromTo(
-        titleRef.current,
-        { opacity: 0, y: 28 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.7,
-          scrollTrigger: {
-            trigger: titleRef.current,
-            start: "top 80%",
-            toggleActions: "play none none reverse",
-          },
-        }
-      );
+    let ctx: any;
+    getGsap().then((bundle) => {
+      if (!bundle) return;
+      const { gsap } = bundle;
+      ctx = gsap.context(() => {
+        if (!titleRef.current || !faqListRef.current) return;
 
-      gsap.fromTo(
-        faqListRef.current.children,
-        { opacity: 0, y: 24 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.55,
-          stagger: 0.08,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: faqListRef.current,
-            start: "top 80%",
-            toggleActions: "play none none reverse",
-          },
-        }
-      );
-    }, sectionRef);
+        gsap.fromTo(
+          titleRef.current,
+          { opacity: 0, y: 28 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.7,
+            scrollTrigger: {
+              trigger: titleRef.current,
+              start: "top 80%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
 
-    return () => ctx.revert();
+        gsap.fromTo(
+          faqListRef.current.children,
+          { opacity: 0, y: 24 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.55,
+            stagger: 0.08,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: faqListRef.current,
+              start: "top 80%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+      }, sectionRef);
+    });
+
+    return () => ctx?.revert();
   }, []);
 
   const toggleAccordion = (index: number) => {

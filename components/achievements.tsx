@@ -1,12 +1,9 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Award, Star } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-
-gsap.registerPlugin(ScrollTrigger);
+import { getGsap } from "@/lib/gsap";
 
 interface AchievementItem {
   title: string;
@@ -49,43 +46,50 @@ export default function Achievements() {
   const timelineRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      if (!titleRef.current || !timelineRef.current) return;
+    if (typeof window === "undefined" || window.innerWidth < 768) return;
 
-      gsap.fromTo(
-        titleRef.current,
-        { opacity: 0, y: 28 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.7,
-          scrollTrigger: {
-            trigger: titleRef.current,
-            start: "top 80%",
-            toggleActions: "play none none reverse",
-          },
-        }
-      );
+    let ctx: any;
+    getGsap().then((bundle) => {
+      if (!bundle) return;
+      const { gsap } = bundle;
+      ctx = gsap.context(() => {
+        if (!titleRef.current || !timelineRef.current) return;
 
-      gsap.fromTo(
-        timelineRef.current.children,
-        { opacity: 0, y: 24 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.55,
-          stagger: 0.1,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: timelineRef.current,
-            start: "top 80%",
-            toggleActions: "play none none reverse",
-          },
-        }
-      );
-    }, sectionRef);
+        gsap.fromTo(
+          titleRef.current,
+          { opacity: 0, y: 28 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.7,
+            scrollTrigger: {
+              trigger: titleRef.current,
+              start: "top 80%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
 
-    return () => ctx.revert();
+        gsap.fromTo(
+          timelineRef.current.children,
+          { opacity: 0, y: 24 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.55,
+            stagger: 0.1,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: timelineRef.current,
+              start: "top 80%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+      }, sectionRef);
+    });
+
+    return () => ctx?.revert();
   }, []);
 
   return (

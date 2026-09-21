@@ -1,13 +1,10 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArrowUpRight, ChevronDown, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-
-gsap.registerPlugin(ScrollTrigger);
+import { getGsap } from "@/lib/gsap";
 
 const projects = [
   {
@@ -102,43 +99,50 @@ export default function Projects() {
   const [expandedProject, setExpandedProject] = useState<number | null>(null);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      if (!titleRef.current || !projectsRef.current) return;
+    if (typeof window === "undefined" || window.innerWidth < 768) return;
 
-      gsap.fromTo(
-        titleRef.current,
-        { opacity: 0, y: 28 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.7,
-          scrollTrigger: {
-            trigger: titleRef.current,
-            start: "top 80%",
-            toggleActions: "play none none reverse",
-          },
-        }
-      );
+    let ctx: any;
+    getGsap().then((bundle) => {
+      if (!bundle) return;
+      const { gsap } = bundle;
+      ctx = gsap.context(() => {
+        if (!titleRef.current || !projectsRef.current) return;
 
-      gsap.fromTo(
-        projectsRef.current.children,
-        { opacity: 0, y: 36 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.65,
-          stagger: 0.12,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: projectsRef.current,
-            start: "top 82%",
-            toggleActions: "play none none reverse",
-          },
-        }
-      );
-    }, sectionRef);
+        gsap.fromTo(
+          titleRef.current,
+          { opacity: 0, y: 28 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.7,
+            scrollTrigger: {
+              trigger: titleRef.current,
+              start: "top 80%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
 
-    return () => ctx.revert();
+        gsap.fromTo(
+          projectsRef.current.children,
+          { opacity: 0, y: 36 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.65,
+            stagger: 0.12,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: projectsRef.current,
+              start: "top 82%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+      }, sectionRef);
+    });
+
+    return () => ctx?.revert();
   }, []);
 
   const toggleProject = (projectId: number) => {

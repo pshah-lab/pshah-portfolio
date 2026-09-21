@@ -1,7 +1,6 @@
 "use client"
 
-import { useEffect, useState, useRef } from "react"
-import { gsap } from "gsap"
+import { useEffect, useState } from "react"
 import { Moon, Sun, Menu, X } from "lucide-react"
 import { useTheme } from "./theme-provider"
 import { Button } from "@/components/ui/button"
@@ -21,19 +20,9 @@ export default function Navbar() {
   const [activeSection, setActiveSection] = useState("home")
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const { theme, setTheme } = useTheme()
-  const navRef = useRef(null)
-  const logoRef = useRef(null)
 
   useEffect(() => {
     setMounted(true)
-    // Navbar entrance animation
-    const tl = gsap.timeline()
-    tl.fromTo(navRef.current, { y: -18, opacity: 0 }, { y: 0, opacity: 1, duration: 0.55, ease: "power2.out" }).fromTo(
-      logoRef.current,
-      { opacity: 0 },
-      { opacity: 1, duration: 0.35, ease: "power2.out" },
-      "-=0.25",
-    )
 
     // Scroll spy functionality
     const handleScroll = () => {
@@ -54,7 +43,7 @@ export default function Navbar() {
       }
     }
 
-    window.addEventListener("scroll", handleScroll)
+    window.addEventListener("scroll", handleScroll, { passive: true })
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
@@ -68,13 +57,12 @@ export default function Navbar() {
 
   return (
     <nav
-      ref={navRef}
-      className="fixed left-0 right-0 top-0 z-50 border-b border-stone-300/70 bg-[#f7f4ee]/90 backdrop-blur-xl dark:border-white/10 dark:bg-[#080b10]/95"
+      className="fixed left-0 right-0 top-0 z-50 border-b border-stone-300/70 bg-[#f7f4ee]/90 backdrop-blur-xl animate-in fade-in slide-in-from-top-2 duration-300 dark:border-white/10 dark:bg-[#080b10]/95"
     >
       <div className="section-shell">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <div ref={logoRef} className="flex-shrink-0">
+          <div className="flex-shrink-0">
             <span className="text-sm font-semibold uppercase tracking-[0.24em] text-stone-950 dark:text-stone-50">
               Pratham Shah
             </span>

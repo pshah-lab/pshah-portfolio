@@ -2,10 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import dynamic from "next/dynamic";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
+import { getGsap } from "@/lib/gsap";
 
 const SiJavascript = dynamic(() => import("react-icons/si").then((m) => m.SiJavascript), { ssr: false });
 const SiNextdotjs = dynamic(() => import("react-icons/si").then((m) => m.SiNextdotjs), { ssr: false });
@@ -47,44 +44,51 @@ export default function Skills() {
   const skillsRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      if (!titleRef.current || !skillsRef.current) return;
+    if (typeof window === "undefined" || window.innerWidth < 768) return;
 
-      gsap.fromTo(
-        titleRef.current,
-        { opacity: 0, y: 24 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.65,
-          scrollTrigger: {
-            trigger: titleRef.current,
-            start: "top 90%",
-            toggleActions: "play none none none",
-            once: true,
-          },
-        }
-      );
+    let ctx: any;
+    getGsap().then((bundle) => {
+      if (!bundle) return;
+      const { gsap } = bundle;
+      ctx = gsap.context(() => {
+        if (!titleRef.current || !skillsRef.current) return;
 
-      gsap.fromTo(
-        skillsRef.current.children,
-        { opacity: 0, y: 22 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.45,
-          stagger: 0.035,
-          scrollTrigger: {
-            trigger: skillsRef.current,
-            start: "top 90%",
-            toggleActions: "play none none none",
-            once: true,
-          },
-        }
-      );
-    }, sectionRef);
+        gsap.fromTo(
+          titleRef.current,
+          { opacity: 0, y: 24 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.65,
+            scrollTrigger: {
+              trigger: titleRef.current,
+              start: "top 90%",
+              toggleActions: "play none none none",
+              once: true,
+            },
+          }
+        );
 
-    return () => ctx.revert();
+        gsap.fromTo(
+          skillsRef.current.children,
+          { opacity: 0, y: 22 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.45,
+            stagger: 0.035,
+            scrollTrigger: {
+              trigger: skillsRef.current,
+              start: "top 90%",
+              toggleActions: "play none none none",
+              once: true,
+            },
+          }
+        );
+      }, sectionRef);
+    });
+
+    return () => ctx?.revert();
   }, []);
 
   return (
