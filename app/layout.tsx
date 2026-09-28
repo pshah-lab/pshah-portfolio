@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { IBM_Plex_Mono, IBM_Plex_Sans, IBM_Plex_Sans_Condensed } from "next/font/google";
+import localFont from "next/font/local";
 import { Analytics } from "@vercel/analytics/react";
 import { Providers } from "@/components/providers";
 import { SiteHeader } from "@/components/site-header";
@@ -10,23 +10,32 @@ import { profile, site } from "@/content/profile";
 import { personSchema, websiteSchema } from "@/lib/seo";
 import "./globals.css";
 
-const sans = IBM_Plex_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
+/*
+ * IBM Plex is self-hosted from app/fonts (SIL Open Font License, see OFL-LICENSE.txt) so the
+ * build never depends on reaching Google Fonts. next/font/local still generates size-adjusted
+ * fallbacks, so there is no layout shift while the files load.
+ */
+const sans = localFont({
+  src: [
+    { path: "./fonts/ibm-plex-sans-latin-400-normal.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/ibm-plex-sans-latin-500-normal.woff2", weight: "500", style: "normal" },
+    { path: "./fonts/ibm-plex-sans-latin-600-normal.woff2", weight: "600", style: "normal" },
+  ],
   variable: "--font-sans",
   display: "swap",
+  fallback: ["system-ui", "Arial", "sans-serif"],
 });
-const display = IBM_Plex_Sans_Condensed({
-  subsets: ["latin"],
-  weight: ["600"],
+const display = localFont({
+  src: [{ path: "./fonts/ibm-plex-sans-condensed-latin-600-normal.woff2", weight: "600", style: "normal" }],
   variable: "--font-display",
   display: "swap",
+  fallback: ["Arial Narrow", "system-ui", "sans-serif"],
 });
-const mono = IBM_Plex_Mono({
-  subsets: ["latin"],
-  weight: ["400"],
+const mono = localFont({
+  src: [{ path: "./fonts/ibm-plex-mono-latin-400-normal.woff2", weight: "400", style: "normal" }],
   variable: "--font-mono",
   display: "swap",
+  fallback: ["ui-monospace", "Menlo", "monospace"],
   // Only used below the fold (diagrams, code); don't compete with the hero for bandwidth.
   preload: false,
 });
