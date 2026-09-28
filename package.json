@@ -36,6 +36,7 @@
     "typescript": "^5"
   },
   "engines": {
-    "node": ">=20"
-  }
+    "node": "22.x"
+  },
+  "packageManager": "pnpm@10.29.3"
 }
