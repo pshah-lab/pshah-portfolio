@@ -1,82 +1,88 @@
-# Developer Portfolio
+# pshah.fun
 
-## Description
+Source for [pshah.fun](https://pshah.fun), the portfolio of Pratham Shah: full-stack, cloud and applied AI engineering.
 
-This repository hosts my personal developer portfolio, a dynamic and interactive web application designed to showcase my technical skills, significant projects, and professional experience. Built with modern web technologies, this portfolio serves as a comprehensive overview of my capabilities as a developer, highlighting my journey and contributions in the field. It's crafted to provide an engaging user experience, allowing visitors to easily navigate through various sections such as my 'About' section, 'Skills', 'Projects', 'Experience', 'Achievements', and a 'Contact' form. The design prioritizes responsiveness and performance, ensuring a seamless experience across different devices.
+Next.js 15 (App Router), TypeScript and Tailwind CSS, deployed on Vercel. Every page is statically
+prerendered except the assistant API.
 
-## Installation
+## Quick start
 
-To set up and run this project on your local machine, please follow these detailed instructions. This guide assumes you have `git` and `pnpm` (a fast, disk space efficient package manager) installed on your system. If not, please install them first.
+```bash
+pnpm install
+pnpm dev          # http://localhost:3000
+pnpm check        # typecheck + lint + production build
+pnpm build && pnpm start
+pnpm resume       # regenerate the SDE and Cloud resume PDFs + docs/resume/*.md from content/
+```
 
-### Prerequisites
+Requires Node.js 20+ and pnpm. No environment variables are needed to run it; see `.env.example`
+for the optional ones.
 
-*   **Git**: For cloning the repository.
-    *   [Download & Install Git](https://git-scm.com/downloads)
-*   **pnpm**: As the package manager for installing dependencies.
-    *   [Install pnpm](https://pnpm.io/installation)
+## Where things live
 
-### Steps
+```
+content/            ← edit this to update the site
+  profile.ts        identity, links, "Now", setup, working principles
+  experience.ts     roles (resume is the source of truth)
+  projects.ts       projects + case studies (problem, architecture, decisions…)
+  credentials.ts    certifications, achievements, impact metrics, capabilities, journey, FAQ
+  notes.ts          engineering notes (structured blocks, no HTML)
+  resume.ts         the one-page resume, composed from the files above
+  types.ts          the content model
+app/                routes: /, /projects, /projects/[slug], /experience, /research,
+                    /journey, /notes, /notes/[slug], /about, /resume,
+                    /llms.txt, /llms-full.txt, /api/profile, /api/ask
+components/         UI (server components by default; client only where interactive)
+lib/seo.ts          per-page metadata + JSON-LD builders
+lib/github.ts       cached GitHub API with static fallback
+lib/assistant/      knowledge index + BM25 retrieval for the assistant
+docs/AUDIT.md       audit that preceded the redesign
+docs/CONTENT-TODO.md  facts that still need the owner's input
+```
 
-1.  **Clone the repository:**
+Pages, JSON-LD, `llms.txt`, `/api/profile` and the assistant all read from `content/`, so a fact
+is written once. Every number shown on the site carries a `source`.
 
-    Begin by cloning the project from its GitHub repository to your local machine using the following command:
+### Resume
 
-    ```bash
-    git clone https://github.com/your-username/developer-portfolio.git
-    ```
+`content/resume.ts` defines two one-page fresher resumes from the same verified content as the site:
+**SDE** (software development roles) and **Cloud** (cloud, DevOps and FinOps roles). Experience bullets
+are identical in both; the summary, section order, skills and projects differ.
 
-    Replace `https://github.com/your-username/developer-portfolio.git` with the actual URL of your repository.
+`pnpm resume` renders both to A4 PDFs with headless Chrome (`public/Pratham_Shah_Resume_SDE.pdf`,
+`public/Pratham_Shah_Resume_Cloud.pdf`, plus Markdown in `docs/resume/`). The build fails if either PDF
+runs past one page or contains an em or en dash, so the output stays ATS-friendly: one column, standard
+headings, real text, plain ASCII punctuation. Public PDFs omit the phone number;
+`RESUME_PHONE="+91-…" pnpm resume` writes copies with it to `docs/resume/private/` (gitignored).
 
-2.  **Navigate to the project directory:**
+### Adding a project
 
-    Once cloned, change your current directory to the newly created project folder:
+Add an entry to `content/projects.ts`. `tier: "featured" | "notable" | "archive"` controls
+prominence. Adding a `caseStudy` generates `/projects/<slug>`, its Open Graph image, sitemap
+entry and structured data automatically.
 
-    ```bash
-    cd developer-portfolio
-    ```
+## Assistant ("Ask about my work")
 
-3.  **Install dependencies:**
+`/api/ask` retrieves the most relevant content chunks with a small in-process BM25 index, with no
+vector database needed for a corpus this size.
 
-    Install all the necessary project dependencies using pnpm. This command will read the `package.json` file and install all listed packages.
+- Without `ANTHROPIC_API_KEY`, it answers by quoting the matching content, with source links.
+- With the key set, Claude writes a short answer grounded only in the retrieved chunks, with
+  citations. The system prompt forbids facts outside the context and treats the question as
+  untrusted. Server-side fallbacks (`fallbacks: "default"`) are enabled.
+- Guardrails: 300-character questions, a relevance floor, per-IP rate limiting (best effort on
+  serverless, so set a spend limit on the key), no-store responses, and plain-text rendering.
+- The panel's code is only downloaded when someone opens it.
 
-    ```bash
-    pnpm install
-    ```
+## Analytics
 
-    This may take a few moments depending on your internet connection.
+Vercel Analytics plus four custom events, sent through a single delegated click listener
+(`components/track-clicks.tsx`) on elements with `data-track`: `resume_click`, `github_click`,
+`project_click`, `contact_click` (plus `assistant_open`, `project_live_click`). Only an event
+name and a static label are sent.
 
-## Usage
+## Deployment
 
-Follow these steps to run the development server and access the portfolio locally:
-
-1.  **Start the development server:**
-
-    Execute the following command in your terminal from the project's root directory:
-
-    ```bash
-    pnpm run dev
-    ```
-
-    This command starts the Next.js development server, typically on port `3000`.
-
-2.  **Open in your browser:**
-
-    Once the development server is running, open your web browser and navigate to:
-
-    ```
-    http://localhost:3000
-    ```
-
-    You should now see the developer portfolio loaded in your browser.
-
-    The application supports hot-reloading, meaning any changes you make to the source code will automatically reflect in the browser without needing to restart the server.
-
-## Contact
-
-I'm always open to connecting with fellow developers, potential collaborators, or anyone interested in my work. Feel free to reach out through any of the following channels:
-
-*   **Email**: [your.email@example.com](mailto:your.email@example.com) - The most direct way to get in touch for inquiries or opportunities.
-*   **LinkedIn**: [Your LinkedIn Profile](https://www.linkedin.com/in/your-profile) - Connect with me professionally and view my full work history.
-*   **GitHub**: [Your GitHub Profile](https://github.com/your-username) - Explore my other projects and contributions.
-
-I look forward to hearing from you!
+Vercel, with the default Next.js settings. Set any optional variables from `.env.example` in the
+Vercel project. Security headers (CSP, HSTS, frame and referrer policy) are defined in
+`next.config.mjs`.

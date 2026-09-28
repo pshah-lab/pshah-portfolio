@@ -1,121 +1,96 @@
-import type React from "react"
-import type { Metadata, Viewport } from "next"
-import { Inter } from "next/font/google"
-import { Analytics } from "@vercel/analytics/react"
-import JsonLd from "@/components/json-ld"
-import "./globals.css"
+import type { Metadata, Viewport } from "next";
+import { IBM_Plex_Mono, IBM_Plex_Sans, IBM_Plex_Sans_Condensed } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
+import { Providers } from "@/components/providers";
+import { SiteHeader } from "@/components/site-header";
+import { SiteFooter } from "@/components/site-footer";
+import { TrackClicks } from "@/components/track-clicks";
+import { JsonLd } from "@/components/json-ld";
+import { profile, site } from "@/content/profile";
+import { personSchema, websiteSchema } from "@/lib/seo";
+import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"], display: "swap" })
-
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://pshah.fun"
+const sans = IBM_Plex_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-sans",
+  display: "swap",
+});
+const display = IBM_Plex_Sans_Condensed({
+  subsets: ["latin"],
+  weight: ["600"],
+  variable: "--font-display",
+  display: "swap",
+});
+const mono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-mono",
+  display: "swap",
+  // Only used below the fold (diagrams, code); don't compete with the hero for bandwidth.
+  preload: false,
+});
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f7f4ee" },
-    { media: "(prefers-color-scheme: dark)", color: "#080b10" },
+    { media: "(prefers-color-scheme: light)", color: "#EEF0F2" },
+    { media: "(prefers-color-scheme: dark)", color: "#0F141C" },
   ],
   width: "device-width",
   initialScale: 1,
-}
+};
+
+const title = `${profile.name}: ${profile.shortRole}`;
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
-  title: {
-    default: "Pratham Shah | Full Stack Developer & Cloud Engineer",
-    template: "%s | Pratham Shah",
-  },
-  description:
-    "Portfolio of Pratham Shah, a Full Stack Developer & Cloud Engineer specializing in React.js, Next.js, Node.js, AWS/GCP, and AI/BCI signal processing.",
-  keywords: [
-    "Pratham Shah",
-    "Pratham Shah Portfolio",
-    "Full Stack Developer",
-    "React Developer",
-    "Next.js Developer",
-    "Node.js Engineer",
-    "Cloud Engineer",
-    "FinOps Engineer",
-    "GCP Optimization",
-    "AWS Lambda",
-    "BCI Research",
-    "EEG Signal Processing",
-    "Web Developer Pune",
-    "Software Engineer Portfolio",
-  ],
-  authors: [{ name: "Pratham Shah", url: siteUrl }],
-  creator: "Pratham Shah",
-  publisher: "Pratham Shah",
-  verification: {
-    google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION || "",
-  },
-  formatDetection: {
-    email: true,
-    address: false,
-    telephone: false,
-  },
+  metadataBase: new URL(site.url),
+  title: { default: title, template: `%s | ${profile.name}` },
+  description: `${profile.tagline} Based in ${profile.location}.`,
+  applicationName: site.name,
+  authors: [{ name: profile.name, url: site.url }],
+  creator: profile.name,
   alternates: {
-    canonical: "/",
-    types: {
-      "text/markdown": `${siteUrl}/llms.txt`,
-    },
+    canonical: site.url,
+    types: { "text/plain": `${site.url}/llms.txt` },
   },
   openGraph: {
-    title: "Pratham Shah | Full Stack Developer & Cloud Engineer",
-    description:
-      "Full Stack Developer building polished web applications, cloud infrastructure (AWS/GCP), and AI/BCI signal pipelines.",
-    url: siteUrl,
-    siteName: "Pratham Shah Developer Portfolio",
-    locale: "en_US",
-    type: "website",
+    title,
+    description: profile.tagline,
+    url: site.url,
+    siteName: site.name,
+    locale: site.locale,
+    type: "profile",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Pratham Shah | Full Stack Developer & Cloud Engineer",
-    description:
-      "Full Stack Developer specializing in React, Next.js, Node.js, AWS, GCP FinOps, and Brain-Computer Interfaces.",
-    creator: "@pshah_lab",
-    site: "@pshah_lab",
-  },
+  twitter: { card: "summary_large_image", title, description: profile.tagline, creator: "@pshah_lab" },
   robots: {
     index: true,
     follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
+    googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
   },
-  icons: {
-    icon: [
-      { url: "/logo.jpg", type: "image/jpeg" },
-    ],
-    apple: "/logo.jpg",
-  },
-  manifest: "/manifest.webmanifest",
-  generator: "Next.js",
-}
+  ...(process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION
+    ? { verification: { google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION } }
+    : {}),
+  formatDetection: { telephone: false, address: false, email: false },
+};
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <head>
-        <link rel="icon" href="/logo.jpg" />
-        <link rel="author" type="text/markdown" href="/llms.txt" title="LLM Context" />
-        <link rel="alternate" type="text/markdown" href="/llms-full.txt" title="Full LLM Profile" />
-        <JsonLd />
-      </head>
-      <body className={inter.className}>
-        {children}
-
-        {/* Vercel Analytics */}
+    <html lang="en" suppressHydrationWarning className={`${sans.variable} ${display.variable} ${mono.variable}`}>
+      <body>
+        <a href="#main" className="skip-link">
+          Skip to content
+        </a>
+        <Providers>
+          <SiteHeader />
+          <main id="main" tabIndex={-1} className="outline-none">
+            {children}
+          </main>
+          <SiteFooter />
+        </Providers>
+        <JsonLd data={[personSchema(), websiteSchema()]} />
+        <TrackClicks />
         <Analytics />
       </body>
     </html>
-  )
+  );
 }

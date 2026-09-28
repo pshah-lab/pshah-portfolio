@@ -1,31 +1,12 @@
-import { MetadataRoute } from "next";
+import type { MetadataRoute } from "next";
+import { site } from "@/content/profile";
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://pshah.fun";
-
   return {
     rules: [
-      {
-        userAgent: "*",
-        allow: "/",
-        disallow: ["/api/"],
-      },
-      {
-        userAgent: [
-          "GPTBot",
-          "ChatGPT-User",
-          "ClaudeBot",
-          "Claude-Web",
-          "PerplexityBot",
-          "Google-Extended",
-          "Applebot-Extended",
-          "Bytespider",
-          "cohere-ai",
-        ],
-        allow: ["/", "/llms.txt", "/llms-full.txt"],
-      },
+      // /api/profile is intentionally public: it is a machine-readable profile for agents.
+      { userAgent: "*", allow: ["/", "/api/profile"], disallow: ["/api/"] },
     ],
-    sitemap: `${baseUrl}/sitemap.xml`,
-    host: baseUrl,
+    sitemap: `${site.url}/sitemap.xml`,
   };
 }

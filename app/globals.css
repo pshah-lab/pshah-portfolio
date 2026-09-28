@@ -2,141 +2,166 @@
 @tailwind components;
 @tailwind utilities;
 
+/*
+ * Tokens. Stored as RGB channels so Tailwind can apply alpha (bg-ink/5 etc.).
+ * Light: a cool lab-bench grey. Dark: deep slate-navy. One accent: instrument cobalt.
+ */
 @layer base {
   :root {
-    --background: 38 28% 95%;
-    --foreground: 24 10% 9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 173 70% 30%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 36 24% 90%;
-    --secondary-foreground: 24 10% 9%;
-    --muted: 36 24% 90%;
-    --muted-foreground: 25 8% 38%;
-    --accent: 210 40% 96%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 35 14% 80%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-    --radius: 0.5rem;
+    --bg: 238 240 242;          /* #EEF0F2 */
+    --surface: 248 249 250;     /* #F8F9FA */
+    --ink: 22 26 32;            /* #161A20 */
+    --muted: 84 92 106;         /* #545C6A  (5.6:1 on bg) */
+    --line: 208 213 220;        /* #D0D5DC */
+    --accent: 42 59 209;        /* #2A3BD1  (6.9:1 on bg) */
+    --accent-soft: 221 225 250; /* #DDE1FA */
+    color-scheme: light;
   }
 
   .dark {
-    --background: 218 33% 5%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 173 64% 46%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 220 18% 13%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 220 18% 13%;
-    --muted-foreground: 220 9% 68%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 220 13% 20%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --bg: 15 20 28;             /* #0F141C */
+    --surface: 22 28 38;        /* #161C26 */
+    --ink: 231 234 240;         /* #E7EAF0 */
+    --muted: 154 163 178;       /* #9AA3B2  (7.1:1 on bg) */
+    --line: 42 51 67;           /* #2A3343 */
+    --accent: 150 162 255;      /* #96A2FF  (7.6:1 on bg) */
+    --accent-soft: 31 38 82;    /* #1F2652 */
+    color-scheme: dark;
   }
-}
 
-@layer base {
-  * {
-    @apply border-border;
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
   }
+
   body {
-    @apply bg-background text-foreground;
-    font-feature-settings: "ss01", "cv05", "cv10";
+    @apply bg-bg font-sans text-base text-ink antialiased;
+  }
+
+  ::selection {
+    @apply bg-accent text-bg;
+  }
+
+  :focus-visible {
+    outline: 2px solid rgb(var(--accent));
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  h1,
+  h2 {
+    @apply font-display font-semibold text-ink;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+
+  h1 {
+    letter-spacing: -0.03em;
+  }
+
+  h3 {
+    @apply font-semibold text-ink;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
   }
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
+@layer components {
+  .shell {
+    @apply mx-auto w-full max-w-shell px-5 sm:px-8;
+  }
+
+  .section {
+    @apply py-16 sm:py-24;
+  }
+
+  .h-section {
+    @apply text-[2rem] leading-[1.1] sm:text-[2.625rem];
+  }
+
+  .link {
+    @apply text-accent underline decoration-accent/40 decoration-1 underline-offset-[3px] transition-colors hover:decoration-accent;
+  }
+
+  .tag {
+    @apply inline-flex items-center rounded-control border border-line px-2 py-0.5 text-xs text-muted;
+  }
+
+  .panel {
+    @apply rounded-panel border border-line bg-surface;
+  }
+
+  .btn {
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-control px-4 text-sm font-medium transition-colors;
+  }
+
+  .btn-primary {
+    @apply btn bg-ink text-bg hover:bg-accent;
+  }
+
+  .btn-secondary {
+    @apply btn border border-line bg-surface text-ink hover:border-ink/40;
+  }
+
+  .skip-link {
+    @apply sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-control focus:bg-ink focus:px-4 focus:py-2 focus:text-bg;
+  }
 }
 
-::-webkit-scrollbar-track {
-  @apply bg-stone-100 dark:bg-stone-900;
+/*
+ * Signal path: the one orchestrated motion on the site. A pulse travels along each
+ * pipeline once on load. Disabled entirely for reduced motion.
+ */
+@keyframes signal-travel {
+  0% {
+    transform: translateX(-10%);
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  92% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(1000%);
+    opacity: 0;
+  }
 }
 
-::-webkit-scrollbar-thumb {
-  @apply bg-stone-300 dark:bg-stone-700 rounded-full;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  @apply bg-stone-400 dark:bg-stone-600;
-}
-
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Custom animations */
-@keyframes float {
+@keyframes node-light {
   0%,
   100% {
-    transform: translateY(0px);
+    border-color: rgb(var(--line));
   }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-.animate-float {
-  animation: float 3s ease-in-out infinite;
-}
-
-/* Gradient text animation */
-@keyframes gradient {
-  0%,
-  100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
+  40% {
+    border-color: rgb(var(--accent));
   }
 }
 
-.animate-gradient {
-  background-size: 200% 200%;
-  animation: gradient 3s ease infinite;
+@media (prefers-reduced-motion: no-preference) {
+  .signal-pulse {
+    animation: signal-travel 2.4s cubic-bezier(0.45, 0, 0.3, 1) both;
+    animation-delay: var(--delay, 0s);
+  }
+
+  .signal-node {
+    animation: node-light 2.4s ease-in-out both;
+    animation-delay: calc(var(--delay, 0s) + var(--step, 0) * 0.28s);
+  }
 }
 
-/* Custom focus styles */
-.focus-visible:focus-visible {
-  @apply outline-none ring-2 ring-teal-600 ring-offset-2 dark:ring-offset-stone-950;
-}
-
-.section-shell {
-  @apply mx-auto max-w-7xl px-5 sm:px-6 lg:px-8;
-}
-
-.section-kicker {
-  @apply text-xs font-semibold uppercase tracking-[0.28em] text-teal-700 dark:text-teal-300;
-}
-
-.section-title {
-  @apply max-w-3xl text-3xl font-semibold tracking-tight text-stone-950 sm:text-5xl dark:text-stone-50;
-}
-
-.section-copy {
-  @apply max-w-2xl text-base leading-8 text-stone-600 dark:text-stone-300;
-}
-
-.surface-line {
-  @apply border-stone-300/70 dark:border-white/10;
-}
-
-.quiet-card {
-  @apply border border-stone-300/70 bg-[#fbfaf7]/80 shadow-none backdrop-blur-sm dark:border-white/10 dark:bg-white/[0.03];
+@media (prefers-reduced-motion: reduce) {
+  .signal-pulse {
+    display: none;
+  }
 }

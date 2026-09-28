@@ -1,26 +1,18 @@
-import { MetadataRoute } from "next";
+import type { MetadataRoute } from "next";
+import { profile } from "@/content/profile";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Pratham Shah - Developer Portfolio",
-    short_name: "Pratham Shah",
-    description:
-      "Portfolio of Pratham Shah, Full Stack Developer & Cloud Engineer specializing in React, Next.js, Node.js, and AI applications.",
+    name: `${profile.name}, ${profile.shortRole}`,
+    short_name: profile.name,
+    description: profile.tagline,
     start_url: "/",
-    display: "standalone",
-    background_color: "#080b10",
-    theme_color: "#080b10",
+    display: "browser",
+    background_color: "#EEF0F2",
+    theme_color: "#EEF0F2",
     icons: [
-      {
-        src: "/logo.jpg",
-        sizes: "192x192",
-        type: "image/jpeg",
-      },
-      {
-        src: "/logo.jpg",
-        sizes: "512x512",
-        type: "image/jpeg",
-      },
+      { src: "/icon", sizes: "64x64", type: "image/png" },
+      { src: "/apple-icon", sizes: "180x180", type: "image/png" },
     ],
   };
 }
