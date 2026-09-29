@@ -5,6 +5,7 @@ import { SectionHeader } from "@/components/section-header";
 import { EvidenceList } from "@/components/evidence-list";
 import { FeaturedProject, ProjectCard } from "@/components/project-card";
 import { GitHubFeed, GitHubFeedSkeleton } from "@/components/github-feed";
+import { ContributionGraph } from "@/components/contribution-graph";
 import { ContactBlock } from "@/components/contact-block";
 import { JsonLd } from "@/components/json-ld";
 import { now, profile } from "@/content/profile";
@@ -250,6 +251,12 @@ export default function Home() {
             id="github"
             title="Open source"
             intro="Selected public repositories. Every project on this site that isn't client work has its source here."
+          />
+          <ContributionGraph
+            color="rgb(var(--accent))"
+            className="panel mb-8 p-5 text-muted sm:p-6"
+            textClassName="text-muted"
+            linkClassName="link"
           />
           <Suspense fallback={<GitHubFeedSkeleton />}>
             <GitHubFeed />
