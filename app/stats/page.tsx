@@ -102,7 +102,7 @@ export default async function StatsPage() {
                   ? `Plus ${unknown.map((c) => c.item.toLowerCase()).join(" and ")}, billed ${unknown
                       .map((c) => c.billing?.toLowerCase() ?? "separately")
                       .join(", ")}; its cost isn't recorded here yet.`
-                  : "Everything included."}{" "}
+                  : "Everything included; the domain is paid yearly and shown here per month."}{" "}
                 Figures checked {fmtDate(costsChecked)}. Vercel Hobby has no billing API, so they are updated by hand.
               </p>
             </div>
@@ -120,6 +120,7 @@ export default async function StatsPage() {
                   </div>
                   <p className="order-first font-mono text-sm tabular-nums text-ink sm:order-none sm:text-right">
                     {c.monthlyUsd !== undefined ? `${usd(c.monthlyUsd)}/mo` : `${c.billing ?? "Separate"}, not recorded`}
+                    {c.monthlyUsd !== undefined && c.billing && <span className="block text-xs text-muted">{c.billing}</span>}
                   </p>
                 </li>
               ))}
@@ -147,7 +148,7 @@ export default async function StatsPage() {
 
         <section aria-labelledby="cheap" className="border-t border-line pt-12">
           <h2 id="cheap" className="h-section scroll-mt-24">
-            How it stays at zero
+            How it stays this cheap
           </h2>
           <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {costDecisions.map((d) => (

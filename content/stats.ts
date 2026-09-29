@@ -71,16 +71,17 @@ export const runningCosts: RunningCost[] = [
   },
   {
     item: "Domain",
-    provider: "pshah.fun",
-    plan: "DNS on Vercel",
+    provider: "Namecheap",
+    plan: "pshah.fun, DNS on Vercel",
     role: "The address. The only part of the site that isn't free.",
-    monthlyUsd: undefined,
-    billing: "Yearly",
-    source: "Registrar invoice (not recorded yet)",
+    // Paid yearly; shown per month so it adds up with the rest.
+    monthlyUsd: 9.34 / 12,
+    billing: "$9.34 a year",
+    source: "Namecheap order, 19 December 2024 (the price paid then; renewal prices can differ)",
   },
 ];
 
-/** Engineering choices that keep the bill at zero. Each is visible in the repository. */
+/** Engineering choices that keep the bill near zero. Each is visible in the repository. */
 export const costDecisions: { title: string; body: string }[] = [
   {
     title: "Pages are prerendered",

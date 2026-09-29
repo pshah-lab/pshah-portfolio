@@ -17,7 +17,7 @@ from the same files in `content/`, so a fix in one place fixes both. After editi
 | 5 | **Degree completion.** "Completed 2026" | Stated by you; make sure the certificate/provisional is issued |
 | 6 | **SHODH 1.0 second runner-up (2025)** | The old site said "Runner Up, 2023". Confirm the year and placing |
 | 7 | **Live URLs**: abhinandanmountreea.com (200 OK on 2026-09-28), both GitHub repos (public) | Re-check before each application |
-| 7b | **Domain cost** for pshah.fun | `/stats` shows it as "not recorded". Add the yearly price and registrar from the invoice to `content/stats.ts` (it isn't bought through Vercel, so it can't be read from there) |
+| 7b | **Domain cost** for pshah.fun | ✅ Namecheap, $9.34, ordered 19 Dec 2024 (owner-provided). Update `content/stats.ts` if a renewal cost more |
 | 8 | **Phone number.** It's not in the public PDF | Run `RESUME_PHONE="+91-…" pnpm resume` for a private copy that includes it (`docs/resume/private/`, gitignored) |
 
 ## Claims removed (restore only with a document you can show)
