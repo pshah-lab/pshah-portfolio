@@ -74,10 +74,10 @@ export const runningCosts: RunningCost[] = [
     provider: "Namecheap",
     plan: "pshah.fun, DNS on Vercel",
     role: "The address. The only part of the site that isn't free.",
-    // Paid yearly; shown per month so it adds up with the rest.
-    monthlyUsd: 9.34 / 12,
-    billing: "$9.34 a year",
-    source: "Namecheap order, 19 December 2024 (the price paid then; renewal prices can differ)",
+    // One two-year order; shown per month so it adds up with the rest.
+    monthlyUsd: 9.34 / 24,
+    billing: "$9.34 for 2 years",
+    source: "Namecheap order covering 18 Dec 2024 to 19 Dec 2026. Renewal due then; its price may differ",
   },
 ];
 

@@ -102,7 +102,7 @@ export default async function StatsPage() {
                   ? `Plus ${unknown.map((c) => c.item.toLowerCase()).join(" and ")}, billed ${unknown
                       .map((c) => c.billing?.toLowerCase() ?? "separately")
                       .join(", ")}; its cost isn't recorded here yet.`
-                  : "Everything included; the domain is paid yearly and shown here per month."}{" "}
+                  : "Everything included; the domain was paid for two years up front and is shown here per month."}{" "}
                 Figures checked {fmtDate(costsChecked)}. Vercel Hobby has no billing API, so they are updated by hand.
               </p>
             </div>
