@@ -20,6 +20,7 @@ const columns = [
       { href: "/notes", label: "Engineering notes" },
       { href: "/about", label: "About and setup" },
       { href: "/resume", label: "Resume" },
+      { href: "/stats", label: "Stats and running cost" },
       { href: "/llms.txt", label: "llms.txt" },
     ],
   },

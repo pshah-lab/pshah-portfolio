@@ -34,6 +34,7 @@ const pages: Command[] = [
   { id: "page-notes", group: "Pages", label: "Notes", keywords: "blog writing articles", href: "/notes" },
   { id: "page-about", group: "Pages", label: "About", keywords: "bio education setup", href: "/about" },
   { id: "page-resume", group: "Pages", label: "Resume", keywords: "cv", href: "/resume" },
+  { id: "page-stats", group: "Pages", label: "Stats", hint: "Running cost", keywords: "cost finops visitors analytics numbers", href: "/stats" },
 ];
 
 const actions: Command[] = [
