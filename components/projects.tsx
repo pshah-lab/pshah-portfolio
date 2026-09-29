@@ -5,6 +5,7 @@ import { ArrowUpRight, ChevronDown, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { getGsap } from "@/lib/gsap";
+import { ContributionGraph } from "@/components/contribution-graph";
 
 const projects = [
   {
@@ -257,6 +258,13 @@ export default function Projects() {
             </article>
           ))}
         </div>
+
+        <ContributionGraph
+          color="#0d9488"
+          className="mt-12 border border-stone-200 bg-white/70 p-5 text-stone-600 dark:border-white/10 dark:bg-white/[0.03] dark:text-stone-400 sm:p-6"
+          textClassName="text-stone-600 dark:text-stone-400"
+          linkClassName="font-medium text-stone-950 underline decoration-teal-600 underline-offset-4 hover:text-teal-800 dark:text-white dark:hover:text-teal-200"
+        />
       </div>
     </section>
   );
