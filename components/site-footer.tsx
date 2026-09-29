@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { profile, site } from "@/content/profile";
+import { VisitorCount } from "./visitor-count";
 
 const columns = [
   {
@@ -71,8 +72,9 @@ export function SiteFooter() {
           </div>
         ))}
       </div>
-      <div className="shell flex flex-col gap-2 border-t border-line py-6 text-xs text-muted sm:flex-row sm:justify-between">
+      <div className="shell flex flex-col gap-2 border-t border-line py-6 text-xs text-muted sm:flex-row sm:flex-wrap sm:justify-between">
         <p>© {new Date().getFullYear()} Pratham Shah</p>
+        <VisitorCount />
         <p>
           Content last reviewed{" "}
           <time dateTime={site.updated}>
