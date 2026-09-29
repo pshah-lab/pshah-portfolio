@@ -5,6 +5,7 @@ import { Providers } from "@/components/providers";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { TrackClicks } from "@/components/track-clicks";
+import { buildCommandIndex } from "@/lib/command-index";
 import { JsonLd } from "@/components/json-ld";
 import { profile, site } from "@/content/profile";
 import { personSchema, websiteSchema } from "@/lib/seo";
@@ -90,7 +91,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Skip to content
         </a>
         <Providers>
-          <SiteHeader />
+          <SiteHeader commands={buildCommandIndex()} />
           <main id="main" tabIndex={-1} className="outline-none">
             {children}
           </main>

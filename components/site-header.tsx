@@ -4,12 +4,15 @@ import dynamic from "next/dynamic";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Menu, MessageSquareText, X } from "lucide-react";
+import { Menu, MessageSquareText, Search, X } from "lucide-react";
 import { ThemeToggle } from "./theme-toggle";
 import { cn } from "@/lib/utils";
+import type { Command } from "@/lib/command-index";
 
 // The assistant is only downloaded when someone opens it.
 const AskPanel = dynamic(() => import("./ask-panel").then((m) => m.AskPanel), { ssr: false });
+// Same for the ⌘K palette; the shortcut listener below is all that loads up front.
+const CommandPalette = dynamic(() => import("./command-palette").then((m) => m.CommandPalette), { ssr: false });
 
 export const nav = [
   { href: "/projects", label: "Work" },
@@ -20,13 +23,35 @@ export const nav = [
   { href: "/resume", label: "Resume" },
 ];
 
-export function SiteHeader() {
+export function SiteHeader({ commands }: { commands: Command[] }) {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const [askOpen, setAskOpen] = useState(false);
   const [askLoaded, setAskLoaded] = useState(false);
+  const [paletteOpen, setPaletteOpen] = useState(false);
+  const [paletteLoaded, setPaletteLoaded] = useState(false);
+  const [isMac, setIsMac] = useState(true);
 
   useEffect(() => setMenuOpen(false), [pathname]);
+
+  useEffect(() => {
+    setIsMac(/Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent));
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key.toLowerCase() === "k" && (e.metaKey || e.ctrlKey) && !e.altKey && !e.shiftKey) {
+        e.preventDefault();
+        setPaletteLoaded(true);
+        setPaletteOpen((v) => !v);
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
+
+  const openPalette = () => {
+    setPaletteLoaded(true);
+    setPaletteOpen(true);
+    setMenuOpen(false);
+  };
 
   const openAsk = () => {
     setAskLoaded(true);
@@ -65,6 +90,17 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-1">
+          <button
+            type="button"
+            onClick={openPalette}
+            data-track="palette_open"
+            aria-keyshortcuts="Meta+K Control+K"
+            className="inline-flex h-11 w-11 items-center justify-center gap-2 rounded-control text-muted transition-colors hover:bg-ink/5 hover:text-ink md:h-10 md:w-auto md:border md:border-line md:bg-surface md:px-3 md:text-sm md:hover:border-ink/40"
+          >
+            <Search className="h-[18px] w-[18px] md:h-4 md:w-4" aria-hidden />
+            <span className="sr-only md:not-sr-only">Search</span>
+            <kbd className="hidden rounded border border-line px-1.5 font-mono text-[11px] text-muted md:inline">{isMac ? "⌘K" : "Ctrl K"}</kbd>
+          </button>
           <button
             type="button"
             onClick={openAsk}
@@ -114,6 +150,9 @@ export function SiteHeader() {
       </nav>
 
       {askLoaded && <AskPanel open={askOpen} onClose={() => setAskOpen(false)} />}
+      {paletteLoaded && (
+        <CommandPalette open={paletteOpen} onClose={() => setPaletteOpen(false)} commands={commands} onAsk={openAsk} />
+      )}
     </header>
   );
 }
