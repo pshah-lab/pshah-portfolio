@@ -4,12 +4,19 @@ import { useEffect, useState } from "react";
 
 const STORAGE_KEY = "pshah:visitor-number";
 
+/** 1 → "1st", 2 → "2nd", 13 → "13th", 478 → "478th". */
+export function ordinal(n: number): string {
+  const lastTwo = n % 100;
+  const suffix = lastTwo >= 11 && lastTwo <= 13 ? "th" : ({ 1: "st", 2: "nd", 3: "rd" } as Record<number, string>)[n % 10] ?? "th";
+  return `${n.toLocaleString("en-US")}${suffix}`;
+}
+
 /**
- * "You're visitor #1,234". Counted once per browser: the number is kept in
+ * "You're the 478th visitor". Counted once per browser: the number is kept in
  * localStorage, so refreshes and return visits show the same number instead of
  * incrementing. Renders nothing until a real number exists.
  */
-export function VisitorCount() {
+export function VisitorCount({ className }: { className?: string }) {
   const [n, setN] = useState<number | null>(null);
 
   useEffect(() => {
@@ -43,8 +50,8 @@ export function VisitorCount() {
 
   if (!n) return null;
   return (
-    <p>
-      You’re visitor <span className="tabular-nums text-ink">#{n.toLocaleString("en-IN")}</span>. Thanks for stopping by.
+    <p className={className}>
+      You’re the <span className="font-semibold tabular-nums">{ordinal(n)}</span> visitor.
     </p>
   );
 }
