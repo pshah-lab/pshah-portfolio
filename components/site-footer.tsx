@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { profile, site } from "@/content/profile";
+import { AskAi } from "./ask-ai";
+import { LocalTime } from "./local-time";
 import { VisitorCount } from "./visitor-count";
 
 const columns = [
@@ -72,9 +74,18 @@ export function SiteFooter() {
           </div>
         ))}
       </div>
+      <div className="shell flex flex-col gap-3 border-t border-line py-5 text-sm text-muted md:flex-row md:items-center md:justify-between">
+        <AskAi
+          className="flex flex-wrap items-center gap-x-3 gap-y-2"
+          linkClassName="rounded-control border border-line px-2.5 py-1 text-ink transition-colors hover:border-accent hover:text-accent"
+        />
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
+          <LocalTime />
+          <VisitorCount />
+        </div>
+      </div>
       <div className="shell flex flex-col gap-2 border-t border-line py-6 text-xs text-muted sm:flex-row sm:flex-wrap sm:justify-between">
         <p>© {new Date().getFullYear()} Pratham Shah</p>
-        <VisitorCount />
         <p>
           Content last reviewed{" "}
           <time dateTime={site.updated}>
