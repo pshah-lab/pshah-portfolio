@@ -26,7 +26,8 @@ export function buildLlmsTxt(full: boolean): string {
 
   lines.push("## Education and certifications");
   lines.push(`- ${profile.education.degree}, ${profile.education.school}, ${profile.education.location} (${profile.education.period}, ${profile.education.status.toLowerCase()})`);
-  for (const c of certifications) lines.push(`- ${c.issuer} ${c.name}: ${c.status}`);
+  for (const c of certifications)
+    lines.push(`- ${c.issuer} ${c.name}: ${c.status}${c.date ? `, issued ${c.date}` : ""}${c.expires ? `, valid until ${c.expires}` : ""}${c.url ? ` (${c.url})` : ""}`);
   for (const a of achievements.filter((a) => a.category === "Hackathon")) lines.push(`- ${a.title} (${a.year})`);
   lines.push("");
 

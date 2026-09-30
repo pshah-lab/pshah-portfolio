@@ -11,7 +11,7 @@ from the same files in `content/`, so a fix in one place fixes both. After editi
 | 1 | **Searce** | ✅ Title and dates verified against the internship completion certificate: "Associate Cloud Reliability Engineer", Searce India Private Limited, 15 Apr – 26 Aug 2026. The certificate lists no duties, so the bullets are self-reported. Get your manager to confirm them in a LinkedIn recommendation or as a reference |
 | 2 | **Searce location** (Pune) | Not on the certificate; taken from the old site |
 | 3 | **NeuraMach** | ✅ Verified against the experience letter dated 10 Apr 2026: title "AI/ML Full-Stack Engineering Intern (with a QA focus)", 12 Jan – 11 Apr 2026, Pune office, Next.js/TypeScript SSR/SSG, FastAPI + React Query/Axios, Copilot/Cursor |
-| 4 | **Google Cloud ACE credential link and date** | Add a verifiable Credly/Google link to the resume and the site (`content/credentials.ts`) |
+| 4 | **Google Cloud ACE credential** | ✅ Credly https://www.credly.com/badges/e295f3cf-c88c-4991-a4eb-d68a6c608a88 (public), issued 26 Jul 2026, expires 26 Jul 2029. Certificate image at `public/certificates/`. Renew before it expires |
 | 4b | **CGPA** | Not on either resume. Most fresher screens filter on it; add it to `content/profile.ts` (education) if it helps you |
 | 4c | **SDE coursework line** (DSA, OOP, DBMS, OS, Computer Networks) | Standard B.Tech CS subjects; confirm they match your transcript |
 | 5 | **Degree completion.** "Completed 2026" | Stated by you; make sure the certificate/provisional is issued |

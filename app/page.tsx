@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { SignalPath } from "@/components/signal-path";
 import { SectionHeader } from "@/components/section-header";
 import { EvidenceList } from "@/components/evidence-list";
@@ -19,6 +20,9 @@ const featured = ["streamvault", "insightvault", "abhinandan-mountreea", "force-
   (slug) => projects.find((p) => p.slug === slug)!,
 );
 const notable = projects.filter((p) => p.tier === "notable").map(toCard);
+
+const fmtDay = (iso: string) =>
+  new Date(`${iso}T00:00:00Z`).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
 
 export default function Home() {
   return (
@@ -214,12 +218,39 @@ export default function Home() {
             </h2>
             <ul className="mt-6 divide-y divide-line border-y border-line">
               {certifications.map((c) => (
-                <li key={c.name} className="flex flex-wrap items-baseline justify-between gap-2 py-4">
-                  <span>
-                    <span className="font-semibold text-ink">{c.name}</span>
-                    <span className="block text-sm text-muted">{c.issuer}</span>
-                  </span>
-                  <span className={c.status === "Certified" ? "tag border-accent/50 text-accent" : "tag"}>{c.status}</span>
+                <li key={c.name} className="py-4">
+                  <div className="flex flex-wrap items-baseline justify-between gap-2">
+                    <span>
+                      {c.url ? (
+                        <a href={c.url} target="_blank" rel="noopener noreferrer" className="font-semibold text-ink hover:text-accent" data-track="credential_click" data-track-label={c.name}>
+                          {c.name}
+                          <span className="sr-only"> (verify on Credly, opens in a new tab)</span>
+                        </a>
+                      ) : (
+                        <span className="font-semibold text-ink">{c.name}</span>
+                      )}
+                      <span className="block text-sm text-muted">
+                        {c.issuer}
+                        {c.date && `. Issued ${fmtDay(c.date)}`}
+                        {c.expires && `, valid until ${fmtDay(c.expires)}`}
+                        {c.url && (
+                          <>
+                            {". "}
+                            <a href={c.url} target="_blank" rel="noopener noreferrer" className="link">
+                              Verify on Credly
+                            </a>
+                          </>
+                        )}
+                      </span>
+                    </span>
+                    <span className={c.status === "Certified" ? "tag border-accent/50 text-accent" : "tag"}>{c.status}</span>
+                  </div>
+                  {c.image && (
+                    <a href={c.image.src} target="_blank" rel="noopener noreferrer" className="mt-4 block max-w-sm overflow-hidden rounded-control border border-line transition-colors hover:border-ink/40">
+                      <Image src={c.image.src} alt={c.image.alt} width={c.image.width} height={c.image.height} sizes="(min-width: 640px) 384px, 100vw" className="h-auto w-full" />
+                      <span className="sr-only">Open the full-size certificate</span>
+                    </a>
+                  )}
                 </li>
               ))}
               {achievements

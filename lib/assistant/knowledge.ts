@@ -78,7 +78,7 @@ export function buildKnowledge(): Chunk[] {
     id: "credentials",
     title: "Certifications and achievements",
     href: "/#credentials",
-    text: `Certifications: ${certifications.map((c) => `${c.issuer} ${c.name} (${c.status})`).join("; ")}. Achievements: ${achievements
+    text: `Certifications: ${certifications.map((c) => `${c.issuer} ${c.name} (${c.status}${c.date ? `, issued ${c.date}, valid until ${c.expires}` : ""})`).join("; ")}. Achievements: ${achievements
       .map((a) => `${a.title}${a.year ? ` (${a.year})` : ""}: ${a.context}`)
       .join(" ")}`,
   });

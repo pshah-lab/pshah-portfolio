@@ -124,8 +124,23 @@ export default function ResumePage() {
             <Heading id="r-cert">Certification</Heading>
             <ul className="mt-4 space-y-2 text-sm">
               {resume.certifications.map((c) => (
-                <li key={c.name} className="text-ink">
-                  {c.issuer} {c.name}
+                <li key={c.name} className="flex flex-wrap items-baseline justify-between gap-x-4 text-ink">
+                  <span>
+                    {c.issuer} {c.name}
+                    {c.url && (
+                      <>
+                        {" · "}
+                        <a href={c.url} target="_blank" rel="noopener noreferrer" className="link">
+                          Verify on Credly
+                        </a>
+                      </>
+                    )}
+                  </span>
+                  {c.date && (
+                    <span className="text-muted tabular-nums">
+                      {new Date(`${c.date}T00:00:00Z`).toLocaleDateString("en-US", { month: "short", year: "numeric", timeZone: "UTC" })}
+                    </span>
+                  )}
                 </li>
               ))}
             </ul>

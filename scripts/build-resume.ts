@@ -33,6 +33,10 @@ const ascii = (s: string) =>
     .replace(/ /g, " ");
 
 const esc = (s: string) => ascii(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+/** "2026-07-26" -> "Jul 2026". */
+const monthYear = (iso?: string) =>
+  iso ? new Date(`${iso}T00:00:00Z`).toLocaleDateString("en-US", { month: "short", year: "numeric", timeZone: "UTC" }) : "";
+
 const link = (href: string, text = href) =>
   `<a href="${esc(href.startsWith("http") || href.startsWith("mailto:") ? href : `https://${href}`)}">${esc(text)}</a>`;
 
@@ -64,7 +68,12 @@ function htmlSection(r: Resume, section: ResumeSection): string {
         )
         .join("")}`;
     case "certifications":
-      return `${h}${li(r.certifications.map((c) => `${c.issuer} ${c.name}`))}`;
+      return `${h}${r.certifications
+        .map(
+          (c) =>
+            `<div class="row"><span><b>${esc(`${c.issuer} ${c.name}`)}</b>${c.url ? ` | ${link(c.url, "Verify on Credly")}` : ""}</span><span class="date">${esc(monthYear(c.date))}</span></div>`,
+        )
+        .join("")}`;
     case "education":
       return `${h}<div class="row"><span><b>${esc(r.education.school)}</b>, ${esc(r.education.location)}</span><span class="date">${esc(r.education.period)}</span></div><div><i>${esc(r.education.degree)}</i></div>${
         r.education.detail ? `<div class="detail">${esc(r.education.detail)}</div>` : ""
@@ -124,7 +133,7 @@ function markdown(r: Resume, withPhone: boolean) {
       out.push(`**${r.education.school}**, ${r.education.location} | ${r.education.period}`, "", `*${r.education.degree}*`);
       if (r.education.detail) out.push("", r.education.detail);
     } else if (section === "certifications") {
-      out.push(...r.certifications.map((c) => `- ${c.issuer} ${c.name}`));
+      out.push(...r.certifications.map((c) => `- ${c.issuer} ${c.name}${c.date ? ` | ${monthYear(c.date)}` : ""}${c.url ? ` | [Verify on Credly](${c.url})` : ""}`));
     } else if (section === "skills") {
       out.push(...r.skills.map((g) => `- **${g.label}:** ${g.items.join(", ")}`));
     } else if (section === "experience") {

@@ -36,7 +36,7 @@ pshah88669@gmail.com | Pune, India | pshah.fun | linkedin.com/in/pratham-shah-72
 
 ## Certifications
 
-- Google Cloud Associate Cloud Engineer
+- Google Cloud Associate Cloud Engineer | Jul 2026 | [Verify on Credly](https://www.credly.com/badges/e295f3cf-c88c-4991-a4eb-d68a6c608a88)
 
 ## Education
 

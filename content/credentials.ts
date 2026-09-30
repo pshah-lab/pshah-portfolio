@@ -1,7 +1,20 @@
 import type { Achievement, CapabilityGroup, Certification, Faq, Testimonial, TimelineEvent } from "./types";
 
 export const certifications: Certification[] = [
-  { name: "Associate Cloud Engineer", issuer: "Google Cloud", status: "Certified" },
+  {
+    name: "Associate Cloud Engineer",
+    issuer: "Google Cloud",
+    status: "Certified",
+    url: "https://www.credly.com/badges/e295f3cf-c88c-4991-a4eb-d68a6c608a88",
+    date: "2026-07-26",
+    expires: "2029-07-26",
+    image: {
+      src: "/certificates/google-cloud-associate-cloud-engineer.webp",
+      alt: "Google Cloud Certified Associate Cloud Engineer certificate for Pratham Shah, issued 26 July 2026, expiring 26 July 2029.",
+      width: 1596,
+      height: 1234,
+    },
+  },
 ];
 
 export const achievements: Achievement[] = [

@@ -95,9 +95,12 @@ export type Certification = {
   name: string;
   issuer: string;
   status: "Certified" | "In progress";
-  /** Credential URL, when the user provides one. */
+  /** Public credential URL (anyone can open it without signing in). */
   url?: string;
+  /** Issue and expiry dates, YYYY-MM-DD, as printed on the certificate. */
   date?: string;
+  expires?: string;
+  image?: { src: string; alt: string; width: number; height: number };
 };
 
 export type Achievement = {
