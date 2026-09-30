@@ -54,5 +54,5 @@ pshah88669@gmail.com | Pune, India | pshah.fun | linkedin.com/in/pratham-shah-72
 
 ## Achievements
 
-- Published Force Dark Mode, a Manifest V3 Chrome extension with 1,000 users on the Chrome Web Store (2026)
+- Published Force Dark Mode, a Manifest V3 Chrome extension with 1,270+ weekly users on the Chrome Web Store (2026)
 - Second runner-up, SHODH 1.0 campus hackathon (2025)

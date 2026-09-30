@@ -12,7 +12,7 @@ export type Repo = {
 
 /** Curated repos shown on the home page, with descriptions written for this site. */
 const selected: Omit<Repo, "stars" | "pushedAt" | "fork">[] = [
-  { name: "force-dark-mode-extension", url: "https://github.com/pshah-lab/force-dark-mode-extension", description: "Manifest V3 dark-mode extension with an offline PDF viewer. 1,000 users.", language: "JavaScript" },
+  { name: "force-dark-mode-extension", url: "https://github.com/pshah-lab/force-dark-mode-extension", description: "Manifest V3 dark-mode extension with an offline PDF viewer. 1,270+ weekly users.", language: "JavaScript" },
   { name: "StreamVault", url: "https://github.com/pshah-lab/StreamVault", description: "HLS streaming on AWS: CDK, Cognito PKCE, CloudFront signed cookies, FastAPI.", language: "TypeScript" },
   { name: "insightVault", url: "https://github.com/pshah-lab/insightVault", description: "RAG over PDFs with Supabase pgvector and multi-provider embeddings.", language: "JavaScript" },
   { name: "aws-s3-mongodb-media-hub", url: "https://github.com/pshah-lab/aws-s3-mongodb-media-hub", description: "Zero-buffer uploads to S3 with a MongoDB catalog and design doc.", language: "JavaScript" },

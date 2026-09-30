@@ -17,7 +17,7 @@ export const profile = {
     "2026 Computer Science graduate in Pune and Google Cloud Associate Cloud Engineer, working on cloud, backend and full-stack systems.",
   /** Hero lead. Mirrors the resume summary; every clause is backed by experience.ts or projects.ts. */
   lead:
-    "Internships in Google Cloud cost optimization at Searce and full-stack Next.js and FastAPI work at NeuraMach AI Studios. Outside work I build on AWS and ship small products: a CDK-defined streaming platform, a RAG app on Postgres and pgvector, and a Chrome extension with 1,000 users.",
+    "Internships in Google Cloud cost optimization at Searce and full-stack Next.js and FastAPI work at NeuraMach AI Studios. Outside work I build on AWS and ship small products: a CDK-defined streaming platform, a RAG app on Postgres and pgvector, and a Chrome extension with 1,270+ weekly users.",
   links: {
     github: "https://github.com/pshah-lab",
     linkedin: "https://www.linkedin.com/in/pratham-shah-729432258/",
@@ -49,7 +49,7 @@ export const now = {
     },
     {
       label: "Shipping",
-      text: "Force Dark Mode 1.6.1, a Chrome extension with 1,000 users. The latest release added data export, import and erase controls plus a privacy test suite. DOCX and PPTX preview is specced next.",
+      text: "Force Dark Mode 1.7.0, a Chrome extension with 1,270+ weekly users. The latest release added offline DOCX and PPTX preview, brightness and contrast sliders, and scheduled dark mode.",
       href: "/projects/force-dark-mode",
     },
     {

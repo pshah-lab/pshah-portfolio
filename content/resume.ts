@@ -34,7 +34,7 @@ const resumeProject = (slug: string, maxBullets = 3) => {
 };
 
 const extension = {
-  text: "Published Force Dark Mode, a Manifest V3 Chrome extension with 1,000 users on the Chrome Web Store",
+  text: "Published Force Dark Mode, a Manifest V3 Chrome extension with 1,270+ weekly users on the Chrome Web Store",
   year: "2026",
 };
 
@@ -60,7 +60,7 @@ export const resumes = {
     label: "Software Development Engineer",
     file: "Pratham_Shah_Resume_SDE",
     summary:
-      "Software engineer and 2026 B.Tech Computer Science graduate from MIT-ADT University, Pune. Built Next.js, TypeScript and FastAPI features as a full-stack intern at NeuraMach AI Studios, and ships personal projects end to end, including a Chrome extension with 1,000 users and a serverless video platform on AWS.",
+      "Software engineer and 2026 B.Tech Computer Science graduate from MIT-ADT University, Pune. Built Next.js, TypeScript and FastAPI features as a full-stack intern at NeuraMach AI Studios, and ships personal projects end to end, including a Chrome extension with 1,270+ weekly users and a serverless video platform on AWS.",
     order: ["experience", "projects", "certifications", "education", "skills", "achievements"] as ResumeSection[],
     education: {
       ...profile.education,

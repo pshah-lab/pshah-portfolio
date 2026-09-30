@@ -13,11 +13,11 @@ export const achievements: Achievement[] = [
     source: "Resume",
   },
   {
-    title: "Chrome extension with 1,000 users",
+    title: "Chrome extension with 1,270+ weekly users",
     context: "Force Dark Mode, built and maintained solo.",
     year: "2026",
     category: "Product",
-    source: "Chrome Web Store listing",
+    source: "Chrome Web Store developer dashboard, Sep 2026",
   },
 ];
 
@@ -39,9 +39,9 @@ export const evidence: { claim: string; detail: string; proof: string; href: str
     href: "/projects/insightvault",
   },
   {
-    claim: "1,000 users on a shipped product",
+    claim: "1,270+ weekly users on a shipped product",
     detail: "A Manifest V3 extension with an offline PDF viewer, a privacy test suite and versioned releases.",
-    proof: "Chrome Web Store listing",
+    proof: "Chrome Web Store developer dashboard",
     href: "/projects/force-dark-mode",
   },
   {
@@ -134,7 +134,7 @@ export const journey: TimelineEvent[] = [
   {
     year: "2026",
     title: "Production cloud work, and graduation",
-    body: "Full-stack and QA work at NeuraMach, then Google Cloud cost optimization at Searce. Outside work: shipped Force Dark Mode to 1,000 users and built StreamVault on AWS. Completed the B.Tech in June.",
+    body: "Full-stack and QA work at NeuraMach, then Google Cloud cost optimization at Searce. Outside work: shipped Force Dark Mode to 1,270+ weekly users and built StreamVault on AWS. Completed the B.Tech in June.",
     href: "/experience",
   },
 ];

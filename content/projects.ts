@@ -477,7 +477,7 @@ export const projects: Project[] = [
   {
     slug: "force-dark-mode",
     name: "Force Dark Mode",
-    summary: "Privacy-first Chrome extension that darkens websites, PDFs and local documents. 1,000 users.",
+    summary: "Privacy-first Chrome extension that darkens websites, PDFs and local documents. 1,270+ weekly users.",
     description:
       "A Manifest V3 extension (branded ThemeSwitcher) that picks a dark-mode strategy per page, renders PDFs offline in a dark canvas viewer, and syncs per-site preferences. No telemetry and no network requests.",
     categories: ["open-source", "full-stack"],
@@ -497,7 +497,7 @@ export const projects: Project[] = [
       live: "https://darkmode.pshah.fun/",
     },
     metrics: [
-      { value: "1,000", label: "users", context: "Chrome Web Store listing", source: "Chrome Web Store, Sep 2026" },
+      { value: "1,270+", label: "weekly users", context: "Chrome Web Store developer dashboard", source: "Chrome Web Store developer dashboard, 30 Sep 2026" },
     ],
     caseStudy: {
       problem:
@@ -544,7 +544,7 @@ export const projects: Project[] = [
         "Documentation set covering privacy, threat model, incident response and a compliance matrix, plus a public marketing site.",
       ],
       results: [
-        "1,000 users on the Chrome Web Store.",
+        "1,270+ weekly users on the Chrome Web Store.",
         "Semantic-versioned releases with a changelog.",
       ],
       lessons: [
@@ -553,7 +553,7 @@ export const projects: Project[] = [
       next: ["DOCX and PPTX preview in the offline viewer (spec and plan dated 2026-09-26 in the repository)."],
     },
     resume: {
-      tagline: "Chrome extension with 1,000 users",
+      tagline: "Chrome extension with 1,270+ weekly users",
       bullets: [
         "Built a Manifest V3 extension in JavaScript that chooses a dark-mode strategy per page from a luminance check and applies changes in batched animation frames to avoid layout thrashing.",
         "Added an offline PDF viewer on PDF.js, per-site preferences synced through chrome.storage, and settings export, import and erase with schema validation, covered by automated privacy and security tests.",
