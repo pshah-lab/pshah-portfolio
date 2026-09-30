@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { PageIntro } from "@/components/page-intro";
+import { NoteReads } from "@/components/note-reads";
 import { JsonLd } from "@/components/json-ld";
 import { notes } from "@/content/notes";
 import { breadcrumbSchema, pageMetadata } from "@/lib/seo";
@@ -30,7 +31,10 @@ export default function NotesPage() {
               <span>
                 <span className="block font-display text-2xl leading-tight group-hover:text-accent">{n.title}</span>
                 <span className="mt-2 block max-w-prose text-muted">{n.summary}</span>
-                <span className="mt-3 block text-xs text-muted">{n.tags.join(", ")}</span>
+                <span className="mt-3 block text-xs text-muted">
+                  {n.tags.join(", ")}
+                  <NoteReads slug={n.slug} className="before:mx-2 before:content-['·']" />
+                </span>
               </span>
             </Link>
           </li>

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { NoteBody } from "@/components/note-body";
+import { NoteReads } from "@/components/note-reads";
 import { PageIntro } from "@/components/page-intro";
 import { JsonLd } from "@/components/json-ld";
 import { getNote, notes } from "@/content/notes";
@@ -52,6 +53,7 @@ export default async function NotePage({ params }: { params: Promise<Params> }) 
           <time dateTime={note.date}>{new Date(note.date).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}</time>
           {", "}
           {note.tags.join(", ")}
+          <NoteReads slug={note.slug} track className="before:mx-2 before:content-['·']" />
         </p>
       </PageIntro>
       <div className="shell pb-24">

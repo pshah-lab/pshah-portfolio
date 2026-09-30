@@ -2,11 +2,11 @@ import nextPkg from "next/package.json";
 import { PageIntro } from "@/components/page-intro";
 import { JsonLd } from "@/components/json-ld";
 import { caseStudies } from "@/content/projects";
-import { experience } from "@/content/experience";
 import { notes } from "@/content/notes";
 import { costDecisions, costsChecked, runningCosts } from "@/content/stats";
 import { fetchContributions } from "@/lib/github-contributions";
 import { readVisitorCount } from "@/lib/visitors";
+import { darkmodeVisitsKey, readCounts } from "@/lib/counter";
 import { breadcrumbSchema, pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
@@ -24,7 +24,11 @@ const fmtDate = (iso: string) =>
 const usd = (n: number) => `$${n.toFixed(n % 1 ? 2 : 0)}`;
 
 export default async function StatsPage() {
-  const [visitors, contributions] = await Promise.all([readVisitorCount(), fetchContributions()]);
+  const [visitors, contributions, darkmode] = await Promise.all([
+    readVisitorCount(),
+    fetchContributions(),
+    readCounts([darkmodeVisitsKey], 3600),
+  ]);
 
   const known = runningCosts.filter((c) => c.monthlyUsd !== undefined);
   const unknown = runningCosts.filter((c) => c.monthlyUsd === undefined);
@@ -48,9 +52,13 @@ export default async function StatsPage() {
       value: contributions?.total.toLocaleString("en-US") ?? "–",
       note: "In the last year",
     },
+    {
+      label: "darkmode.pshah.fun visits",
+      value: darkmode?.[0].toLocaleString("en-US") ?? "–",
+      note: "Force Dark Mode's site, counted without cookies since 30 Sep 2026",
+    },
     { label: "Case studies", value: caseStudies.length, note: "Projects with a full write-up" },
     { label: "Engineering notes", value: notes.length, note: "Short technical write-ups" },
-    { label: "Roles", value: experience.length, note: "Internships, freelance and research" },
     {
       label: "Deployed commit",
       value: sha ? (
