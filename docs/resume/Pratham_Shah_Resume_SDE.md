@@ -58,4 +58,3 @@ Coursework: Data Structures and Algorithms, Object-Oriented Programming, Databas
 ## Achievements
 
 - Published Force Dark Mode, a Manifest V3 Chrome extension with 1,270+ weekly users on the Chrome Web Store (2026)
-- Second runner-up, SHODH 1.0 campus hackathon (2025)

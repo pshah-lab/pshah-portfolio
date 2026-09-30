@@ -107,7 +107,7 @@ export type Achievement = {
   title: string;
   context: string;
   year: string;
-  category: "Hackathon" | "Research" | "Product" | "Impact";
+  category: "Research" | "Product" | "Impact";
   source: string;
 };
 

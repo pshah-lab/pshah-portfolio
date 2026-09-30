@@ -1,7 +1,7 @@
 import { now, openTo, profile, site } from "@/content/profile";
 import { experience } from "@/content/experience";
 import { projects } from "@/content/projects";
-import { achievements, certifications, capabilities } from "@/content/credentials";
+import { certifications, capabilities } from "@/content/credentials";
 import { notes } from "@/content/notes";
 
 /** Markdown profile for LLMs and answer engines (llms.txt convention), generated from content/. */
@@ -28,7 +28,6 @@ export function buildLlmsTxt(full: boolean): string {
   lines.push(`- ${profile.education.degree}, ${profile.education.school}, ${profile.education.location} (${profile.education.period}, ${profile.education.status.toLowerCase()})`);
   for (const c of certifications)
     lines.push(`- ${c.issuer} ${c.name}: ${c.status}${c.date ? `, issued ${c.date}` : ""}${c.expires ? `, valid until ${c.expires}` : ""}${c.url ? ` (${c.url})` : ""}`);
-  for (const a of achievements.filter((a) => a.category === "Hackathon")) lines.push(`- ${a.title} (${a.year})`);
   lines.push("");
 
   lines.push("## Experience");

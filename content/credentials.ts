@@ -19,13 +19,6 @@ export const certifications: Certification[] = [
 
 export const achievements: Achievement[] = [
   {
-    title: "Second runner-up, SHODH 1.0 campus hackathon",
-    context: "Full-stack solution to a campus problem statement.",
-    year: "2025",
-    category: "Hackathon",
-    source: "Resume",
-  },
-  {
     title: "Chrome extension with 1,270+ weekly users",
     context: "Force Dark Mode, built and maintained solo.",
     year: "2026",
@@ -141,7 +134,7 @@ export const journey: TimelineEvent[] = [
   {
     year: "2025",
     title: "From models to products and clients",
-    body: "Helped build NeuroArm’s pipeline visualization, delivered a paid client website, placed second runner-up at the SHODH 1.0 hackathon, and started InsightVault, a RAG system built end to end.",
+    body: "Helped build NeuroArm’s pipeline visualization, delivered a paid client website and started InsightVault, a RAG system built end to end.",
     href: "/projects/abhinandan-mountreea",
   },
   {

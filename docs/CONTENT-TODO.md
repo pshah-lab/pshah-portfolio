@@ -9,13 +9,13 @@ from the same files in `content/`, so a fix in one place fixes both. After editi
 | # | Item | Why |
 |---|------|-----|
 | 1 | **Searce** | ✅ Title and dates verified against the internship completion certificate: "Associate Cloud Reliability Engineer", Searce India Private Limited, 15 Apr – 26 Aug 2026. The certificate lists no duties, so the bullets are self-reported. Get your manager to confirm them in a LinkedIn recommendation or as a reference |
-| 2 | **Searce location** (Pune) | Not on the certificate; taken from the old site |
+| 2 | **Searce location** (Pune) | ✅ Confirmed by owner (30 Sep 2026); not printed on the certificate |
 | 3 | **NeuraMach** | ✅ Verified against the experience letter dated 10 Apr 2026: title "AI/ML Full-Stack Engineering Intern (with a QA focus)", 12 Jan – 11 Apr 2026, Pune office, Next.js/TypeScript SSR/SSG, FastAPI + React Query/Axios, Copilot/Cursor |
 | 4 | **Google Cloud ACE credential** | ✅ Credly https://www.credly.com/badges/e295f3cf-c88c-4991-a4eb-d68a6c608a88 (public), issued 26 Jul 2026, expires 26 Jul 2029. Certificate image at `public/certificates/`. Renew before it expires |
-| 4b | **CGPA** | Not on either resume. Most fresher screens filter on it; add it to `content/profile.ts` (education) if it helps you |
+| 4b | **CGPA** | Owner decided not to include it (30 Sep 2026) |
 | 4c | **SDE coursework line** (DSA, OOP, DBMS, OS, Computer Networks) | Standard B.Tech CS subjects; confirm they match your transcript |
-| 5 | **Degree completion.** "Completed 2026" | Stated by you; make sure the certificate/provisional is issued |
-| 6 | **SHODH 1.0 second runner-up (2025)** | The old site said "Runner Up, 2023". Confirm the year and placing |
+| 5 | **Degree completion.** "Completed 2026" | ✅ Provisional certificate issued (owner, 30 Sep 2026) |
+| 6 | **SHODH 1.0 hackathon** | Removed from the site and resumes at the owner's request (30 Sep 2026) |
 | 7 | **Live URLs**: abhinandanmountreea.com (200 OK on 2026-09-28), both GitHub repos (public) | Re-check before each application |
 | 7b | **Domain cost** for pshah.fun | ✅ Namecheap, $9.34 for 18 Dec 2024 to 19 Dec 2026 (owner-provided). **Renew before 19 Dec 2026**, then update `content/stats.ts` with the renewal price and term |
 | 7c | **Force Dark Mode: 1,270+ weekly users** | From the Chrome Web Store developer dashboard on 30 Sep 2026 (owner-provided). Used on the site and both resumes; refresh it when the number moves |

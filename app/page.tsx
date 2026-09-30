@@ -12,7 +12,7 @@ import { JsonLd } from "@/components/json-ld";
 import { now, profile } from "@/content/profile";
 import { projects, toCard } from "@/content/projects";
 import { experience } from "@/content/experience";
-import { achievements, capabilities, certifications, evidence, testimonials } from "@/content/credentials";
+import { capabilities, certifications, evidence, testimonials } from "@/content/credentials";
 import { notes } from "@/content/notes";
 import { profilePageSchema } from "@/lib/seo";
 
@@ -253,17 +253,6 @@ export default function Home() {
                   )}
                 </li>
               ))}
-              {achievements
-                .filter((a) => a.category === "Hackathon")
-                .map((a) => (
-                  <li key={a.title} className="flex flex-wrap items-baseline justify-between gap-2 py-4">
-                    <span>
-                      <span className="font-semibold text-ink">{a.title}</span>
-                      <span className="block text-sm text-muted">{a.context}</span>
-                    </span>
-                    <span className="text-sm tabular-nums text-muted">{a.year}</span>
-                  </li>
-                ))}
               <li className="py-4">
                 <span className="font-semibold text-ink">{profile.education.degree}</span>
                 <span className="block text-sm text-muted">

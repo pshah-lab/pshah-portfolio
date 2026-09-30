@@ -1,7 +1,7 @@
 import { profile, site } from "./profile";
 import { experience } from "./experience";
 import { projects } from "./projects";
-import { achievements, certifications } from "./credentials";
+import { certifications } from "./credentials";
 
 /**
  * Two one-page fresher resumes built from the same verified content as the site:
@@ -37,8 +37,6 @@ const extension = {
   text: "Published Force Dark Mode, a Manifest V3 Chrome extension with 1,270+ weekly users on the Chrome Web Store",
   year: "2026",
 };
-
-const hackathon = achievements.filter((a) => a.category === "Hackathon").map((a) => ({ text: a.title, year: a.year }));
 
 const base = {
   name: profile.name,
@@ -76,7 +74,7 @@ export const resumes = {
       { label: "Tools", items: ["Git", "GitHub", "pnpm", "Vercel", "GitHub Copilot", "Cursor"] },
     ],
     projects: [resumeProject("insightvault", 2), resumeProject("streamvault", 3)],
-    achievements: [extension, ...hackathon],
+    achievements: [extension],
   },
   cloud: {
     ...base,
@@ -95,7 +93,7 @@ export const resumes = {
       { label: "Tools", items: ["pnpm", "Vercel", "Supabase", "GitHub Copilot", "Cursor"] },
     ],
     projects: [resumeProject("streamvault", 3), resumeProject("insightvault", 2)],
-    achievements: [extension, ...hackathon],
+    achievements: [extension],
   },
 };
 
