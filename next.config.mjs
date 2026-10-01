@@ -34,6 +34,10 @@ const nextConfig = {
   experimental: {
     optimizePackageImports: ["lucide-react"],
   },
+  // Browsers and crawlers still ask for /favicon.ico directly; the icon now lives at /icon.
+  async redirects() {
+    return [{ source: "/favicon.ico", destination: "/icon", permanent: true }];
+  },
   async headers() {
     return [
       {
