@@ -62,6 +62,8 @@ export type Project = {
   stack: string[];
   image?: { src: string; alt: string; width: number; height: number };
   links: { live?: string; repo?: string; docs?: string; store?: string };
+  /** Brand the project is published under, when it isn't just me. `id` matches that site's own JSON-LD. */
+  publisher?: { name: string; url: string; id?: string };
   metrics?: Metric[];
   caseStudy?: CaseStudy;
   /** Honest caveats shown on the case study, e.g. "Team project; repo is a fork". */

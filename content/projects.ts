@@ -479,7 +479,7 @@ export const projects: Project[] = [
     name: "Force Dark Mode",
     summary: "Privacy-first Chrome extension that darkens websites, PDFs and local documents. 1,270+ weekly users.",
     description:
-      "A Manifest V3 extension (branded ThemeSwitcher) that picks a dark-mode strategy per page, renders PDFs offline in a dark canvas viewer, and syncs per-site preferences. No telemetry and no network requests.",
+      "A Manifest V3 extension, published as Force Dark Mode - ThemeSwitcher under my Chameleon Labs brand, that picks a dark-mode strategy per page, renders PDFs offline in a dark canvas viewer, and syncs per-site preferences. No telemetry and no network requests.",
     categories: ["open-source", "full-stack"],
     tier: "featured",
     kind: "Chrome extension",
@@ -496,6 +496,7 @@ export const projects: Project[] = [
       store: "https://chromewebstore.google.com/detail/kmhhphbakbhohiohagkhhgdgfbplkfke",
       live: "https://darkmode.pshah.fun/",
     },
+    publisher: { name: "Chameleon Labs", url: "https://darkmode.pshah.fun/", id: "https://darkmode.pshah.fun/#organization" },
     metrics: [
       { value: "1,270+", label: "weekly users", context: "Chrome Web Store developer dashboard", source: "Chrome Web Store developer dashboard, 30 Sep 2026" },
     ],

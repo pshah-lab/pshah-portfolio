@@ -111,6 +111,9 @@ export function projectSchema(project: Project) {
     description: project.description,
     url: absoluteUrl(`/projects/${project.slug}`),
     author: { "@id": personId },
+    ...(project.publisher
+      ? { publisher: { "@type": "Organization", ...(project.publisher.id ? { "@id": project.publisher.id } : {}), name: project.publisher.name, url: project.publisher.url, founder: { "@id": personId } } }
+      : {}),
     keywords: project.stack.join(", "),
     ...(project.image ? { image: absoluteUrl(project.image.src) } : {}),
   };
