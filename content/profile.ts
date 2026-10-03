@@ -2,7 +2,7 @@ export const site = {
   url: (process.env.NEXT_PUBLIC_SITE_URL || "https://pshah.fun").replace(/\/$/, ""),
   name: "Pratham Shah",
   locale: "en_US",
-  updated: "2026-09-28",
+  updated: "2026-10-01",
 };
 
 export const profile = {

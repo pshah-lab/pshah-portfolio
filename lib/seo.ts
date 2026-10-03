@@ -5,6 +5,12 @@ import type { Note, Project } from "@/content/types";
 
 export const absoluteUrl = (path = "/") => `${site.url}${path === "/" ? "" : path}`;
 
+/**
+ * Content dates are stored as days ("2026-09-28"). Google's structured-data checks want a full
+ * ISO 8601 date-time with a timezone, so emit start of day in IST, where the dates are written.
+ */
+export const isoDateTime = (day: string) => (/^\d{4}-\d{2}-\d{2}$/.test(day) ? `${day}T00:00:00+05:30` : day);
+
 type PageMeta = {
   title: string;
   description: string;
@@ -59,7 +65,7 @@ export function personSchema() {
         credentialCategory: "certification",
         recognizedBy: { "@type": "Organization", name: c.issuer },
         ...(c.url ? { url: c.url } : {}),
-        ...(c.date ? { dateCreated: c.date } : {}),
+        ...(c.date ? { dateCreated: isoDateTime(c.date) } : {}),
         ...(c.expires ? { expires: c.expires } : {}),
       })),
     knowsAbout: capabilities.flatMap((c) => c.tools),
@@ -86,7 +92,7 @@ export function profilePageSchema() {
     url: site.url,
     isPartOf: { "@id": websiteId },
     mainEntity: { "@id": personId },
-    dateModified: site.updated,
+    dateModified: isoDateTime(site.updated),
   };
 }
 
@@ -134,8 +140,8 @@ export function articleSchema(note: Note) {
     "@type": "TechArticle",
     headline: note.title,
     description: note.summary,
-    datePublished: note.date,
-    dateModified: note.date,
+    datePublished: isoDateTime(note.date),
+    dateModified: isoDateTime(note.date),
     url: absoluteUrl(`/notes/${note.slug}`),
     author: { "@id": personId, name: profile.name },
     keywords: note.tags.join(", "),
