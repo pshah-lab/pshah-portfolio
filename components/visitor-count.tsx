@@ -4,6 +4,14 @@ import { useEffect, useState } from "react";
 
 const STORAGE_KEY = "pshah:visitor-number";
 
+/*
+ * The production counter was seeded at 477 (visitors carried over from Vercel Analytics). Until
+ * 30 Sep 2026 VERCEL_ENV wasn't exposed, so early browsers got small numbers from the development
+ * key and saved them. In production any saved number below this is stale and is replaced once.
+ */
+const FIRST_PRODUCTION_NUMBER = 478;
+const PRODUCTION_HOSTS = new Set(["pshah.fun", "www.pshah.fun"]);
+
 /** 1 → "1st", 2 → "2nd", 13 → "13th", 478 → "478th". */
 export function ordinal(n: number): string {
   const lastTwo = n % 100;
@@ -27,7 +35,8 @@ export function VisitorCount({ className }: { className?: string }) {
       // Storage blocked (private mode, strict settings): still count once this session.
     }
     const parsed = saved ? Number(saved) : NaN;
-    if (Number.isInteger(parsed) && parsed > 0) {
+    const minValid = PRODUCTION_HOSTS.has(location.hostname) ? FIRST_PRODUCTION_NUMBER : 1;
+    if (Number.isInteger(parsed) && parsed >= minValid) {
       setN(parsed);
       return;
     }
